@@ -22,7 +22,7 @@ body {
   width: 10%;
 }
 
-.right-column {
+.playerColumn {
   flex: 9;
   background-color: #e0e0e0;
   width: 90%;
@@ -108,4 +108,32 @@ display: inline-block;
 .counter-value {
   font-size: 290%;
   color: #fff;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.deckColumn {
+  display: none;
+  flex: 9;
+  background-color: #e0e0e0;
+  width: 90%;
+  flex-direction: column;
 }

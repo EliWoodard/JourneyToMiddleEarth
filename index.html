@@ -5,13 +5,15 @@
   <title>Two Column Layout</title>
   <link rel="stylesheet" href="styles.css">
   <script src="Javascript/inspirationCounter.js"></script>
+    <script src="Javascript/switchTabs.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="column left-column">
-      <h2>Tabs</h2>
+      <div class="tab active">Player</div>
+      <div class="tab">Deck</div>
     </div>
-    <div class="column right-column">
+    <div class="column playerColumn">
       <div class="playerRow1">Fear</div>
       <div class="playerRow2">Damage</div>
       <div class="playerRow3">Preped</div>
@@ -29,6 +31,8 @@
         </div>
         <div class="playerRow4Right">Deck</div>
       </div>
+    </div>
+    <div class="deckColumn">
     </div>
   </div>
 </body>
