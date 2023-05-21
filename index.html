@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Two Column Layout</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="Javascript/inspirationCounter.js"></script>
 </head>
 <body>
   <div class="container">
@@ -16,7 +17,16 @@
       <div class="playerRow3">Preped</div>
       <div class="playerRow4">
         <div class="playerRow4Left">Effects</div>
-        <div class="playerRow4Middle">Player</div>
+        <div class="playerRow4Middle">
+            <div class="player-image-container">
+            <img class="playerImage" src="Images\PlayerImage.png" alt="">
+            <div class="insperation-counter">
+              <button class="counter-btn decrement">-</button>
+              <div class="counter-value">0</div>
+              <button class="counter-btn increment">+</button>
+            </div>
+          </div>
+        </div>
         <div class="playerRow4Right">Deck</div>
       </div>
     </div>
