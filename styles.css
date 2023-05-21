@@ -12,10 +12,6 @@ body {
   height: 100%;
 }
 
-.column {
-
-}
-
 .left-column {
   flex: 1;
   background-color: #f0f0f0;
@@ -31,21 +27,17 @@ body {
 }
 
 .playerRow1 {
+  display: flex;
   border-bottom: 1px solid #ccc;
   padding: 10px;
-  height: 20%;
-}
-
-.playerRow2 {
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  height: 20%;
+  height: 30%;
 }
 
 .playerRow3 {
+  display: flex;
   border-bottom: 1px solid #ccc;
   padding: 10px;
-  height: 20%;
+  height: 30%;
 }
 
 .playerRow4 {
@@ -81,9 +73,48 @@ display: inline-block;
   justify-content: space-between;
 }
 
-.playerRow4Left,
+.effectCardsContainer,
+.addEffect {
+  border-top: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+}
+
+.addEffect {
+  height: 10%
+}
+
+.effectCardsContainer {
+  height: 90%;
+}
+
+.playerRow4Left {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .playerRow4Middle,
 .playerRow4Right {
+  flex: 1;
+  border-right: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+}
+
+.fearContainer,
+.damageContainer {
+  flex: 1;
+  border-right: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+}
+
+.prepedCardContainer,
+.equipmentContainer {
   flex: 1;
   border-right: 1px solid #ccc;
   justify-content: center;
