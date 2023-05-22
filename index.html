@@ -5,7 +5,9 @@
   <title>Two Column Layout</title>
   <link rel="stylesheet" href="styles.css">
   <script src="Javascript/inspirationCounter.js"></script>
-    <script src="Javascript/switchTabs.js"></script>
+  <script src="Javascript/switchTabs.js"></script>
+  <script src="Javascript/addBoon.js"></script>
+  <script src="Javascript/manageBoons.js"></script>
 </head>
 <body>
   <div class="container">
@@ -33,10 +35,10 @@
       <div class="playerRow4">
         <div class="playerRow4Left">
           <div class="effectCardsContainer">
-              <p>Effect card container</p>
+
           </div>
           <div class="addEffect">
-            <p>Add button add effect</p>
+            <button class="addBoon">Add Boon</button>
           </div>
         </div>
         <div class="playerRow4Middle">
@@ -55,5 +57,20 @@
     <div class="deckColumn">
     </div>
   </div>
+<!--Add Boon display-->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="box">
+        <img class="boonImages" src="Images/DeterminedBoon.jpg" alt="">
+      </div>
+      <div class="box">
+        <img class="boonImages" src="Images/EmboldenedBoon.png" alt="">
+      </div>
+      <div class="box">
+        <img class="boonImages" src="Images/HiddenBoon.png" alt="">
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
