@@ -228,6 +228,12 @@ body {
   border-radius: 5%;
 }
 
+.equipmentItemsCreatures {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
 /*Add Equipment*/
 .equipmentContainer {
   width: 50%;
@@ -239,13 +245,15 @@ body {
 }
 
 .equipmentSave {
-  height: 90%;
+  height: 100%;
+  min-height: 230px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: flex-start;
-  overflow: auto;
   flex-direction: row;
   justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
   margin: 1%;
 }
 
@@ -258,7 +266,7 @@ body {
 }
 
 .addEquipmentButton {
-  width: 100%;
+  width: 33%;
 }
 
 .equipment {
@@ -300,3 +308,38 @@ body {
   border-radius: 5%;
 }
 
+/*Add item*/
+.addItemButton {
+  width: 34%;
+}
+
+.itemSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 1%;
+}
+
+/*Add Creature*/
+.addCreatureButton {
+  width: 33%;
+}
+
+.creatureSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 1%;
+}
