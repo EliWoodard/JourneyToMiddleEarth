@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <title>Player Simulator</title>
@@ -14,6 +13,8 @@
   <script src="Javascript/addCreature.js"></script>
   <script src="Javascript/addFear.js"></script>
   <script src="Javascript/flipFear.js"></script> 
+  <script src="Javascript/addDamage.js"></script> 
+  <script src="Javascript/flipDamage.js"></script> 
 </head>
 
 <body>
@@ -398,83 +399,229 @@
         <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Anxiety</p>
       </div>
-      <div class="card-face card-face-back">
-        <img class="fearImages" src="Images/Back-of-Cards/Fear.jpg" alt="">
-      </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Cower.jpg" alt=""> 
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Cower</p>     
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Dark Whispers.jpg" alt="">  
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Dark Whispers</p>    
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Delusions.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Delusions</p>
       </div>
       <div class="fear-box">
-        <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
-        <p>Gloom</p>
-      </div>
-      <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Greed.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Greed</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Hopelessness.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Hopelessness</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Hysteria.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Hysteria</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Ill Will.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Ill Will</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Impending Doom.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Impending Doom</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Infighting.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Infighting</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Looming Shadows.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Looming Shadows</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Overcome.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Overcome</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Paranoia.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Paranoia</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Rage.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Rage</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Surrender.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Surrender</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Terrified.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Terrified</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Tormented.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Tormented</p>
       </div>
       <div class="fear-box">
         <img class="fearImages" src="Images/Fear/Troubled.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
         <p>Troubled</p>
+      </div>
+      <div class="fear-box-gloom">
+        <div class="fear-box" id="fear-box-gloom-inside">
+          <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+          <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+          <p>Gloom</p>
+        </div>
+        <div class="fear-box" id="fear-box-gloom-inside">
+          <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+          <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+          <p>Gloom</p>
+        </div>
+        <div class="fear-box" id="fear-box-gloom-inside">
+          <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+          <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+          <p>Gloom</p>
+        </div>
+        <div class="fear-box" id="fear-box-gloom-inside">
+          <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+          <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+          <p>Gloom</p>
+        </div>
+        <div class="fear-box" id="fear-box-gloom-inside">
+          <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+          <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+          <p>Gloom</p>
+        </div>
       </div>
     </div>
   </div>
+  <div id="damage" class="damage">
+    <div class="damage-content">
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Concussion.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Concussion</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Crushed.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Crushed</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Cursed Injury.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Cursed Injury</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Dazed.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Dazed</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Deep Bruise.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Deep Bruise</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Entangled.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Entangled</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Exhaustion.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Exhaustion</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Feeble.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Feeble</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Fever.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Fever</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Knocked Prone.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Knocked Prone</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Laceration.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Laceration</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Poison.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Poison</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Putrid Boils.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Putrid Boils</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Shaken.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Shaken</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Short of Breath.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Short of Breath</p>
+      </div>
+      <div class="damage-box">
+        <img class="damageImages" src="Images/Damage/Sudden Sickness.jpg" alt="">
+        <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+        <p>Sudden Sickness</p>
+      </div>
+      <div class="damage-box-weariness">
+        <div class="damage-box" id="damage-box-inside">
+          <img class="damageImages" src="Images/Damage/Weariness.jpg" alt="">
+          <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+          <p>Weariness</p>
+        </div>
+        <div class="damage-box" id="damage-box-inside">
+          <img class="damageImages" src="Images/Damage/Weariness.jpg" alt="">
+          <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+          <p>Weariness</p>
+        </div>
+        <div class="damage-box" id="damage-box-inside">
+          <img class="damageImages" src="Images/Damage/Weariness.jpg" alt="">
+          <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+          <p>Weariness</p>
+        </div>
+        <div class="damage-box" id="damage-box-inside">
+          <img class="damageImages" src="Images/Damage/Weariness.jpg" alt="">
+          <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+          <p>Weariness</p>
+        </div>
+        <div class="damage-box" id="damage-box-inside">
+          <img class="damageImages" src="Images/Damage/Weariness.jpg" alt="">
+          <img class="damageImagesBack" src="Images/Back-of-Cards/Damage.jpg" alt="">
+          <p>Weariness</p>
+        </div>
+      </div>
+</div>
 </body>
-
 </html>

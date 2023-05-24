@@ -470,6 +470,7 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 1%;
+  gap: 1%;
 }
 
 .fearDamageAdd {
@@ -527,7 +528,7 @@ body {
 }
 
 .fearImageDisplay {
-  display: block;
+  display: flex;
 }
 
 .fearImagesBack {
@@ -539,9 +540,49 @@ body {
   color: white; 
 }
 
+.fearCardProp {
+  width: 19%;
+  min-width: 150px;
+}
+
+.fear-box-gloom {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9c9c9c;
+  color: white;
+}
+
+#fear-box-gloom-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*add Damage*/
-.addDamageButton {
+.damageContainer {
   width: 50%;
+  border-bottom: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+}
+
+.damageAndFear {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .damageSave {
@@ -555,6 +596,103 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 1%;
+  gap: 1%;
+}
+
+.damageFearAdd {
+  height: 10%;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.addDamageButton {
+  width: 50%;
+}
+
+.damage {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.damage-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.damage-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.damageImages {
+  display: none;
+}
+
+.damageImageDisplay {
+  display: flex;
+}
+
+.damageImagesBack {
+  display: none;
+}
+
+.selectedDamage {
+  background-color: #1b5ca3; 
+  color: white; 
+}
+
+.damageCardProp {
+  width: 19%;
+  min-width: 150px;
+}
+
+.damage-box-weariness {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9c9c9c;
+  color: white;
+}
+
+#damage-box-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Misc*/
