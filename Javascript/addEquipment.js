@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         const newImage = document.createElement('img');
         newImage.src = imageSrc;
-        newImage.style.width = '20%';
+        newImage.style.width = '19%';
         newImage.style.borderRadius = "5%"; 
 
         equipmentSave.appendChild(newImage);

@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!selectedFear.includes(fearBox)) {
           const newFrontImage = document.createElement('img');
           newFrontImage.src = imageSrc;
-          newFrontImage.style.width = '100%';
+          newFrontImage.style.width = '96%';
           newFrontImage.style.borderRadius = "5%";
           newFrontImage.classList.add('fearImageDisplay');
           newFrontImage.classList.add('front');
   
           const newBackImage = document.createElement('img');
           newBackImage.src = backImageSrc;
-          newBackImage.style.width = '100%';
+          newBackImage.style.width = '96%';
           newBackImage.style.borderRadius = "5%";
           newBackImage.classList.add('fearImageDisplay');
           newBackImage.classList.add('back');

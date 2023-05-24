@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 var newItem = document.createElement('img');
                 newItem.src = itemImgSrc;
                 newItem.alt = itemTitle;
-                newItem.style.width = '20%';
+                newItem.style.width = '19%';
                 newItem.style.borderRadius = "5%"; 
                 newItem.classList.add('itemImg');
 
