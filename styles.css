@@ -29,7 +29,6 @@ body {
 .playerRow1 {
   display: flex;
   border-bottom: 1px solid #ccc;
-  padding: 10px;
   height: 30%;
 }
 
