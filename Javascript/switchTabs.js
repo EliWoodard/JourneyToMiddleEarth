@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         deckColumn.style.display = "none";
       } else if (this.innerText.toLowerCase() === "deck") {
         playerColumn.style.display = "none";
-        deckColumn.style.display = "block";
+        deckColumn.style.display = "flex";
       }
     });
   });
