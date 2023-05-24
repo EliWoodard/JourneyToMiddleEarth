@@ -10,6 +10,8 @@
   <script src="Javascript/addBoon.js"></script>
   <script src="Javascript/manageBoons.js"></script>
   <script src="Javascript/addEquipment.js"></script>
+  <script src="Javascript/addItem.js"></script>
+  <script src="Javascript/addCreature.js"></script>
 </head>
 
 <body>
@@ -93,6 +95,15 @@
   <div id="equipment" class="equipment">
     <div class="equipment-content">
       <div class="equipment-box">
+        <img class="equipmentImages" src="Images/Equipment/Greenwood Garb.jpg" alt="">
+      </div>
+      <div class="equipment-box">
+        <img class="equipmentImages" src="Images/Equipment/Duelling Sword.jpg" alt="">
+      </div>
+      <div class="equipment-box">
+        <img class="equipmentImages" src="Images/Equipment/Dunedain Banner.jpg" alt="">
+      </div>
+      <div class="equipment-box">
         <img class="equipmentImages" src="Images/Equipment/Endless Road.jpg" alt="">
       </div>
       <div class="equipment-box">
@@ -127,6 +138,247 @@
       </div>
     </div>
   </div>
+  <div id="itemModal" class="itemModal">
+    <div class="itemModal-content">
+      <div class="itemModal-box" data-item-title="Item 1">
+        <img class="itemImages" src="Images/Items/Boots.jpg" alt="Item 1">
+        <p>Boots</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 2">
+        <img class="itemImages" src="Images/Items/Bounder's Map.jpg" alt="Item 2">
+        <p>Bounder's Map</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 3">
+        <img class="itemImages" src="Images/Items/Breeland Rations.jpg" alt="Item 3">
+        <p>Breeland Rations</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 4">
+        <img class="itemImages" src="Images/Items/Brooch.jpg" alt="Item 4">
+        <p>Brooch</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 5">
+        <img class="itemImages" src="Images/Items/Bullroarer's Course.jpg" alt="Item 5">
+        <p>Bullroarer's Course</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 6">
+        <img class="itemImages" src="Images/Items/Butterbur Biscuits.jpg" alt="Item 6">
+        <p>Butterbur Biscuits</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 7">
+        <img class="itemImages" src="Images/Items/" alt="Item 7">
+        <p>Butterbur Biscuits</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 8">
+        <img class="itemImages" src="Images/Items/Circlet.jpg" alt="Item 8">
+        <p>Circlet</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 9">
+        <img class="itemImages" src="Images/Items/Clear-Water.jpg" alt="Item 9">
+        <p>Clear-Water</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 10">
+        <img class="itemImages" src="Images/Items/Dusk-Treaders.jpg" alt="Item 10">
+        <p>Dusk-Treaders</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 11">
+        <img class="itemImages" src="Images/Items/Dwarf-Forged Helmet.jpg" alt="Item 11">
+        <p>Dwarf-Forged Helmet</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 12">
+        <img class="itemImages" src="Images/Items/Elven Waterskin.jpg" alt="Item 12">
+        <p>Elven Waterskin</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 13">
+        <img class="itemImages" src="Images/Items/Eriador Brooch.jpg" alt="Item 13">
+        <p>Eriador Brooch</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 14">
+        <img class="itemImages" src="Images/Items/Extra Rations.jpg" alt="Item 14">
+        <p>Extra Rations</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 15">
+        <img class="itemImages" src="Images/Items/Fang Pendant.jpg" alt="Item 15">
+        <p>Fang Pendant</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 16">
+        <img class="itemImages" src="Images/Items/Fire-Scale.jpg" alt="Item 16">
+        <p>Fire-Scale</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 17">
+        <img class="itemImages" src="Images/Items/Forget-Me-Never.jpg" alt="Item 17">
+        <p>Forget-Me-Never</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 18">
+        <img class="itemImages" src="Images/Items/Greenway Boots.jpg" alt="Item 18">
+        <p>Greenway Boots</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 19">
+        <img class="itemImages" src="Images/Items/Handkerchief.jpg" alt="Item 19">
+        <p>Handkerchief</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 20">
+        <img class="itemImages" src="Images/Items/Helmet.jpg" alt="Item 20">
+        <p>Helmet</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 21">
+        <img class="itemImages" src="Images/Items/Hobbit Rations.jpg" alt="Item 21">
+        <p>Hobbit Rations</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 22">
+        <img class="itemImages" src="Images/Items/Hobson Rope.jpg" alt="Item 22">
+        <p>Hobson Rope</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 23">
+        <img class="itemImages" src="Images/Items/Horselord Supply.jpg" alt="Item 23">
+        <p>Horselord Supply</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 24">
+        <img class="itemImages" src="Images/Items/Legendarium of Thror.jpg" alt="Item 24">
+        <p>Legendarium of Thror</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 25">
+        <img class="itemImages" src="Images/Items/Long-Stemmed Pipe.jpg" alt="Item 25">
+        <p>Long-Stemmed Pipe</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 26">
+        <img class="itemImages" src="Images/Items/Mark of Arnor.jpg" alt="Item 26">
+        <p>Mark of Arnor</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 27">
+        <img class="itemImages" src="Images/Items/Ninnyhammer Braid.jpg" alt="Item 27">
+        <p>Ninnyhammer Braid</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 28">
+        <img class="itemImages" src="Images/Items/Old Map.jpg" alt="Item 28">
+        <p>Old Map</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 29">
+        <img class="itemImages" src="Images/Items/Old Pipe.jpg" alt="Item 29">
+        <p>Old Pipe</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 30">
+        <img class="itemImages" src="Images/Items/Old Scepter.jpg" alt="Item 30">
+        <p>Old Scepter</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 31">
+        <img class="itemImages" src="Images/Items/Provisions.jpg" alt="Item 31">
+        <p>Provisions</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 32">
+        <img class="itemImages" src="Images/Items/Rope.jpg" alt="Item 32">
+        <p>Rope</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 33">
+        <img class="itemImages" src="Images/Items/Seven-Flame Crown.jpg" alt="Item 33">
+        <p>Seven-Flame Crown</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 34">
+        <img class="itemImages" src="Images/Items/Silver Circlet.jpg" alt="Item 34">
+        <p>Silver Circlet</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 35">
+        <img class="itemImages" src="Images/Items/Silver Scepter.jpg" alt="Item 35">
+        <p>Silver Scepter</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 36">
+        <img class="itemImages" src="Images/Items/Snowbright.jpg" alt="Item 36">
+        <p>Snowbright</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 37">
+        <img class="itemImages" src="Images/Items/Storm-Maker.jpg" alt="Item 37">
+        <p>Storm-Maker</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 38">
+        <img class="itemImages" src="Images/Items/The Crown of Shadows.jpg" alt="Item 38">
+        <p>The Crown of Shadows</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 39">
+        <img class="itemImages" src="Images/Items/The Silent Scepter.jpg" alt="Item 39">
+        <p>The Silent Scepter</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 40">
+        <img class="itemImages" src="Images/Items/Tome of Battle.jpg" alt="Item 40">
+        <p>Tome of Battle</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 41">
+        <img class="itemImages" src="Images/Items/Tome.jpg" alt="Item 41">
+        <p>Tome</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 42">
+        <img class="itemImages" src="Images/Items/Tookish Apple Cakes.jpg" alt="Item 42">
+        <p>Tookish Apple Cakes</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 43">
+        <img class="itemImages" src="Images/Items/Torch.jpg" alt="Item 43">
+        <p>Torch</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 44">
+        <img class="itemImages" src="Images/Items/Under-Sun.jpg" alt="Item 44">
+        <p>Under-Sun</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 45">
+        <img class="itemImages" src="Images/Items/Vengeance's Bite.jpg" alt="Item 45">
+        <p>Vengeance's Bite</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 46">
+        <img class="itemImages" src="Images/Items/War Charger.jpg" alt="Item 46">
+        <p>War Charger</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 47">
+        <img class="itemImages" src="Images/Items/Warg-fang Pendant.jpg" alt="Item 47">
+        <p>Warg-fang Pendant</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 48">
+        <img class="itemImages" src="Images/Items/Waterskin.jpg" alt="Item 48">
+        <p>Waterskin</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 49">
+        <img class="itemImages" src="Images/Items/Wayfarer's Provisions.jpg" alt="Item 49">
+        <p>Wayfarer's Provisions</p>
+      </div>
+      <div class="itemModal-box" data-item-title="Item 50">
+        <img class="itemImages" src="Images/Items/Weathertop Torch.jpg" alt="Item 50">
+        <p>Weathertop Torch</p>
+      </div>
+    </div>
+  </div>
+<div id="creatureModal" class="creatureModal">
+  <div class="creatureModal-content">
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Friendly Pony.jpg" alt="">
+      <p>Friendly Pony</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Grumble Bum.jpg" alt="">
+      <p>Grumble Bum</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Meadow Heart.jpg" alt="">
+      <p>Meadow Heart</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Pack Mule.jpg" alt="">
+      <p>Pack Mule</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Quickbeam.jpg" alt="">
+      <p>Quickbeam</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Swift Steed.jpg" alt="">
+      <p>Swift Steed</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Traveller's Horse.jpg" alt="">
+      <p>Traveller's Horse</p>
+    </div>
+    <div class="creatureModal-box">
+      <img class="creatureImages" src="Images/Creatures/Witness of Maranwe.jpg" alt="">
+      <p>Witness of Maranwe</p>
+    </div>
+  </div>
+</div>
+
 
 </body>
 
