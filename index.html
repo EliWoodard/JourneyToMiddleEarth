@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Two Column Layout</title>
+  <title>Player Simulator</title>
   <link rel="stylesheet" href="styles.css">
   <script src="Javascript/inspirationCounter.js"></script>
   <script src="Javascript/switchTabs.js"></script>
@@ -12,6 +12,8 @@
   <script src="Javascript/addEquipment.js"></script>
   <script src="Javascript/addItem.js"></script>
   <script src="Javascript/addCreature.js"></script>
+  <script src="Javascript/addFear.js"></script>
+  <script src="Javascript/flipFear.js"></script> 
 </head>
 
 <body>
@@ -23,9 +25,20 @@
     <div class="column playerColumn">
       <div class="playerRow1">
         <div class="fearContainer">
-          <p>Fear & Damage</p>
+          <div class="fearAndDamage">
+            <div class="fearSave">
+
+            </div>
+            <div class="damageSave">
+
+            </div>
+          </div>
+          <div class="fearDamageAdd">
+            <button class="addFearButton">Add Fear</button>
+            <button class="addDamageButton">Add Damage</button>
+          </div>
         </div>
-        <div class="damageContainer">
+        <div class="misc">
           <p>Misc</p>
         </div>
       </div>
@@ -342,44 +355,126 @@
       </div>
     </div>
   </div>
-<div id="creatureModal" class="creatureModal">
-  <div class="creatureModal-content">
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Friendly Pony.jpg" alt="">
-      <p>Friendly Pony</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Grumble Bum.jpg" alt="">
-      <p>Grumble Bum</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Meadow Heart.jpg" alt="">
-      <p>Meadow Heart</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Pack Mule.jpg" alt="">
-      <p>Pack Mule</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Quickbeam.jpg" alt="">
-      <p>Quickbeam</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Swift Steed.jpg" alt="">
-      <p>Swift Steed</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Traveller's Horse.jpg" alt="">
-      <p>Traveller's Horse</p>
-    </div>
-    <div class="creatureModal-box">
-      <img class="creatureImages" src="Images/Creatures/Witness of Maranwe.jpg" alt="">
-      <p>Witness of Maranwe</p>
+  <div id="creatureModal" class="creatureModal">
+    <div class="creatureModal-content">
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Friendly Pony.jpg" alt="">
+        <p>Friendly Pony</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Grumble Bum.jpg" alt="">
+        <p>Grumble Bum</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Meadow Heart.jpg" alt="">
+        <p>Meadow Heart</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Pack Mule.jpg" alt="">
+        <p>Pack Mule</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Quickbeam.jpg" alt="">
+        <p>Quickbeam</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Swift Steed.jpg" alt="">
+        <p>Swift Steed</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Traveller's Horse.jpg" alt="">
+        <p>Traveller's Horse</p>
+      </div>
+      <div class="creatureModal-box">
+        <img class="creatureImages" src="Images/Creatures/Witness of Maranwe.jpg" alt="">
+        <p>Witness of Maranwe</p>
+      </div>
     </div>
   </div>
-</div>
-
-
+  <div id="fear" class="fear">
+    <div class="fear-content">
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Anxiety.jpg" alt="">
+        <img class="fearImagesBack" src="Images/Back-of-Cards/Fear.jpg" alt="">
+        <p>Anxiety</p>
+      </div>
+      <div class="card-face card-face-back">
+        <img class="fearImages" src="Images/Back-of-Cards/Fear.jpg" alt="">
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Cower.jpg" alt=""> 
+        <p>Cower</p>     
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Dark Whispers.jpg" alt="">  
+        <p>Dark Whispers</p>    
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Delusions.jpg" alt="">
+        <p>Delusions</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Gloom.jpg" alt="">
+        <p>Gloom</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Greed.jpg" alt="">
+        <p>Greed</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Hopelessness.jpg" alt="">
+        <p>Hopelessness</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Hysteria.jpg" alt="">
+        <p>Hysteria</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Ill Will.jpg" alt="">
+        <p>Ill Will</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Impending Doom.jpg" alt="">
+        <p>Impending Doom</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Infighting.jpg" alt="">
+        <p>Infighting</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Looming Shadows.jpg" alt="">
+        <p>Looming Shadows</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Overcome.jpg" alt="">
+        <p>Overcome</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Paranoia.jpg" alt="">
+        <p>Paranoia</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Rage.jpg" alt="">
+        <p>Rage</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Surrender.jpg" alt="">
+        <p>Surrender</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Terrified.jpg" alt="">
+        <p>Terrified</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Tormented.jpg" alt="">
+        <p>Tormented</p>
+      </div>
+      <div class="fear-box">
+        <img class="fearImages" src="Images/Fear/Troubled.jpg" alt="">
+        <p>Troubled</p>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

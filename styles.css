@@ -443,3 +443,122 @@ body {
   color: white; 
 }
 
+/*Fear and Damage*/
+.fearContainer {
+  width: 50%;
+  border-bottom: 1px solid #ccc;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+}
+
+.fearAndDamage {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.fearSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 1%;
+}
+
+.fearDamageAdd {
+  height: 10%;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.addFearButton {
+  width: 50%;
+}
+
+.fear {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.fear-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.fear-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.fearImages {
+  display: none;
+}
+
+.fearImageDisplay {
+  display: block;
+}
+
+.fearImagesBack {
+  display: none;
+}
+
+.selectedFear {
+  background-color: #1b5ca3; 
+  color: white; 
+}
+
+/*add Damage*/
+.addDamageButton {
+  width: 50%;
+}
+
+.damageSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 1%;
+}
+
+/*Misc*/
+
+.misc {
+  width: 50%;
+}
