@@ -18,6 +18,7 @@
   <script src="Javascript/addBane.js"></script> 
   <script src="Javascript/addTerrian.js"></script> 
   <script src="Javascript/deckIncrement.js"></script> 
+  <script src="Javascript/buildDeck.js"></script> 
 </head>
 
 <body>
@@ -102,13 +103,14 @@
         <div class="playerRow4Right">
           <div class="deck">
             <div class="deckContainer">
-
+              <img class="cardBack" src="Images/Back-of-Cards/card-back.jpg" alt="">
             </div>
-            <div class="addWeakness">
-
+            <div class="scout">
+              <button class="scoutButton">Scout</button>
+              <input type="number" id="myNumberInput">
             </div>
             <div class="shuffleDeck">
-
+              <button class="shuffleTheDeck">Shuffle the Deck</button>
             </div>
           </div>
           <div class="discard">
@@ -116,7 +118,10 @@
 
             </div>
             <div class="shuffleIntoDeck">
-
+              <button class="shuffleIntoTheDeck">Shuffle Into Deck</button>
+            </div>
+            <div class="addWeakness">
+              <button class="addAWeakness">Add 1 Weakness</button>
             </div>
           </div>
         </div>
@@ -128,7 +133,7 @@
           <div class="card-container">
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Aragorn/Gift of Men.jpg" alt="">
+                <img class="card-image" src="Images/Aragorn/Gift of Men.jpg" alt="Gift of Men">
             </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -138,7 +143,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Aragorn/Strider.jpg" alt="">
+                <img class="card-image" src="Images/Aragorn/Strider.jpg" alt="Strider">
             </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -148,7 +153,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Aragorn/Thorongil.jpg" alt="">
+                <img class="card-image" src="Images/Aragorn/Thorongil.jpg" alt="Thorongil">
             </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -158,7 +163,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Aragorn/Wanderer.jpg" alt="">
+                <img class="card-image" src="Images/Aragorn/Wanderer.jpg" alt="Wanderer">
             </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -173,7 +178,7 @@
           <div class="card-container">
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Ancient Wisdom.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Ancient Wisdom.jpg" alt="Ancient Wisdom">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -183,7 +188,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Clever Wit.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Clever Wit.jpg" alt="Clever">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -193,7 +198,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Honed Agility.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Honed Agility.jpg" alt="Honed Agility">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -203,7 +208,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Time of Need.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Time of Need.jpg" alt="Time of Need">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -213,7 +218,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Undying Might.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Undying Might.jpg" alt="Undying Might">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -223,7 +228,7 @@
             </div>
             <div class="card">
               <div class="cardImage">
-                <img class="card-image" src="Images/Basic/Unyielding Spirit.jpg" alt="">
+                <img class="card-image" src="Images/Basic/Unyielding Spirit.jpg" alt="Unyielding Spirit">
               </div>
               <div class="amountOfCard">
                 <div class="minus">-</div>
@@ -347,6 +352,7 @@
               </div>
             </div>
           </div>
+          <button id="buildDeckButton">Build Deck</button>
         </div>
         <div class="deck-row" id="row4">
           <h3 class="row-title">Title</h3>

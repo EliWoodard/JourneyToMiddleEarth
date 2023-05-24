@@ -24,6 +24,7 @@ body {
   width: 90%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .playerRow1 {
@@ -107,7 +108,7 @@ body {
 
 
 .playerRow4Middle {
-  flex: 1;
+  width: 34%;
   border-right: 1px solid #ccc;
   justify-content: center;
   display: flex;
@@ -827,7 +828,8 @@ body {
 
 /*deck and discard container*/
 .playerRow4Right {
-  flex: 1;
+  width: 33%;
+  height: 99%;
   border-right: 1px solid #ccc;
   justify-content: center;
   display: flex;
@@ -840,14 +842,40 @@ width: 50%;
 
 .deckContainer {
   height: 80%;
+  border: inset;
+  text-align-last: center;
 }
 
 .shuffle {
   height: 10%;
 }
 
-.addWeakness {
+.scout {
   height: 10%;
+  display: flex;
+}
+
+.cardBack {
+  height: 100%;
+  border-radius: 5%;
+}
+
+.shuffleDeck {
+  height: 10%;
+}
+
+.scoutButton {
+  height: 100%;
+  width: 50%;
+}
+
+#myNumberInput {
+  width: 50%;
+}
+
+.shuffleTheDeck {
+  height: 100%;
+  width: 100%;
 }
 
 /*discard*/
@@ -857,10 +885,25 @@ width: 50%;
 
 .discardContainer {
   height: 80%;
+  border: inset;
 }
 
 .shuffleIntoDeck {
-  height: 20%;
+  height: 10%;
+}
+
+.addWeakness {
+  height: 10%;
+}
+
+.shuffleIntoTheDeck {
+  height: 100%;
+  width: 100%;
+}
+
+.addAWeakness {
+  height: 100%;
+  width: 100%;
 }
 
 /*deck css*/
@@ -940,4 +983,23 @@ width: 50%;
   height: 10%;
   display: flex;
   justify-content: space-around;
+}
+
+#buildDeckButton {
+  width: 200px;
+  position: absolute;
+  height: 50px;
+  margin: 20px auto;
+  background-color: #454c46;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  bottom: 0;
+  right: 2%;
+}
+
+#buildDeckButton:hover {
+  background-color: #565c57; 
 }
