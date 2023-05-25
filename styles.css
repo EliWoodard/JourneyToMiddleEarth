@@ -856,6 +856,7 @@ width: 50%;
 }
 
 .cardBack {
+  display: none;
   height: 100%;
   border-radius: 5%;
 }
