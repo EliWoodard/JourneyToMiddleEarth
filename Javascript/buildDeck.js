@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buildDeckButton').addEventListener('click', buildDeck);
+  document.getElementById('shuffleTheDeck').addEventListener('click', shuffleDeck);
 });
 
 let deckContainer = [];
@@ -36,3 +37,12 @@ function buildDeck() {
 
   console.log(deckContainer);
 }
+
+function shuffleDeck() {
+  for (let i = deckContainer.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); 
+    [deckContainer[i], deckContainer[j]] = [deckContainer[j], deckContainer[i]];
+  }
+  console.log(deckContainer);
+}
+
