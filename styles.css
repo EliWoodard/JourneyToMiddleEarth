@@ -837,7 +837,8 @@ body {
 
 /*deck*/
 .deck {
-width: 50%;
+  width: 50%;
+  text-align: -webkit-center;
 }
 
 .deckContainer {
@@ -860,6 +861,18 @@ width: 50%;
   height: 100%;
   border-radius: 5%;
 }
+
+.cardCount {
+  position: sticky;
+  bottom: 8%;
+  background: white;
+  width: 10%;
+  height: 7%;
+  text-align: center;
+  line-height: 20px;
+  color: black;
+}
+
 
 .shuffleDeck {
   height: 10%;
