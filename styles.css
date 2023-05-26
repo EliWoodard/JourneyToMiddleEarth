@@ -464,7 +464,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .creatureModal-box {
@@ -496,9 +496,9 @@ body {
   display: none;
 }
 
-.selectedCreature {
-  background-color: #1b5ca3; 
-  color: white; 
+.creatureModal-box.selectedCreature {
+  background-color: #1b5ca3;
+  color: white;
 }
 
 /*Fear and Damage*/

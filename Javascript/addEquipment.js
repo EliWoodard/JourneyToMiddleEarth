@@ -13,9 +13,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  const selectedEquipment = [];
+  let selectedEquipment = localStorage.getItem('selectedEquipment');
+  if (selectedEquipment) {
+    selectedEquipment = JSON.parse(selectedEquipment);
+  } else {
+    selectedEquipment = [];
+  }
 
   const equipmentBoxes = document.querySelectorAll('.equipment-box');
+
+  equipmentBoxes.forEach(function(equipmentBox) {
+    const image = equipmentBox.querySelector('.equipmentImages');
+    const imageSrc = image.src;
+    
+    if (selectedEquipment.includes(imageSrc)) {
+      const newImage = document.createElement('img');
+      newImage.src = imageSrc;
+      newImage.style.width = '19%';
+      newImage.style.borderRadius = "5%"; 
+
+      equipmentSave.appendChild(newImage);
+      
+      image.classList.add('selectedEquipment');
+    }
+  });
 
   equipmentBoxes.forEach(function(equipmentBox) {
     equipmentBox.addEventListener('click', function(event) {
@@ -29,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const index = selectedEquipment.indexOf(imageSrc);
         selectedEquipment.splice(index, 1);
 
-        // Remove selectedEquipment class when unselected
         image.classList.remove('selectedEquipment');
       } else {
         const newImage = document.createElement('img');
@@ -41,9 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         selectedEquipment.push(imageSrc);
 
-        // Add selectedEquipment class when selected
         image.classList.add('selectedEquipment');
       }
+
+      localStorage.setItem('selectedEquipment', JSON.stringify(selectedEquipment));
     });
   });
 });

@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let selectedItems = {};
+    let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || {};
     const itemModal = document.getElementById('itemModal');
+    
+    Object.values(selectedItems).forEach(item => {
+        var newItem = document.createElement('img');
+        newItem.src = item.src;
+        newItem.alt = item.alt;
+        newItem.style.width = '19%';
+        newItem.style.borderRadius = "5%"; 
+        newItem.classList.add('itemImg');
+        document.querySelector('.itemSave').appendChild(newItem);
+        document.querySelector(`.itemModal-box[data-item-title="${item.alt}"]`).classList.add('selectedItem');
+    });
 
     document.querySelector('.addItemButton').addEventListener('click', function () {
         document.getElementById('itemModal').style.display = 'block';
@@ -35,11 +46,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 newItem.classList.add('itemImg');
 
                 document.querySelector('.itemSave').appendChild(newItem);
-                selectedItems[itemTitle] = newItem;
+                selectedItems[itemTitle] = {src: itemImgSrc, alt: itemTitle};
 
                 // Add selectedItem class when selected
                 box.classList.add('selectedItem');
             }
+
+            localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
         });
     });
 });
