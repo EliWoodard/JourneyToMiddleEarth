@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   incrementBtn.addEventListener("click", () => {
-    if (counter < 10) {
+    if (counter < 9) {
       counter++;
       updateCounterValue();
     }
