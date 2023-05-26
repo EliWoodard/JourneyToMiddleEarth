@@ -6,6 +6,43 @@ body {
   background: gray;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide the scrollbar by default */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Show the scrollbar when hovering over it */
+::-webkit-scrollbar:hover {
+  width: 5px;
+  height: 5px;
+}
+
+/* Show the scrollbar when actively using it */
+::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -29,19 +66,16 @@ body {
 
 .playerRow1 {
   display: flex;
-  border-bottom: 1px solid #ccc;
   height: 30%;
 }
 
 .playerRow3 {
   display: flex;
-  border-bottom: 1px solid #ccc;
   height: 30%;
 }
 
 .playerRow4 {
   display: flex;
-  border-bottom: 1px solid #ccc;
   height: 40%;
 }
 
@@ -74,14 +108,15 @@ body {
 
 .effectCardsContainer,
 .addEffect {
-  border-top: 1px solid #ccc;
   display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .addEffect {
-  height: 10%
+  height: 10%;
+  margin: 0;
+  border: none;
 }
 
 .effectCardsContainer {
@@ -94,14 +129,15 @@ body {
 }
 
 .effectCardsContainer img {
-  max-width: 300px;  /* Adjust as needed */
-  max-height: 100%; /* Adjust as needed */
+  max-width: 300px;  
+  max-height: 100%; 
   border-radius: 5%;
 }
 
 .playerRow4Left {
   width: 33%;
-  border-bottom: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -110,21 +146,26 @@ body {
 
 .playerRow4Middle {
   width: 34%;
-  border-right: 1px solid #ccc;
   justify-content: center;
   display: flex;
 }
 
 .fearContainer,
 .damageContainer {
-  flex: 1;
-  border-right: 1px solid #ccc;
   justify-content: center;
   display: flex;
 }
 
+.prepedContainer {
+  width: 50%;
+  border:inset;
+  border-color: #999;
+}
+
 .prepedCardContainer {
-  flex: 1;
+  width: 98%;
+  height: 98%;
+  margin: 1%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -186,6 +227,9 @@ body {
 .addBoon {
   width: 100%;
   height: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .modal {
@@ -241,11 +285,12 @@ body {
 /*Add Equipment*/
 .equipmentContainer {
   width: 50%;
-  border-bottom: 1px solid #ccc;
   justify-content: center;
   display: flex;
   flex-direction: column;
   border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
 }
 
 .equipmentSave {
@@ -272,6 +317,9 @@ body {
 
 .addEquipmentButton {
   width: 33%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .equipment {
@@ -320,6 +368,9 @@ body {
 /*Add item*/
 .addItemButton {
   width: 34%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .itemSave {
@@ -385,6 +436,9 @@ body {
 /*Add Creature*/
 .addCreatureButton {
   width: 33%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .creatureSave {
@@ -450,11 +504,12 @@ body {
 /*Fear and Damage*/
 .fearContainer {
   width: 50%;
-  border-bottom: 1px solid #ccc;
   justify-content: center;
   display: flex;
   flex-direction: column;
   border-left: 1px solid #ccc;
+  border:inset;
+  border-color: #999;
 }
 
 .fearAndDamage {
@@ -479,7 +534,6 @@ body {
 
 .fearDamageAdd {
   height: 10%;
-  border-top: 1px solid #ccc;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -487,6 +541,9 @@ body {
 
 .addFearButton {
   width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .fear {
@@ -613,6 +670,9 @@ body {
 
 .addDamageButton {
   width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .damage {
@@ -703,11 +763,11 @@ body {
 
 .banesAndTerrian {
   width: 50%;
-  border-bottom: 1px solid #ccc;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
 }
 
 .baneTerrianContainer {
@@ -753,10 +813,16 @@ body {
 
 .addBaneButton {
   width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .addTerrianButton {
   width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .baneImages {
@@ -835,7 +901,6 @@ body {
 .playerRow4Right {
   width: 33%;
   height: 99%;
-  border-right: 1px solid #ccc;
   justify-content: center;
   display: flex;
 }
@@ -847,6 +912,7 @@ body {
   display: flex;
   flex-direction: column;
   border: inset;
+  border-color: #999;
 }
 
 .deckContainer {
@@ -885,8 +951,10 @@ body {
 }
 
 .scoutButton {
-  height: 100%;
   width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 #myNumberInput {
@@ -894,8 +962,11 @@ body {
 }
 
 .shuffleTheDeck {
-  height: 100%;
   width: 100%;
+  height: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 /*discard*/
@@ -905,6 +976,7 @@ body {
   display: flex;
   flex-direction: column;
   border: inset;
+  border-color: #999;
 }
 
 .discardContainer {
@@ -915,6 +987,10 @@ body {
 
 .shuffleIntoDeck {
   height: 10%;
+  width: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .addWeakness {
@@ -924,17 +1000,24 @@ body {
 .shuffleIntoTheDeck {
   height: 100%;
   width: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .addAWeakness {
   height: 100%;
   width: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .discardCard {
-  height: 80%;
+  height: 100%;
   border: inset;
   text-align-last: center;
+  width: 60%;
 }
 
 .discardCounter {
@@ -982,6 +1065,7 @@ body {
 .deck-row {
   margin: 1%;
   border: inset;
+  border-color: #999;
   height: 40%;
 }
 
@@ -1041,6 +1125,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  border-radius: 5%;
 }
 
 .amountOfCard {
@@ -1114,7 +1199,7 @@ body {
   display: none;
 }
 
-/*Prepped card*/
+/*Preped card*/
 .prepedCard {
   width: 19%;
 }
