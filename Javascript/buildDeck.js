@@ -4,15 +4,27 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.scoutButton').addEventListener('click', scout);
   document.querySelector('.addAWeakness').addEventListener('click', addWeakness);
   document.querySelector('.shuffleIntoTheDeck').addEventListener('click', shuffleIntoDeck);
+  document.querySelector('.discardContainer').addEventListener('click', showDiscard);
+
+  // Create and append scoutDisplay and scoutDisplayBackground to the body
+  let scoutDisplay = document.createElement('div');
+  scoutDisplay.id = 'scoutDisplay';
+  scoutDisplay.style.display = 'none';
+
+  let scoutDisplayBackground = document.createElement('div');
+  scoutDisplayBackground.id = 'scoutDisplayBackground';
+  scoutDisplayBackground.style.display = 'none';
+
+  document.body.appendChild(scoutDisplay);
+  document.body.appendChild(scoutDisplayBackground);
 
   window.addEventListener('click', function(event) {
-    let scoutDisplayBackground = document.getElementById('scoutDisplayBackground');
     if (event.target === scoutDisplayBackground) {
       performPendingActions();
       document.getElementById('scoutDisplay').style.display = 'none';
-      scoutDisplayBackground.style.display = 'none'; 
+      scoutDisplayBackground.style.display = 'none';
     }
-  }); 
+  });
 });
 
 let deckContainer = [];
@@ -22,6 +34,7 @@ let scoutedCards = [];
 let discardPile = [];
 let cardCount = 0;
 let numberElement;
+let discardCounterElement = document.querySelector('.discardCounter');
 
 function buildDeck() {
   deckContainer = [];
@@ -106,7 +119,7 @@ function scout() {
         cardContainer.style.display = 'none';
     });
 
-      // New discard button
+      
       discardButton.textContent = 'Discard';
       discardButton.addEventListener('click', function() {
         discardPile.push(scoutedCards[i]);
@@ -114,14 +127,14 @@ function scout() {
         cardContainer.style.display = 'none';
         cardCount--;
         updateDeckCountDisplay();
-        displayTopDiscard();  // Update the discard display
+        displayTopDiscard();  
       });
 
       cardContainer.appendChild(img);
       cardContainer.appendChild(topButton);
       cardContainer.appendChild(bottomButton);
       cardContainer.appendChild(prepButton);
-      cardContainer.appendChild(discardButton); // New button appended
+      cardContainer.appendChild(discardButton); 
       cardContainer.classList.add('scoutCardProperties');
 
       scoutDisplay.appendChild(cardContainer);
@@ -156,6 +169,7 @@ function moveToPrep(card) {
     discardPile.push(card);
     prepContainer.removeChild(img);
     displayTopDiscard();  
+    updateDiscardCountDisplay();
   });
   
 
@@ -214,7 +228,13 @@ function displayTopDiscard() {
     img.classList.add('discardCard');  
     
     discardContainer.appendChild(img);
+
+    img.addEventListener('click', function() {
+        displayDiscardPile();
+    });
   }
+
+  updateDiscardCountDisplay();
 }
 
 let weaknessCard = { name: 'Weakness', img: 'Images/Misc/Weakness.jpg' };
@@ -239,6 +259,107 @@ function shuffleIntoDeck() {
   if (discardContainer.firstChild) {
     discardContainer.removeChild(discardContainer.firstChild);
   }
+
+  updateDiscardCountDisplay();
 }
 
 
+function updateDiscardCountDisplay() {
+  let discardCounterElement = document.querySelector('.discardCounter');
+  discardCounterElement.textContent = discardPile.length;
+}
+
+function displayDiscardPile() {
+  let discardDisplay = document.createElement('div');
+  discardDisplay.id = 'discardDisplay';
+  discardDisplay.style.display = 'flex';
+  document.body.appendChild(discardDisplay);
+  
+  for(let i = 0; i < discardPile.length; i++) {
+    let card = discardPile[i]; 
+    let cardContainer = document.createElement('div');
+    let img = document.createElement('img');
+    let prepButton = document.createElement('button');
+  
+    img.src = card.img;
+    img.alt = card.name;
+    img.classList.add('scoutedCard');
+  
+    prepButton.textContent = 'Prep';
+    prepButton.addEventListener('click', function() {
+      moveToPrep(card); 
+      discardPile.splice(i, 1);
+      cardContainer.style.display = 'none';
+      updateDiscardCountDisplay();
+      displayTopDiscard();  
+    });
+  
+    cardContainer.appendChild(img);
+    cardContainer.appendChild(prepButton); 
+    cardContainer.classList.add('scoutCardProperties');
+  
+    discardDisplay.appendChild(cardContainer);
+  }
+
+  let discardDisplayBackground = document.createElement('div');
+  discardDisplayBackground.id = 'discardDisplayBackground';
+  discardDisplayBackground.style.display = 'flex';
+  document.body.appendChild(discardDisplayBackground);
+
+  // Close discardDisplay when clicked outside
+  window.addEventListener('click', function(event) {
+    if (event.target === discardDisplayBackground) {
+      document.body.removeChild(discardDisplay);
+      document.body.removeChild(discardDisplayBackground); 
+    }
+  });
+}
+
+function showDiscard() {
+  let discardDisplay = document.getElementById('discardDisplay');
+
+  // Remove all previously added children
+  while (discardDisplay.firstChild) {
+    discardDisplay.removeChild(discardDisplay.firstChild);
+  }
+
+  // For each card in the discard pile
+  for (let i = discardPile.length - 1; i >= 0; i--) {
+    let card = discardPile[i];
+    let cardContainer = document.createElement('div');
+    let img = document.createElement('img');
+    let prepButton = document.createElement('button');
+
+    img.src = card.img;
+    img.alt = card.name;
+    img.classList.add('scoutedCard');
+
+    prepButton.textContent = 'Prep';
+    prepButton.addEventListener('click', function () {
+        moveToPrep(card);
+        discardPile.splice(i, 1); // Now that we're iterating backwards, this won't cause issues
+        cardContainer.style.display = 'none';
+        updateDiscardCountDisplay();
+        displayTopDiscard();
+    });
+
+    cardContainer.appendChild(img);
+    cardContainer.appendChild(prepButton);
+    cardContainer.classList.add('scoutCardProperties');
+
+    discardDisplay.appendChild(cardContainer);
+}
+  
+  // Show the modal
+  document.getElementById('discardDisplay').style.display = 'flex';
+  document.getElementById('discardDisplayBackground').style.display = 'flex';
+}
+
+// Event Listener for closing the discard pile modal when clicked outside
+window.addEventListener('click', function(event) {
+  let discardDisplayBackground = document.getElementById('discardDisplayBackground');
+  if (event.target === discardDisplayBackground) {
+    document.getElementById('discardDisplay').style.display = 'none';
+    discardDisplayBackground.style.display = 'none';
+  }
+}); 
