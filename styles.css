@@ -90,11 +90,12 @@ body {
   flex-wrap: wrap;
   align-items: flex-start;
   overflow: auto;
+  gap: 1%;
 }
 
 .effectCardsContainer img {
   max-width: 300px;  /* Adjust as needed */
-  max-height: 180px; /* Adjust as needed */
+  max-height: 100%; /* Adjust as needed */
   border-radius: 5%;
 }
 
@@ -124,10 +125,14 @@ body {
 
 .prepedCardContainer {
   flex: 1;
-  border-bottom: 1px solid #ccc;
-  justify-content: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 1%;
 }
 
 .playerRow4Left:last-child,
@@ -920,6 +925,13 @@ body {
   width: 100%;
 }
 
+.discardCard {
+  height: 80%;
+  border: inset;
+  text-align-last: center;
+}
+
+
 /*deck css*/
 .deckColumn {
   display: none;
@@ -1017,3 +1029,55 @@ body {
 #buildDeckButton:hover {
   background-color: #565c57; 
 }
+
+/*Scout*/
+#scoutDisplay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  gap: 1%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+#scoutDisplayBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 9; 
+  display: none;
+}
+
+#scoutCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scoutedCard {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.scoutCardProperties {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+/*Prepped card*/
+.prepedCard {
+  width: 19%;
+}
+
+
