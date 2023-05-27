@@ -1078,7 +1078,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 100%;
+  width: 98%;
   height: 80%;
   margin: 0 1% 0 1%;
   overflow-y: scroll;
@@ -1138,9 +1138,9 @@ body {
 #buildDeckButton {
   width: 200px;
   position: absolute;
+  background-color: #333;
   height: 50px;
   margin: 20px auto;
-  background-color: #454c46;
   color: white;
   border: none;
   border-radius: 5px;
@@ -1148,10 +1148,13 @@ body {
   font-size: 18px;
   bottom: 0;
   right: 2%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#buildDeckButton:hover {
-  background-color: #565c57; 
+#buildDeckButton:active {
+  transform: scale(0.95);
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /*Scout*/
