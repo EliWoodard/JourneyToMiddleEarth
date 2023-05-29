@@ -571,7 +571,7 @@ body {
   overflow: scroll;
 }
 
-.fear-box {
+.fear-box, .fear-box-gloom {
   width: 23%;
   height: 10%;
   padding: 5px;
@@ -580,16 +580,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #4e4b4b;
   color: white;
+}
+
+.fear-box {
+  background: #4e4b4b;
 }
 
 .fearImages {
   display: none;
-}
-
-.fearImageDisplay {
-  display: flex;
 }
 
 .fearImagesBack {
@@ -598,25 +597,11 @@ body {
 
 .selectedFear {
   background-color: #1b5ca3; 
-  color: white; 
 }
 
 .fearCardProp {
-  width: 19%;
-  min-width: 150px;
-}
-
-.fear-box-gloom {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #9c9c9c;
-  color: white;
+  width: 15%;
+  min-width: 135px;
 }
 
 #fear-box-gloom-inside {
@@ -628,6 +613,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fearImageDisplay {
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+  will-change: transform, filter;
+}
+
+.fear-box-gloom {
+  background: #9c9c9c;
+}
+
+.fearCardProp {
+  margin: 4px;
+  transform: scale(1);
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.fearCardProp:hover {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+.fearCardProp img {
+  transition: all 250ms ease-out;
 }
 
 /*add Damage*/
