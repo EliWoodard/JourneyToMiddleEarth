@@ -295,7 +295,8 @@ body {
 
 .boonCardProp:hover {
   z-index: 10;
-  transform: scale(1.1);
+  transform: scale(1.05);
+  transition: all 250ms ease-out;
 }
 
 .boonCardProp img {
@@ -312,7 +313,7 @@ body {
 
 .boonCardProp:hover .boonImageDisplay {
   z-index: 10;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 
@@ -1040,11 +1041,15 @@ body {
 
 .cardCount {
   position: relative;
+  display: flex;
   background: white;
   height: 10%;
   text-align: center;
   line-height: 20px;
   color: black;
+  font-size: calc(1vh + 1vw);
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
@@ -1061,6 +1066,7 @@ body {
 
 #myNumberInput {
   width: 50%;
+  font-size: calc(.8vh + .8vw);
 }
 
 .shuffleTheDeck {
@@ -1127,10 +1133,14 @@ body {
 .discardCounter {
   position: relative;
   background: white;
+  display: flex;
   height: 10%;
   text-align: center;
   line-height: 20px;
   color: black;
+  font-size: calc(1vh + 1vw);
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #discardDisplayBackground {
