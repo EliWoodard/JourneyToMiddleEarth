@@ -2,11 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const addFearButton = document.querySelector('.addFearButton');
   const fearModal = document.querySelector('.fear');
   const fearSave = document.querySelector('.fearSave');
-
-  // Store fear boxes in a variable to prevent querying the DOM each time.
   const fearBoxes = document.querySelectorAll('.fear-box');
 
-  // A simple throttle function to reduce the rate of function calls.
   function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -122,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if(event.target.classList.contains('fearImageDisplay')) {
       event.target.style.transform = 'rotateX(0deg) rotateY(0deg)';
       event.target.style.filter = 'brightness(1)';
-      event.target.classList.remove('fearImageDisplayZoom');
     }
   });
 });
