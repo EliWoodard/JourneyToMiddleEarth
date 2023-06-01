@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         baneContainer.appendChild(newImageContainer);
         selectedBanes.push(baneBox);
-        baneBox.classList.add('selectedBane');
+        imageInBox.classList.add('selectedBane');
 
         newImageContainer.addEventListener('mousemove', (ev) => {
           Card3D(newImageContainer, ev);
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const index = selectedBanes.indexOf(baneBox);
         selectedBanes.splice(index, 1);
-        baneBox.classList.remove('selectedBane');
+        imageInBox.classList.remove('selectedBane');
       }
     });
   });

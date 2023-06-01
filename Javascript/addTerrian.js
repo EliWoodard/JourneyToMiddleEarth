@@ -1,50 +1,77 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const addEquipmentButton = document.querySelector('.addTerrianButton');
-    const equipmentModal = document.querySelector('.terrian');
-    const equipmentSave = document.querySelector('.terrianSave');
-  
-    addEquipmentButton.addEventListener('click', function() {
-      equipmentModal.style.display = 'block';
-    });
-  
-    window.addEventListener('click', function(event) {
-      if (event.target == equipmentModal) {
-        equipmentModal.style.display = 'none';
+  const addTerrianButton = document.querySelector('.addTerrianButton');
+  const terrianModal = document.querySelector('.terrian');
+  const terrianSave = document.querySelector('.terrianSave');
+
+  const selectedTerrian = [];
+
+  const terrianBoxes = document.querySelectorAll('.terrian-box');
+
+  terrianBoxes.forEach(function(terrianBox) {
+    terrianBox.addEventListener('click', function() {
+      const imageInBox = terrianBox.querySelector('.terrianImages');
+      let imageInContainer;
+
+      if (!selectedTerrian.includes(terrianBox)) {
+        imageInContainer = document.createElement('img');
+        imageInContainer.src = imageInBox.src;
+        imageInContainer.style.borderRadius = "5%";
+        imageInContainer.classList.add('terrianImageDisplay');
+
+        let newImageContainer = document.createElement('div');
+        newImageContainer.classList.add('terrianCardProp');
+        newImageContainer.appendChild(imageInContainer);
+
+        terrianSave.appendChild(newImageContainer);
+        selectedTerrian.push(terrianBox);
+        imageInBox.classList.add('selectedTerrian');
+
+        newImageContainer.addEventListener('mousemove', (ev) => {
+          Card3D(newImageContainer, ev);
+        });
+
+        newImageContainer.addEventListener('mouseleave', function(ev) {
+          imageInContainer.style.transform = 'rotateX(0deg) rotateY(0deg)';
+          imageInContainer.style.filter = 'brightness(1)';
+        });
+      } else if (selectedTerrian.includes(terrianBox)) {
+        const imageToRemove = terrianSave.querySelector(`div > img[src="${imageInBox.src}"]`);
+        const containerToRemove = imageToRemove.parentNode;
+        terrianSave.removeChild(containerToRemove);
+
+        const index = selectedTerrian.indexOf(terrianBox);
+        selectedTerrian.splice(index, 1);
+        imageInBox.classList.remove('selectedTerrian');
       }
     });
-  
-    const selectedEquipment = [];
-  
-    const equipmentBoxes = document.querySelectorAll('.terrian-box');
-  
-    equipmentBoxes.forEach(function(equipmentBox) {
-      equipmentBox.addEventListener('click', function(event) {
-        const image = equipmentBox.querySelector('.terrianImages');
-        const imageSrc = image.src;
-        
-        if (selectedEquipment.includes(imageSrc)) {
-          const imageToRemove = equipmentSave.querySelector(`img[src="${imageSrc}"]`);
-          equipmentSave.removeChild(imageToRemove);
-          
-          const index = selectedEquipment.indexOf(imageSrc);
-          selectedEquipment.splice(index, 1);
-  
-          // Remove selectedEquipment class when unselected
-          image.classList.remove('selectedTerrian');
-        } else {
-          const newImage = document.createElement('img');
-          newImage.src = imageSrc;
-          newImage.style.width = '18%';
-          newImage.style.borderRadius = "5%"; 
-  
-          equipmentSave.appendChild(newImage);
-  
-          selectedEquipment.push(imageSrc);
-  
-          // Add selectedEquipment class when selected
-          image.classList.add('selectedTerrian');
-        }
-      });
-    });
   });
-  
+
+  addTerrianButton.addEventListener('click', function() {
+    terrianModal.style.display = 'block';
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target == terrianModal) {
+      terrianModal.style.display = 'none';
+    }
+  });
+
+  function map(val, minA, maxA, minB, maxB) {
+    return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+  }
+
+  function Card3D(card, ev) {
+    let img = card.querySelector('img');
+    if (img) {
+      let cardRect = card.getBoundingClientRect();
+      let mouseX = ev.clientX - cardRect.left;
+      let mouseY = ev.clientY - cardRect.top;
+      let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
+      let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
+      let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
+
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      img.style.filter = `brightness(${brightness})`;
+    }
+  }
+});
