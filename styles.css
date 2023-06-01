@@ -338,6 +338,7 @@ body {
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
+  overflow: visible;
   gap: 1%;
   margin: 1%;
 }
@@ -398,6 +399,33 @@ body {
 
 .selectedEquipment {
   box-shadow: 0 0 3px 3px gold;
+}
+
+.equipmentCardProp {
+  width: 19%;
+  min-width: 100px;
+  margin: 2px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.equipmentCardProp:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.equipment-box.selected {
+  box-shadow: 0 0 2px 2px gold;
+  border-radius: 5%;
+}
+
+.equipmentCardProp img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 10px #014100, 0 0 10px rgb(0, 121, 69);
+  transition: all 250ms ease-out;
 }
 
 /*Add item*/

@@ -23,48 +23,88 @@ document.addEventListener('DOMContentLoaded', function() {
   const equipmentBoxes = document.querySelectorAll('.equipment-box');
 
   equipmentBoxes.forEach(function(equipmentBox) {
-    const image = equipmentBox.querySelector('.equipmentImages');
-    const imageSrc = image.src;
+    const imageInBox = equipmentBox.querySelector('.equipmentImages');
+    let imageInContainer;
     
-    if (selectedEquipment.includes(imageSrc)) {
-      const newImage = document.createElement('img');
-      newImage.src = imageSrc;
-      newImage.style.width = '19%';
-      newImage.style.borderRadius = "5%"; 
+    if (selectedEquipment.includes(imageInBox.src)) {
+      imageInContainer = document.createElement('img');
+      imageInContainer.src = imageInBox.src;
+      imageInContainer.classList.add('equipmentImageDisplay');
 
-      equipmentSave.appendChild(newImage);
+      let newImageContainer = document.createElement('div');
+      newImageContainer.classList.add('equipmentCardProp');
+      newImageContainer.appendChild(imageInContainer);
+
+      equipmentSave.appendChild(newImageContainer);
+
+      newImageContainer.addEventListener('mousemove', (ev) => {
+        Card3D(newImageContainer, ev);
+      });
+
+      newImageContainer.addEventListener('mouseleave', function(ev) {
+        imageInContainer.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        imageInContainer.style.filter = 'brightness(1)';
+      });
       
-      image.classList.add('selectedEquipment');
+      imageInBox.classList.add('selectedEquipment');
     }
-  });
 
-  equipmentBoxes.forEach(function(equipmentBox) {
     equipmentBox.addEventListener('click', function(event) {
-      const image = equipmentBox.querySelector('.equipmentImages');
-      const imageSrc = image.src;
-      
-      if (selectedEquipment.includes(imageSrc)) {
-        const imageToRemove = equipmentSave.querySelector(`img[src="${imageSrc}"]`);
-        equipmentSave.removeChild(imageToRemove);
-        
-        const index = selectedEquipment.indexOf(imageSrc);
-        selectedEquipment.splice(index, 1);
-
-        image.classList.remove('selectedEquipment');
+      if (!selectedEquipment.includes(imageInBox.src)) {
+        selectedEquipment.push(imageInBox.src);
+        imageInBox.classList.add('selectedEquipment');
+    
+        imageInContainer = document.createElement('img');
+        imageInContainer.src = imageInBox.src;
+        imageInContainer.classList.add('equipmentImageDisplay');
+    
+        let newImageContainer = document.createElement('div');
+        newImageContainer.classList.add('equipmentCardProp');
+        newImageContainer.appendChild(imageInContainer);
+    
+        equipmentSave.appendChild(newImageContainer);
+    
+        newImageContainer.addEventListener('mousemove', (ev) => {
+          Card3D(newImageContainer, ev);
+        });
+    
+        newImageContainer.addEventListener('mouseleave', function(ev) {
+          imageInContainer.style.transform = 'rotateX(0deg) rotateY(0deg)';
+          imageInContainer.style.filter = 'brightness(1)';
+        });
       } else {
-        const newImage = document.createElement('img');
-        newImage.src = imageSrc;
-        newImage.style.width = '19%';
-        newImage.style.borderRadius = "5%"; 
-
-        equipmentSave.appendChild(newImage);
-
-        selectedEquipment.push(imageSrc);
-
-        image.classList.add('selectedEquipment');
+        const imageToRemove = equipmentSave.querySelector(`div > img[src="${imageInBox.src}"]`);
+        if(imageToRemove) {
+            const containerToRemove = imageToRemove.parentNode;
+            equipmentSave.removeChild(containerToRemove);
+    
+            const index = selectedEquipment.indexOf(imageInBox.src);
+            selectedEquipment.splice(index, 1);
+    
+            imageInBox.classList.remove('selectedEquipment');
+        }
       }
-
+    
       localStorage.setItem('selectedEquipment', JSON.stringify(selectedEquipment));
-    });
+    });    
   });
+
+  function map(val, minA, maxA, minB, maxB) {
+    return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+  }
+
+  function Card3D(card, ev) {
+    let img = card.querySelector('img');
+    if (img) {
+      let cardRect = card.getBoundingClientRect();
+      let mouseX = ev.clientX - cardRect.left;
+      let mouseY = ev.clientY - cardRect.top;
+      let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
+      let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
+      let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
+
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      img.style.filter = `brightness(${brightness})`;
+    }
+  }
 });
