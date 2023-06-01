@@ -6,10 +6,22 @@ document.addEventListener('DOMContentLoaded', function () {
         var newItem = document.createElement('img');
         newItem.src = item.src;
         newItem.alt = item.alt;
-        newItem.style.width = '19%';
-        newItem.style.borderRadius = "5%"; 
         newItem.classList.add('itemImg');
-        document.querySelector('.itemSave').appendChild(newItem);
+
+        var newImageContainer = document.createElement('div');
+        newImageContainer.classList.add('itemCardProp');
+        newImageContainer.appendChild(newItem);
+        document.querySelector('.itemSave').appendChild(newImageContainer);
+
+        newImageContainer.addEventListener('mousemove', (ev) => {
+            Card3D(newImageContainer, ev);
+        });
+
+        newImageContainer.addEventListener('mouseleave', function(ev) {
+            newItem.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            newItem.style.filter = 'brightness(1)';
+        });
+
         document.querySelector(`.itemModal-box[data-item-title="${item.alt}"]`).classList.add('selectedItem');
     });
 
@@ -34,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     itemToRemove.remove();
                 }
                 delete selectedItems[itemTitle];
-                // Remove selectedItem class when unselected
                 box.classList.remove('selectedItem');
             } 
             else {
@@ -48,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.itemSave').appendChild(newItem);
                 selectedItems[itemTitle] = {src: itemImgSrc, alt: itemTitle};
 
-                // Add selectedItem class when selected
                 box.classList.add('selectedItem');
             }
 
@@ -56,3 +66,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+function Card3D(card, ev) {
+    let img = card.querySelector('img');
+    if (img) {
+      let cardRect = card.getBoundingClientRect();
+      let mouseX = ev.clientX - cardRect.left;
+      let mouseY = ev.clientY - cardRect.top;
+      let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
+      let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
+      let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
+
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      img.style.filter = `brightness(${brightness})`;
+    }
+}
+
+function map(val, minA, maxA, minB, maxB) {
+    return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+}

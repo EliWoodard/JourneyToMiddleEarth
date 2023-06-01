@@ -402,9 +402,9 @@ body {
 }
 
 .equipmentCardProp {
-  width: 19%;
-  min-width: 100px;
-  margin: 2px;
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
 }
@@ -424,7 +424,7 @@ body {
   height: 100%;
   border-radius: 5%;
   will-change: transform, filter;
-  box-shadow: 0 0 10px #014100, 0 0 10px rgb(0, 121, 69);
+  box-shadow: 0 0 8px #e0d805, 0 0 8px rgb(198 110 0);
   transition: all 250ms ease-out;
 }
 
@@ -446,6 +446,7 @@ body {
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
+  overflow: visible;
   margin: 1%;
   gap: 1%;
 }
@@ -495,6 +496,36 @@ body {
 .selectedItem {
   background-color: #1b5ca3; 
   color: white; 
+}
+
+.itemCardProp {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.itemImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 8px #FBC841, 0 0 8px #dcc24f;
+  transition: all 250ms ease-out;
+}
+
+.itemModal-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
 }
 
 /*Add Creature*/
