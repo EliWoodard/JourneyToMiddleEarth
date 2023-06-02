@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.shuffleIntoTheDeck').addEventListener('click', shuffleIntoDeck);
   document.querySelector('.discardContainer').addEventListener('click', showDiscard);
 
-  // Create and append scoutDisplay and scoutDisplayBackground to the body
   let scoutDisplay = document.createElement('div');
   scoutDisplay.id = 'scoutDisplay';
   scoutDisplay.style.display = 'none';
@@ -92,7 +91,7 @@ function scout() {
       let topButton = document.createElement('button');
       let bottomButton = document.createElement('button');
       let prepButton = document.createElement('button');
-      let discardButton = document.createElement('button'); // New button
+      let discardButton = document.createElement('button'); 
 
       img.src = card.img;
       img.alt = card.name;
@@ -159,23 +158,41 @@ function moveToBottom(index) {
 
 function moveToPrep(card) {  
   let prepContainer = document.querySelector('.prepedCardContainer');
+  let cardDiv = document.createElement('div');  
   let img = document.createElement('img');
 
   img.src = card.img;
   img.alt = card.name;
-  img.classList.add('prepedCard');
+  cardDiv.classList.add('prepedCard');  
 
   img.addEventListener('click', function() {
     discardPile.push(card);
-    prepContainer.removeChild(img);
+    prepContainer.removeChild(cardDiv);
     displayTopDiscard();  
     updateDiscardCountDisplay();
   });
-  
 
-  prepContainer.appendChild(img);
+  cardDiv.appendChild(img);  
+  prepContainer.appendChild(cardDiv);  
   cardCount--;
   updateDeckCountDisplay();
+
+  cardDiv.addEventListener('mousemove', function(e) {
+    let cardRect = cardDiv.getBoundingClientRect();
+    let mouseX = e.clientX - cardRect.left;
+    let mouseY = e.clientY - cardRect.top;
+    let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
+    let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
+    let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
+
+    img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    img.style.filter = `brightness(${brightness})`;
+  });
+
+  cardDiv.addEventListener('mouseleave', function(e) {
+    img.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    img.style.filter = `brightness(1)`;
+  });
 }
 
 function updateDeckCountDisplay() {
@@ -306,7 +323,6 @@ function displayDiscardPile() {
   discardDisplayBackground.style.display = 'flex';
   document.body.appendChild(discardDisplayBackground);
 
-  // Close discardDisplay when clicked outside
   window.addEventListener('click', function(event) {
     if (event.target === discardDisplayBackground) {
       document.body.removeChild(discardDisplay);
@@ -318,12 +334,10 @@ function displayDiscardPile() {
 function showDiscard() {
   let discardDisplay = document.getElementById('discardDisplay');
 
-  // Remove all previously added children
   while (discardDisplay.firstChild) {
     discardDisplay.removeChild(discardDisplay.firstChild);
   }
 
-  // For each card in the discard pile
   for (let i = discardPile.length - 1; i >= 0; i--) {
     let card = discardPile[i];
     let cardContainer = document.createElement('div');
@@ -337,7 +351,7 @@ function showDiscard() {
     prepButton.textContent = 'Prep';
     prepButton.addEventListener('click', function () {
         moveToPrep(card);
-        discardPile.splice(i, 1); // Now that we're iterating backwards, this won't cause issues
+        discardPile.splice(i, 1); 
         cardContainer.style.display = 'none';
         updateDiscardCountDisplay();
         displayTopDiscard();
@@ -350,12 +364,10 @@ function showDiscard() {
     discardDisplay.appendChild(cardContainer);
 }
   
-  // Show the modal
   document.getElementById('discardDisplay').style.display = 'flex';
   document.getElementById('discardDisplayBackground').style.display = 'flex';
 }
 
-// Event Listener for closing the discard pile modal when clicked outside
 window.addEventListener('click', function(event) {
   let discardDisplayBackground = document.getElementById('discardDisplayBackground');
   if (event.target === discardDisplayBackground) {
@@ -363,3 +375,7 @@ window.addEventListener('click', function(event) {
     discardDisplayBackground.style.display = 'none';
   }
 }); 
+
+function map(value, start1, stop1, start2, stop2) {
+  return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+}
