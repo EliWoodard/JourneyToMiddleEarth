@@ -1,32 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || {};
+    const addItemButton = document.querySelector('.addItemButton');
     const itemModal = document.getElementById('itemModal');
+    const itemSave = document.querySelector('.itemSave');
+  
+    function Card3D(card, ev) {
+        let img = card.querySelector('img');
+        if (img) {
+            let cardRect = card.getBoundingClientRect();
+            let mouseX = ev.clientX - cardRect.left;
+            let mouseY = ev.clientY - cardRect.top;
+            let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
+            let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
+            let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
     
-    Object.values(selectedItems).forEach(item => {
-        var newItem = document.createElement('img');
-        newItem.src = item.src;
-        newItem.alt = item.alt;
-        newItem.classList.add('itemImg');
-
-        var newImageContainer = document.createElement('div');
-        newImageContainer.classList.add('itemCardProp');
-        newImageContainer.appendChild(newItem);
-        document.querySelector('.itemSave').appendChild(newImageContainer);
-
-        newImageContainer.addEventListener('mousemove', (ev) => {
-            Card3D(newImageContainer, ev);
-        });
-
-        newImageContainer.addEventListener('mouseleave', function(ev) {
-            newItem.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            newItem.style.filter = 'brightness(1)';
-        });
-
-        document.querySelector(`.itemModal-box[data-item-title="${item.alt}"]`).classList.add('selectedItem');
-    });
-
-    document.querySelector('.addItemButton').addEventListener('click', function () {
-        document.getElementById('itemModal').style.display = 'block';
+            img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            img.style.filter = `brightness(${brightness})`;
+        }
+    }
+  
+    addItemButton.addEventListener('click', function () {
+        itemModal.style.display = 'block';
     });
 
     window.addEventListener('click', function (event) {
@@ -35,53 +28,103 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    Array.from(document.getElementsByClassName('itemModal-box')).forEach(function (box) {
-        box.addEventListener('click', function () {
-            var itemImgSrc = box.querySelector('img').src;
-            var itemTitle = box.dataset.itemTitle;
-
-            if (selectedItems[itemTitle]) {
-                let itemToRemove = document.querySelector(`.itemSave .itemImg[alt='${itemTitle}']`);
-                if (itemToRemove) {
-                    itemToRemove.remove();
-                }
-                delete selectedItems[itemTitle];
-                box.classList.remove('selectedItem');
-            } 
-            else {
-                var newItem = document.createElement('img');
-                newItem.src = itemImgSrc;
-                newItem.alt = itemTitle;
-                newItem.style.width = '19%';
-                newItem.style.borderRadius = "5%"; 
-                newItem.classList.add('itemImg');
-
-                document.querySelector('.itemSave').appendChild(newItem);
-                selectedItems[itemTitle] = {src: itemImgSrc, alt: itemTitle};
-
-                box.classList.add('selectedItem');
+    let selectedItems = {};
+    try {
+        let storedValue = localStorage.getItem('selectedItems');
+        if (storedValue && typeof storedValue === 'string') {
+            let parsedValue = JSON.parse(storedValue);
+            if (typeof parsedValue === 'object' && parsedValue !== null) {
+                selectedItems = parsedValue;
+            } else {
+                console.error('Error: localStorage.selectedItems should be an object, got:', parsedValue);
             }
+        }
+    } catch (err) {
+        console.error('Error parsing localStorage.selectedItems:', err);
+    }
 
+    const itemBoxes = document.querySelectorAll('.itemModal-box');
+  
+    itemBoxes.forEach(function(itemBox) {
+        const image = itemBox.querySelector('.itemImages');
+        const itemImgSrc = image.src;
+        const itemTitle = itemBox.dataset.itemTitle;
+    
+        if (Object.values(selectedItems).some(item => item.src === itemImgSrc)) {
+            var newImageContainer = document.createElement('div');
+            newImageContainer.classList.add('itemCardProp');
+    
+            var newImage = document.createElement('img');
+            newImage.src = itemImgSrc;
+            newImage.alt = itemTitle;
+            newImage.classList.add('itemImg');
+    
+            newImageContainer.appendChild(newImage);
+            itemSave.appendChild(newImageContainer);
+    
+            itemBox.id = 'selectedItem'; 
+    
+            newImageContainer.addEventListener('mousemove', function(event) {
+                Card3D(newImageContainer, event);
+            });
+    
+            newImageContainer.addEventListener('mouseleave', function() {
+                newImage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                newImage.style.filter = 'brightness(1)';
+            });
+        }
+    });
+    
+
+    itemBoxes.forEach(function(itemBox) {
+        itemBox.addEventListener('click', function() {
+            const image = itemBox.querySelector('.itemImages');
+            const itemImgSrc = image.src;
+            const itemTitle = itemBox.dataset.itemTitle;
+    
+            let selectedItem = Object.values(selectedItems).find(item => item.src === itemImgSrc);
+    
+            if (selectedItem) {
+                const containerToRemove = itemSave.querySelector(`.itemCardProp > img[src="${itemImgSrc}"]`).parentNode;
+                itemSave.removeChild(containerToRemove);
+    
+                selectedItems = Object.fromEntries(Object.entries(selectedItems).filter(([key, item]) => item.src !== itemImgSrc));
+    
+                itemBox.removeAttribute('id'); // remove the id when unselected
+            } else {
+                var newImageContainer = document.createElement('div');
+                newImageContainer.classList.add('itemCardProp');
+    
+                var newImage = document.createElement('img');
+                newImage.src = itemImgSrc;
+                newImage.alt = itemTitle;
+                newImage.classList.add('itemImg');
+    
+                newImageContainer.appendChild(newImage);
+                itemSave.appendChild(newImageContainer);
+    
+                selectedItems[itemTitle] = {
+                    src: itemImgSrc,
+                    title: itemTitle
+                };
+    
+                itemBox.id = 'selectedItem'; // add the id when selected
+    
+                newImageContainer.addEventListener('mousemove', function(event) {
+                    Card3D(newImageContainer, event);
+                });
+    
+                newImageContainer.addEventListener('mouseleave', function() {
+                    newImage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                    newImage.style.filter = 'brightness(1)';
+                });
+            }
+    
             localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
         });
     });
 });
 
-function Card3D(card, ev) {
-    let img = card.querySelector('img');
-    if (img) {
-      let cardRect = card.getBoundingClientRect();
-      let mouseX = ev.clientX - cardRect.left;
-      let mouseY = ev.clientY - cardRect.top;
-      let rotateY = map(mouseX, 0, cardRect.width, -25, 25);
-      let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
-      let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
-
-      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      img.style.filter = `brightness(${brightness})`;
-    }
-}
-
-function map(val, minA, maxA, minB, maxB) {
-    return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+function map(value, start1, stop1, start2, stop2) {
+    return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
 }

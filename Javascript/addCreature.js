@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let rotateX = map(mouseY, 0, cardRect.height, 25, -25);
       let brightness = map(mouseY, 0, cardRect.height, 1.5, 0.5);
 
-      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
       img.style.filter = `brightness(${brightness})`;
     }
   }

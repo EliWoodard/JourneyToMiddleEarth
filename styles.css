@@ -473,7 +473,7 @@ body {
   display: none;
 }
 
-.selectedItem {
+#selectedItem {
   background-color: #1b5ca3; 
   color: white; 
 }
