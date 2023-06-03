@@ -190,6 +190,7 @@ body {
   width: 90%;
   flex-direction: column;
 }
+
 /*Add Boon styles*/
 .addBoon {
   width: 100%;
@@ -1445,6 +1446,6 @@ body {
   height: 100%;
   border-radius: 5%;
   will-change: transform, filter;
-  box-shadow: 0 0 8px #4c41fb, 0 0 8px #2200d3;
+  box-shadow: 0 0 6px #4c41fb, 0 0 6px #000;
   transition: all 250ms ease-out;
 }
