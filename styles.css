@@ -6,110 +6,40 @@ body {
   background: gray;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* Hide the scrollbar by default */
-::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-/* Show the scrollbar when hovering over it */
-::-webkit-scrollbar:hover {
-  width: 5px;
-  height: 5px;
-}
-
-/* Show the scrollbar when actively using it */
-::-webkit-scrollbar-thumb:active {
-  background: #555;
-}
-
 .container {
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-.left-column {
-  flex: 1;
-  background-color: #f0f0f0;
-  width: 10%;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
 
-.playerColumn {
-  flex: 9;
-  background-color: #e0e0e0;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.playerRow1 {
-  display: flex;
-  height: 30%;
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
-.playerRow3 {
-  display: flex;
-  height: 30%;
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
-.playerRow4 {
-  display: flex;
-  height: 40%;
+::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
-.playerImage {
-  height: 100%;
-  width: 100%;
+::-webkit-scrollbar:hover {
+  width: 5px;
+  height: 5px;
 }
 
-.player-image-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  display: inline-block;
-}
-
-.insperation-counter {
-  position: absolute;
-  top: 13%;
-  left: 76.5%;
-  width: 18%;
-  height: 28%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  display: flex;
-  align-content: space-around;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.effectCardsContainer,
-.addEffect {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+::-webkit-scrollbar-thumb:active {
+  background: #555;
 }
 
 .addEffect {
@@ -118,80 +48,6 @@ body {
   border: none;
 }
 
-.playerRow4Left {
-  width: 33%;
-  border: inset;
-  border-color: #999;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.playerRow4Middle {
-  width: 34%;
-  justify-content: center;
-  display: flex;
-}
-
-.fearContainer,
-.damageContainer {
-  justify-content: center;
-  display: flex;
-}
-
-.playerRow4Left:last-child,
-.playerRow4Middle:last-child,
-.playerRow4Right:last-child {
-  border-right: none;
-}
-
-.counter-btn {
-  display: flex;
-  width: 1vw;
-  height: 100%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #6a6a6a;
-  color: #fff;
-  font-size: clamp(12px, 1vw, 24px);
-  cursor: pointer;
-}
-
-.counter-value {
-  font-size: 4vw;
-  color: #fff;
-}
-
-.tabs {
-  display: flex;
-  flex-direction: column;
-}
-
-.tab {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.tab.active {
-  background-color: #333;
-  color: #fff;
-}
-
-.tab:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-.deckColumn {
-  display: none;
-  flex: 9;
-  background-color: #e0e0e0;
-  width: 90%;
-  flex-direction: column;
-}
-
-/*Add Boon styles*/
 .addBoon {
   width: 100%;
   height: 100%;
@@ -200,78 +56,125 @@ body {
   background-color: #333;
 }
 
-.modal {
-  display: none;
-  justify-content: space-evenly;
-  align-content: space-between;
-  align-items: stretch;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
+.addEquipmentButton {
+  width: 33%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addItemButton {
+  width: 34%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addCreatureButton {
+  width: 33%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addFearButton {
+  width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addDamageButton {
+  width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addBaneButton {
+  width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addTerrianButton {
+  width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.addWeakness {
+  height: 10%;
+}
+
+.addAWeakness {
+  height: 100%;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  border: 1px solid #888;
-  width: 55%;
-  height: calc(15vh + 15vw);
+.equipmentAdd {
+  height: 10%;
+  border-top: 1px solid #ccc;
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  align-items: center;
-  padding: 1%;
-  gap: 1%;
-}
-
-.box {
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-
-.box.selected {
-  box-shadow: 0 0 2px 2px gold;
-  border-radius: 5%;
-}
-
-.boonImages {
-  height: 100%;
-  border-radius: 5%;
-}
-
-.effectCardsContainer {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
   flex-direction: row;
   justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
 }
 
-.effectCardsContainer img {
-  max-width: 150px;  
-  max-height: 98%; 
-  border-radius: 5%;
+.baneTerrianAdd {
+  height: 10%;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.equipmentItemsCreatures {
+.shuffle {
+  height: 10%;
+}
+
+.scout {
+  height: 10%;
+  display: flex;
+}
+
+.shuffleDeck {
+  height: 10%;
+}
+
+.scoutButton {
+  width: 50%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.shuffleTheDeck {
+  width: 100%;
+  height: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.shuffleIntoDeck {
+  height: 10%;
+  width: 100%;
+  color: white;
+  border-color: #999;
+  background-color: #333;
+}
+
+.shuffleIntoTheDeck {
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
+  color: white;
+  border-color: #999;
+  background-color: #333;
 }
 
 .boonCardProp:hover {
@@ -295,91 +198,6 @@ body {
 .boonCardProp:hover .boonImageDisplay {
   z-index: 10;
   transform: scale(1.05);
-}
-
-
-/*Add Equipment*/
-.equipmentContainer {
-  width: 50%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid #ccc;
-  border: inset;
-  border-color: #999;
-}
-
-.equipmentSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  gap: 1%;
-  margin: 1%;
-}
-
-.equipmentAdd {
-  height: 10%;
-  border-top: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.addEquipmentButton {
-  width: 33%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.equipment {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.equipment-box {
-  width: 25%;
-  padding: 5px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.equipment-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.equipmentImages {
-  width: 100%;
-  border-radius: 5%;
-}
-
-.selectedEquipment {
-  box-shadow: 0 0 3px 3px gold;
 }
 
 .equipmentCardProp {
@@ -409,76 +227,7 @@ body {
   transition: all 250ms ease-out;
 }
 
-/*Add item*/
-.addItemButton {
-  width: 34%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.itemSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.itemModal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.itemModal-box {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #4e4b4b;
-  color: white;
-}
-
-.itemModal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.itemImages {
-  display: none;
-}
-
-#selectedItem {
-  background-color: #1b5ca3; 
-  color: white; 
-}
-
+/*Items*/
 .itemCardProp {
   width: 18%;
   min-width: 135px;
@@ -496,89 +245,7 @@ body {
   transition: all 250ms ease-out;
 }
 
-.itemModal-box {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #4e4b4b;
-  color: white;
-}
-
-/*Add Creature*/
-.addCreatureButton {
-  width: 33%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.creatureSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.creatureModal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.creatureModal-box {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #4e4b4b;
-  color: white;
-}
-
-.creatureModal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.creatureImages {
-  display: none;
-}
-
-.creatureModal-box.selectedCreature {
-  background-color: #1b5ca3;
-  color: white;
-}
-
+/*Creatures*/
 .creatureCardProp {
   width: 18%;
   min-width: 135px;
@@ -596,121 +263,7 @@ body {
   transition: all 250ms ease-out;
 }
 
-/*Fear and Damage*/
-.fearContainer {
-  width: 50%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid #ccc;
-  border:inset;
-  border-color: #999;
-}
-
-.fearAndDamage {
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
-}
-
-.fearSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.fearDamageAdd {
-  height: 10%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.addFearButton {
-  width: 50%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.fear {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.fear-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.fear-box, .fear-box-gloom {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.fear-box {
-  background: #4e4b4b;
-}
-
-.fearImages {
-  display: none;
-}
-
-.fearImagesBack {
-  display: none;
-}
-
-.selectedFear {
-  background-color: #1b5ca3; 
-}
-
-.fearCardProp {
-  width: 15%;
-  min-width: 135px;
-}
-
-#fear-box-gloom-inside {
-  width: 19%;
-  height: 100%;
-  margin: 1%;
-  font-size: 55%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/*Fear*/
 .fearImageDisplay {
   margin: 4px;
   perspective: 600px;
@@ -719,11 +272,9 @@ body {
   will-change: transform, filter;
 }
 
-.fear-box-gloom {
-  background: #9c9c9c;
-}
-
 .fearCardProp {
+  width: 15%;
+  min-width: 135px;
   margin: 4px;
   transform: scale(1);
   perspective: 600px;
@@ -739,134 +290,10 @@ body {
   transition: all 250ms ease-out;
 }
 
-/*add Damage*/
-.damageContainer {
-  width: 50%;
-  border-bottom: 1px solid #ccc;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid #ccc;
-}
-
-.damageAndFear {
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
-}
-
-.damageSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.damageFearAdd {
-  height: 10%;
-  border-top: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.addDamageButton {
-  width: 50%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.damage {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.damage-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.damage-box {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #4e4b4b;
-  color: white;
-}
-
-.damageImages {
-  display: none;
-}
-
-.damageImageDisplay {
-  display: flex;
-}
-
-.damageImagesBack {
-  display: none;
-}
-
-.selectedDamage {
-  background-color: #1b5ca3; 
-  color: white; 
-}
-
+/*Damage*/
 .damageCardProp {
   width: 18%;
   min-width: 135px;
-}
-
-.damage-box-weariness {
-  width: 23%;
-  height: 10%;
-  padding: 5px;
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #9c9c9c;
-  color: white;
-}
-
-#damage-box-inside {
-  width: 19%;
-  height: 100%;
-  margin: 1%;
-  font-size: 55%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .damageCardProp:hover {
@@ -891,89 +318,7 @@ body {
   transform: scale(1.05);
 }
 
-/*bane and terrian*/
-
-.banesAndTerrian {
-  width: 50%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border: inset;
-  border-color: #999;
-}
-
-.baneTerrianContainer {
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
-}
-
-.baneSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.baneTerrianAdd {
-  height: 10%;
-  border-top: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.bane {
-  display: none;
-  justify-content: space-around;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.addBaneButton {
-  width: 50%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.addTerrianButton {
-  width: 50%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.baneImages {
-  width: 100%;
-  height: 100%;
-  border-radius: 5%;
-}
-
-.baneImageDisplay{
-  width: 100%;
-  height: 100%;
-  border-radius: 5%;
-  box-shadow: 0 0 10px #292929, 0 0 10px rgb(107, 107, 107);
-  will-change: transform, filter;
-  transition: all 250ms ease-out;
-}
-
+/*Bane*/
 .baneCardProp {
   width: 15%;
   min-width: 135px;
@@ -982,14 +327,18 @@ body {
   transition: all 250ms ease-out;
 }
 
+.baneImageDisplay {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  box-shadow: 0 0 10px #292929, 0 0 10px rgb(107, 107, 107);
+  will-change: transform, filter;
+  transition: all 250ms ease-out;
+}
+
 .baneCardProp:hover {
   transform: scale(1.05);
   z-index: 10;
-}
-
-.bane-box.selected {
-  box-shadow: 0 0 2px 2px gold;
-  border-radius: 5%;
 }
 
 .baneCardProp img {
@@ -997,70 +346,7 @@ body {
   height: 100%;
 }
 
-.selectedBane {
-  box-shadow: 0 0 3px 3px gold;
-  border-radius: 5%;
-}
-
-/*Terrrian*/
-.terrianSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.terrian {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.terrian-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-  gap: 1%;
-}
-
-.terrian-box {
-  width: 24%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.terrianImages {
-  width: 100%;
-  border-radius: 5%;
-}
-.selectedTerrian {
-  box-shadow: 0 0 3px 3px gold;
-  border-radius: 5%;
-}
-
+/*Terrian*/
 .terrianCardProp {
   width: 18%;
   min-width: 135px;
@@ -1087,47 +373,16 @@ body {
   transition: all 250ms ease-out;
 }
 
-/*deck and discard container*/
-.playerRow4Right {
-  width: 33%;
+.playerImage {
   height: 100%;
-  justify-content: center;
-  display: flex;
-}
-
-/*deck*/
-.deck {
-  width: 50%;
-  text-align: -webkit-center;
-  display: flex;
-  flex-direction: column;
-  border: inset;
-  border-color: #999;
-}
-
-.deckContainer {
-  height: 70%;
   width: 100%;
-  text-align-last: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
-.shuffle {
-  height: 10%;
-}
-
-.scout {
-  height: 10%;
-  display: flex;
-}
-
-.cardBack {
-  display: none;
-  height: 96%;
-  border-radius: 5%;
-  box-shadow: 0 0 5px #FBC841, 0 0 5px #DC824F;
+.player-image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: inline-block;
 }
 
 .cardCount {
@@ -1143,82 +398,9 @@ body {
   align-items: center;
 }
 
-
-.shuffleDeck {
-  height: 10%;
-}
-
-.scoutButton {
-  width: 50%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
 #myNumberInput {
   width: 50%;
-  font-size: calc(.8vh + .8vw);
-}
-
-.shuffleTheDeck {
-  width: 100%;
-  height: 100%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-/*discard*/
-.discard {
-  width: 50%;
-  text-align: -webkit-center;
-  display: flex;
-  flex-direction: column;
-  border: inset;
-  border-color: #999;
-}
-
-.discardContainer {
-  height: 70%;
-  width: 100%;
-  text-align-last: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.shuffleIntoDeck {
-  height: 10%;
-  width: 100%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.addWeakness {
-  height: 10%;
-}
-
-.shuffleIntoTheDeck {
-  height: 100%;
-  width: 100%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.addAWeakness {
-  height: 100%;
-  width: 100%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.discardCard {
-  height: 96%;
-  border-radius: 5%;
-  box-shadow: 0 0 5px #b5ac96, 0 0 5px #7895fd;
+  font-size: calc(0.8vh + 0.8vw);
 }
 
 .discardCounter {
@@ -1234,7 +416,93 @@ body {
   justify-content: space-evenly;
 }
 
-#discardDisplayBackground {
+.insperation-counter {
+  position: absolute;
+  top: 13%;
+  left: 76.5%;
+  width: 18%;
+  height: 28%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter-btn {
+  display: flex;
+  width: 1vw;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #6a6a6a;
+  color: #fff;
+  font-size: clamp(12px, 1vw, 24px);
+  cursor: pointer;
+}
+
+.counter-value {
+  font-size: 4vw;
+  color: #fff;
+}
+
+.prepedContainer {
+  width: 50%;
+  border: inset;
+  border-color: #999;
+  overflow-x: scroll;
+}
+
+.prepedCardContainer {
+  width: 98%;
+  height: 98%;
+  margin: 1%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: visible;
+  gap: 1%;
+}
+
+.prepedCard {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.prepedCard:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.prepedCard img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 6px #4c41fb, 0 0 6px #000;
+  transition: all 250ms ease-out;
+}
+
+#scoutDisplay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  gap: 1%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoutDisplayBackground {
   position: fixed;
   top: 0;
   left: 0;
@@ -1245,21 +513,214 @@ body {
   display: none;
 }
 
-#discardDisplay {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  gap: 1%;
-  width: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 10;
-  align-items: center;
+#scoutCards {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
+.scoutedCard {
+  width: 100%;
+  border-radius: 5%;
+}
 
-/*deck css*/
+.scoutCardProperties {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.effectCardsContainer {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.effectCardsContainer img {
+  max-width: 150px;
+  max-height: 98%;
+  border-radius: 5%;
+}
+
+.effectCardsContainer,
+.addEffect {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.equipmentItemsCreatures {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.fearSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.equipmentSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  gap: 1%;
+  margin: 1%;
+}
+
+.itemSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.creatureSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.damageSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.baneSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.terrianSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.fearContainer {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+}
+
+.fearDamageAdd {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.fearAndDamage {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.equipmentContainer {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+}
+
+.banesAndTerrian {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: inset;
+  border-color: #999;
+}
+
+.baneTerrianContainer {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
 .deckColumn {
   display: none;
   flex-direction: column;
@@ -1298,7 +759,8 @@ body {
   justify-content: flex-end;
 }
 
-.minus, .plus {
+.minus,
+.plus {
   width: 20%;
   height: 100%;
   display: flex;
@@ -1362,90 +824,567 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/*Scout*/
-#scoutDisplay {
+.deckColumn {
+  display: none;
+  flex: 9;
+  background-color: #e0e0e0;
+  width: 90%;
+  flex-direction: column;
+}
+
+.deck {
+  width: 50%;
+  text-align: -webkit-center;
+  display: flex;
+  flex-direction: column;
+  border: inset;
+  border-color: #999;
+}
+
+.deckContainer {
+  height: 70%;
+  width: 100%;
+  text-align-last: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cardBack {
+  display: none;
+  height: 96%;
+  border-radius: 5%;
+  box-shadow: 0 0 5px #FBC841, 0 0 5px #DC824F;
+}
+
+.discard {
+  width: 50%;
+  text-align: -webkit-center;
+  display: flex;
+  flex-direction: column;
+  border: inset;
+  border-color: #999;
+}
+
+.discardContainer {
+  height: 70%;
+  width: 100%;
+  text-align-last: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.discardCard {
+  height: 96%;
+  border-radius: 5%;
+  box-shadow: 0 0 5px #b5ac96, 0 0 5px #7895fd;
+}
+
+#discardDisplayBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  display: none;
+}
+
+#discardDisplay {
   display: none;
   position: fixed;
   left: 0;
   top: 0;
   gap: 1%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
   align-items: center;
   justify-content: center;
 }
-#scoutDisplayBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
-  z-index: 9; 
-  display: none;
-}
 
-#scoutCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.scoutedCard {
-  width: 100%;
-  border-radius: 5%;
-}
-
-.scoutCardProperties {
-  display: flex;
+.left-column {
+  flex: 1;
+  background-color: #f0f0f0;
   width: 10%;
+}
+
+.tab {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.playerColumn {
+  flex: 9;
+  background-color: #e0e0e0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.playerRow1 {
+  display: flex;
+  height: 30%;
+}
+
+.playerRow3 {
+  display: flex;
+  height: 30%;
+}
+
+.playerRow4 {
+  display: flex;
+  height: 40%;
+}
+
+.playerRow4Left {
+  width: 33%;
+  border: inset;
+  border-color: #999;
+  justify-content: center;
+  display: flex;
   flex-direction: column;
 }
 
-.hidden {
-  display: none;
-}
-
-/*Preped card*/
-.prepedContainer {
-  width: 50%;
-  border:inset;
-  border-color: #999;
-  overflow-x: scroll;
-}
-
-.prepedCardContainer {
-  width: 98%;
-  height: 98%;
-  margin: 1%;
+.playerRow4Middle {
+  width: 34%;
+  justify-content: center;
   display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+}
+
+.playerRow4Right {
+  width: 33%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.playerRow4Left:last-child,
+.playerRow4Middle:last-child,
+.playerRow4Right:last-child {
+  border-right: none;
+}
+
+/*Boons*/
+.modal {
+  display: none;
+  justify-content: space-evenly;
+  align-content: space-between;
+  align-items: stretch;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 55%;
+  height: calc(15vh + 15vw);
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
-  justify-content: flex-start;
-  overflow: visible;
+  align-items: center;
+  padding: 1%;
   gap: 1%;
 }
 
-.prepedCard {
-  width: 18%;
-  min-width: 135px;
-  margin: 4px;
-  perspective: 600px;
-  transition: all 250ms ease-out;
+.box {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 }
 
-.prepedCard:hover {
-  transform: scale(1.05);
-  z-index: 10;
+.box.selected {
+  box-shadow: 0 0 2px 2px gold;
+  border-radius: 5%;
 }
 
-.prepedCard img {
+.boonImages {
+  height: 100%;
+  border-radius: 5%;
+}
+
+/*Equipment*/
+.equipment {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.equipment-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.equipment-box {
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.equipmentImages {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.selectedEquipment {
+  box-shadow: 0 0 3px 3px gold;
+}
+
+/*Items*/
+.itemModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.itemModal-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.itemModal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.itemImages {
+  display: none;
+}
+
+#selectedItem {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+/*Creatures*/
+.creatureModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.creatureModal-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.creatureModal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.creatureImages {
+  display: none;
+}
+
+.creatureModal-box.selectedCreature {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+/*Fear*/
+.fear {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.fear-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.fear-box,
+.fear-box-gloom {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.fear-box {
+  background: #4e4b4b;
+}
+
+.fearImages {
+  display: none;
+}
+
+.fearImagesBack {
+  display: none;
+}
+
+.selectedFear {
+  background-color: #1b5ca3;
+}
+
+#fear-box-gloom-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fear-box-gloom {
+  background: #9c9c9c;
+}
+
+/*Damage*/
+.damage {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.damage-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.damage-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.damageImages {
+  display: none;
+}
+
+.damageImageDisplay {
+  display: flex;
+}
+
+.damageImagesBack {
+  display: none;
+}
+
+.selectedDamage {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+.damage-box-weariness {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9c9c9c;
+  color: white;
+}
+
+#damage-box-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Bane*/
+.bane {
+  display: none;
+  justify-content: space-around;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.baneImages {
   width: 100%;
   height: 100%;
   border-radius: 5%;
-  will-change: transform, filter;
-  box-shadow: 0 0 6px #4c41fb, 0 0 6px #000;
-  transition: all 250ms ease-out;
 }
+
+.selectedBane {
+  box-shadow: 0 0 3px 3px gold;
+  border-radius: 5%;
+}
+
+/*Terrian*/
+.terrian {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.terrian-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  gap: 1%;
+}
+
+.terrian-box {
+  width: 24%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terrianImages {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.selectedTerrian {
+  box-shadow: 0 0 3px 3px gold;
+  border-radius: 5%;
+}
+
+/*# sourceMappingURL=styles.css.map */

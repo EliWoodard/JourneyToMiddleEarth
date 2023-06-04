@@ -1,0 +1,407 @@
+/*Boons*/
+.modal {
+  display: none;
+  justify-content: space-evenly;
+  align-content: space-between;
+  align-items: stretch;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 55%;
+  height: calc(15vh + 15vw);
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  padding: 1%;
+  gap: 1%;
+}
+
+.box {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.box.selected {
+  box-shadow: 0 0 2px 2px gold;
+  border-radius: 5%;
+}
+
+.boonImages {
+  height: 100%;
+  border-radius: 5%;
+}
+
+/*Equipment*/
+.equipment {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.equipment-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.equipment-box {
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.equipmentImages {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.selectedEquipment {
+  box-shadow: 0 0 3px 3px gold;
+}
+
+/*Items*/
+.itemModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.itemModal-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.itemModal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.itemImages {
+  display: none;
+}
+
+#selectedItem {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+/*Creatures*/
+.creatureModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.creatureModal-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.creatureModal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.creatureImages {
+  display: none;
+}
+
+.creatureModal-box.selectedCreature {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+/*Fear*/
+.fear {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.fear-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.fear-box,
+.fear-box-gloom {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.fear-box {
+  background: #4e4b4b;
+}
+
+.fearImages {
+  display: none;
+}
+
+.fearImagesBack {
+  display: none;
+}
+
+.selectedFear {
+  background-color: #1b5ca3;
+}
+
+#fear-box-gloom-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fear-box-gloom {
+  background: #9c9c9c;
+}
+/*Damage*/
+.damage {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.damage-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.damage-box {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4b4b;
+  color: white;
+}
+
+.damageImages {
+  display: none;
+}
+
+.damageImageDisplay {
+  display: flex;
+}
+
+.damageImagesBack {
+  display: none;
+}
+
+.selectedDamage {
+  background-color: #1b5ca3;
+  color: white;
+}
+
+.damage-box-weariness {
+  width: 23%;
+  height: 10%;
+  padding: 5px;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9c9c9c;
+  color: white;
+}
+
+#damage-box-inside {
+  width: 19%;
+  height: 100%;
+  margin: 1%;
+  font-size: 55%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Bane*/
+.bane {
+  display: none;
+  justify-content: space-around;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.baneImages {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+}
+
+.selectedBane {
+  box-shadow: 0 0 3px 3px gold;
+  border-radius: 5%;
+}
+
+/*Terrian*/
+.terrian {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.terrian-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  gap: 1%;
+}
+
+.terrian-box {
+  width: 24%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terrianImages {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.selectedTerrian {
+  box-shadow: 0 0 3px 3px gold;
+  border-radius: 5%;
+}

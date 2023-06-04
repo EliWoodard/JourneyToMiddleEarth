@@ -1,0 +1,44 @@
+#scoutDisplay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  gap: 1%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoutDisplayBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  display: none;
+}
+
+#scoutCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scoutedCard {
+  width: 100%;
+  border-radius: 5%;
+}
+
+.scoutCardProperties {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}

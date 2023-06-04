@@ -1,0 +1,195 @@
+.boonCardProp:hover {
+  z-index: 10;
+  transform: scale(1.05);
+  transition: all 250ms ease-out;
+}
+
+.boonCardProp img {
+  transition: all 250ms ease-out;
+}
+
+.boonImageDisplay {
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+  will-change: transform, filter;
+  box-shadow: 0 0 10px #3f3f3f, 0 0 10px rgb(0, 121, 65);
+}
+
+.boonCardProp:hover .boonImageDisplay {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+.equipmentCardProp {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.equipmentCardProp:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.equipment-box.selected {
+  box-shadow: 0 0 2px 2px gold;
+  border-radius: 5%;
+}
+
+.equipmentCardProp img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 8px #FBC841, 0 0 8px #dcc24f;
+  transition: all 250ms ease-out;
+}
+
+/*Items*/
+.itemCardProp {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.itemImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 8px #FBC841, 0 0 8px #dcc24f;
+  transition: all 250ms ease-out;
+}
+
+/*Creatures*/
+.creatureCardProp {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.creatureImageDisplay {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  will-change: transform, filter;
+  box-shadow: 0 0 8px #FBC841, 0 0 8px #dcc24f;
+  transition: all 250ms ease-out;
+}
+
+/*Fear*/
+.fearImageDisplay {
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+  box-shadow: 0 0 10px #002341, 0 0 10px rgb(0, 86, 121);
+  will-change: transform, filter;
+}
+
+.fearCardProp {
+  width: 15%;
+  min-width: 135px;
+  margin: 4px;
+  transform: scale(1);
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.fearCardProp:hover {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+.fearCardProp img {
+  transition: all 250ms ease-out;
+}
+
+/*Damage*/
+.damageCardProp {
+  width: 18%;
+  min-width: 135px;
+}
+
+.damageCardProp:hover {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+.damageCardProp img {
+  transition: all 250ms ease-out;
+}
+
+.damageImageDisplay {
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+  will-change: transform, filter;
+  box-shadow: 0 0 10px #410000, 0 0 10px rgb(121, 0, 0);
+}
+
+.damageImageDisplayZoom {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+/*Bane*/
+.baneCardProp {
+  width: 15%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.baneImageDisplay{
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  box-shadow: 0 0 10px #292929, 0 0 10px rgb(107, 107, 107);
+  will-change: transform, filter;
+  transition: all 250ms ease-out;
+}
+
+.baneCardProp:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.baneCardProp img {
+  width: 100%;
+  height: 100%;
+}
+
+/*Terrian*/
+.terrianCardProp {
+  width: 18%;
+  min-width: 135px;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+}
+
+.terrianCardProp:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.terrian-box.selected {
+  box-shadow: 0 0 2px 2px gold;
+  border-radius: 5%;
+}
+
+.terrianCardProp img {
+  width: 100%;
+  height: 100%;
+  will-change: transform, filter;
+  box-shadow: 0 0 10px #014100, 0 0 10px rgb(0, 121, 69);
+  transition: all 250ms ease-out;
+}

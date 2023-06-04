@@ -1,0 +1,32 @@
+.deckColumn {
+  display: none;
+  flex: 9;
+  background-color: #e0e0e0;
+  width: 90%;
+  flex-direction: column;
+}
+
+.deck {
+  width: 50%;
+  text-align: -webkit-center;
+  display: flex;
+  flex-direction: column;
+  border: inset;
+  border-color: #999;
+}
+
+.deckContainer {
+  height: 70%;
+  width: 100%;
+  text-align-last: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cardBack {
+  display: none;
+  height: 96%;
+  border-radius: 5%;
+  box-shadow: 0 0 5px #FBC841, 0 0 5px #DC824F;
+}

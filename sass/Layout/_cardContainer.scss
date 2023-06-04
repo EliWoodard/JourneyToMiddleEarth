@@ -1,0 +1,139 @@
+.effectCardsContainer {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.effectCardsContainer img {
+  max-width: 150px;
+  max-height: 98%;
+  border-radius: 5%;
+}
+
+.effectCardsContainer,
+.addEffect {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.equipmentItemsCreatures {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+
+.fearSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.equipmentSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  gap: 1%;
+  margin: 1%;
+}
+
+.itemSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.creatureSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.damageSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.baneSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}
+
+.terrianSave {
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: visible;
+  margin: 1%;
+  gap: 1%;
+}

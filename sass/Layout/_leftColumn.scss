@@ -1,0 +1,20 @@
+.left-column {
+    flex: 1;
+    background-color: #f0f0f0;
+    width: 10%;
+}
+
+.tab {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .tab:hover {
+    background-color: #333;
+    color: #fff;
+  }
