@@ -33,15 +33,17 @@
 
 .classType {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .vertical-button {
-  margin: 10px;
-  padding: 5px;
+  margin-bottom: 1%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
 }
 
 .vertical-button:hover {
@@ -49,6 +51,11 @@
   cursor: pointer;
 }
 
-.vertical-button:active {
-  background-color: #aaa;
+.vertical-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.card-image.dimmed {
+  filter: brightness(80%);
 }

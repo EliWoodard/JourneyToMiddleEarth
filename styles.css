@@ -857,6 +857,35 @@ body {
   box-shadow: 0 0 5px #FBC841, 0 0 5px #DC824F;
 }
 
+.classType {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.vertical-button {
+  margin-bottom: 1%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+}
+
+.vertical-button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.vertical-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.card-image.dimmed {
+  filter: brightness(80%);
+}
+
 .discard {
   width: 50%;
   text-align: -webkit-center;

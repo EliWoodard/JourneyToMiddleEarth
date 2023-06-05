@@ -185,6 +185,12 @@ document.addEventListener('DOMContentLoaded', function () {
       var buttonId = this.id;
       var imageFilenames = imageMap[buttonId];
 
+      for (var j = 0; j < buttons.length; j++) {
+        buttons[j].classList.remove('active');
+      }
+
+      this.classList.add('active');
+
       while (cardContainer.firstChild) {
         cardContainer.firstChild.remove();
       }
@@ -201,6 +207,10 @@ document.addEventListener('DOMContentLoaded', function () {
         img.src = filename;
         cardImage.appendChild(img);
 
+        if (buttonId !== 'captainButton') {
+          img.classList.add('dimmed');
+        }
+
         var amountOfCard = document.createElement('div');
         amountOfCard.className = 'amountOfCard';
 
@@ -211,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var number = document.createElement('div');
         number.className = 'number';
-        number.innerText = '0';
+        number.innerText = localStorage.getItem(filename) || '0'; // Get card count from localStorage
         amountOfCard.appendChild(number);
 
         var plus = document.createElement('div');
@@ -223,7 +233,29 @@ document.addEventListener('DOMContentLoaded', function () {
         card.appendChild(amountOfCard);
 
         cardContainer.appendChild(card);
+
+        // Add click event listeners for incrementing and decrementing card count
+        plus.addEventListener('click', function(event) {
+          event.stopPropagation();
+          var count = parseInt(number.innerText);
+          count++;
+          number.innerText = count.toString();
+          localStorage.setItem(filename, count.toString()); // Store card count in localStorage
+        });
+
+        minus.addEventListener('click', function(event) {
+          event.stopPropagation();
+          var count = parseInt(number.innerText);
+          if (count > 0) {
+            count--;
+          }
+          number.innerText = count.toString();
+          localStorage.setItem(filename, count.toString()); // Store card count in localStorage
+        });
       });
     });
   }
+
+  // Trigger a click event for the Captain button to make it active on page load
+  document.getElementById('captainButton').click();
 });
