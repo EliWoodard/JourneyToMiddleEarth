@@ -232,6 +232,22 @@ document.addEventListener('DOMContentLoaded', function () {
     ]
   };
 
+
+  var preloadedImages = {};
+
+  function preloadImages(imageMap) {
+    for (var buttonId in imageMap) {
+      var imageFilenames = imageMap[buttonId];
+      imageFilenames.forEach(function (filename) {
+        var img = new Image();
+        img.src = filename;
+        preloadedImages[filename] = img; // Store the preloaded image in the preloadedImages object.
+      });
+    }
+  }
+
+  preloadImages(imageMap);
+
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
       var buttonId = this.id;
@@ -254,9 +270,14 @@ document.addEventListener('DOMContentLoaded', function () {
         var cardImage = document.createElement('div');
         cardImage.className = 'cardImage';
 
+        var img = preloadedImages[filename].cloneNode();
+        img.className = 'card-image';
+
+
         var img = document.createElement('img');
         img.className = 'card-image';
         img.src = filename;
+
         cardImage.appendChild(img);
 
         var amountOfCard = document.createElement('div');

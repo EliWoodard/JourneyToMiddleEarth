@@ -744,6 +744,7 @@ body {
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   flex-direction: row;
   height: fit-content;
 }
@@ -859,10 +860,9 @@ body {
 }
 
 .classType {
+  width: 98%;
+  margin: 1%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
 }
 
 .vertical-button {
@@ -871,6 +871,8 @@ body {
   cursor: pointer;
   border-radius: 0;
   border: none;
+  width: 10%;
+  height: 100%;
 }
 
 .vertical-button:hover {
