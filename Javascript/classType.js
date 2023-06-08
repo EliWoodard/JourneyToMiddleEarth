@@ -177,8 +177,60 @@ document.addEventListener('DOMContentLoaded', function () {
       "Images/Guide/Survival Training.jpg",
       "Images/Guide/All Together.jpg",
       "Images/Guide/Timely Assistance.jpg"
+    ],
+    'aragornButton': [
+      "Images/Aragorn/Wanderer.jpg",
+      "Images/Aragorn/Strider.jpg",
+      "Images/Aragorn/Thorongil.jpg",
+      "Images/Aragorn/Gift of Men.jpg"
+    ],
+    'basicButton': [
+      "Images/Basic/Undying Might.jpg",
+      "Images/Basic/Honed Agility.jpg",
+      "Images/Basic/Unyielding Spirit.jpg",
+      "Images/Basic/Ancient Wisdom.jpg",
+      "Images/Basic/Clever Wit.jpg",
+      "Images/Basic/Time of Need.jpg"
+    ],
+    'titleButton': [
+      "Images/Title/Mist-Walker.jpg",
+      "Images/Title/Stone-Talker.jpg",
+      "Images/Title/Pack-Dweller.jpg",
+      "Images/Title/Dwarf-Friend.jpg",
+      "Images/Title/Word-Wielder.jpg",
+      "Images/Title/Clue-Finder.jpg",
+      "Images/Title/Stinging Fly.jpg",
+      "Images/Title/Wingfoot.jpg",
+      "Images/Title/Friend of Bears.jpg",
+      "Images/Title/Fire-Giver.jpg",
+      "Images/Title/Gale-Rock.jpg",
+      "Images/Title/Stormcrow.jpg",
+      "Images/Title/Unfallen.jpg",
+      "Images/Title/Elf-Friend.jpg",
+      "Images/Title/Coney-Foot.jpg",
+      "Images/Title/Skin-Changer.jpg",
+      "Images/Title/Barrel Rider.jpg",
+      "Images/Title/Flame-Bearer.jpg",
+      "Images/Title/Guest of Eagles.jpg",
+      "Images/Title/Luckwearer.jpg",
+      "Images/Title/Lone-Survivor.jpg",
+      "Images/Title/Nemesis.jpg",
+      "Images/Title/Lore-Master.jpg",
+      "Images/Title/Ever-Wary.jpg",
+      "Images/Title/Treasure Seeker.jpg",
+      "Images/Title/Storyteller.jpg",
+      "Images/Title/Dawn-Bringer.jpg",
+      "Images/Title/Undying.jpg",
+      "Images/Title/Sly-Tongue.jpg",
+      "Images/Title/Spirit-Bonded.jpg",
+      "Images/Title/Friend of Gondor.jpg",
+      "Images/Title/Friend of Rohan.jpg",
+      "Images/Title/Beast-Singer.jpg"
+    ],
+    'weaknessButton': [
+      "Images/Misc/Weakness.jpg"
     ]
-};
+  };
 
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
@@ -217,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var number = document.createElement('div');
         number.className = 'number';
-        number.innerText = localStorage.getItem(filename) || '0'; 
+        number.innerText = localStorage.getItem(filename) || '0';
         amountOfCard.appendChild(number);
 
         var plus = document.createElement('div');
@@ -231,26 +283,26 @@ document.addEventListener('DOMContentLoaded', function () {
         cardContainer.appendChild(card);
 
 
-        plus.addEventListener('click', function(event) {
+        plus.addEventListener('click', function (event) {
           event.stopPropagation();
           var count = parseInt(number.innerText);
           count++;
           number.innerText = count.toString();
-          localStorage.setItem(filename, count.toString()); 
+          localStorage.setItem(filename, count.toString());
         });
 
-        minus.addEventListener('click', function(event) {
+        minus.addEventListener('click', function (event) {
           event.stopPropagation();
           var count = parseInt(number.innerText);
           if (count > 0) {
             count--;
           }
           number.innerText = count.toString();
-          localStorage.setItem(filename, count.toString()); 
+          localStorage.setItem(filename, count.toString());
         });
       });
     });
   }
 
-  document.getElementById('captainButton').click();
+  document.getElementById('aragornButton').click();
 });
