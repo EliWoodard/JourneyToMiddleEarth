@@ -241,89 +241,135 @@ document.addEventListener('DOMContentLoaded', function () {
       imageFilenames.forEach(function (filename) {
         var img = new Image();
         img.src = filename;
-        preloadedImages[filename] = img; // Store the preloaded image in the preloadedImages object.
+        preloadedImages[filename] = img;
       });
     }
   }
 
-  preloadImages(imageMap);
+  var preloadedImages = {};
 
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function () {
-      var buttonId = this.id;
+  function preloadImages(imageMap) {
+    for (var buttonId in imageMap) {
       var imageFilenames = imageMap[buttonId];
-
-      for (var j = 0; j < buttons.length; j++) {
-        buttons[j].classList.remove('active');
-      }
-
-      this.classList.add('active');
-
-      while (cardContainer.firstChild) {
-        cardContainer.firstChild.remove();
-      }
-
       imageFilenames.forEach(function (filename) {
-        var card = document.createElement('div');
-        card.className = 'card';
-
-        var cardImage = document.createElement('div');
-        cardImage.className = 'cardImage';
-
-        var img = preloadedImages[filename].cloneNode();
-        img.className = 'card-image';
-
-
-        var img = document.createElement('img');
-        img.className = 'card-image';
+        var img = new Image();
         img.src = filename;
-
-        cardImage.appendChild(img);
-
-        var amountOfCard = document.createElement('div');
-        amountOfCard.className = 'amountOfCard';
-
-        var minus = document.createElement('div');
-        minus.className = 'minus';
-        minus.innerText = '-';
-        amountOfCard.appendChild(minus);
-
-        var number = document.createElement('div');
-        number.className = 'number';
-        number.innerText = localStorage.getItem(filename) || '0';
-        amountOfCard.appendChild(number);
-
-        var plus = document.createElement('div');
-        plus.className = 'plus';
-        plus.innerText = '+';
-        amountOfCard.appendChild(plus);
-
-        card.appendChild(cardImage);
-        card.appendChild(amountOfCard);
-
-        cardContainer.appendChild(card);
-
-
-        plus.addEventListener('click', function (event) {
-          event.stopPropagation();
-          var count = parseInt(number.innerText);
-          count++;
-          number.innerText = count.toString();
-          localStorage.setItem(filename, count.toString());
-        });
-
-        minus.addEventListener('click', function (event) {
-          event.stopPropagation();
-          var count = parseInt(number.innerText);
-          if (count > 0) {
-            count--;
-          }
-          number.innerText = count.toString();
-          localStorage.setItem(filename, count.toString());
-        });
+        preloadedImages[filename] = img;
+      });
+    }
+  }
+  
+  preloadImages(imageMap);
+  
+  var allCards = {};
+  var captainCards = [];
+  for (var buttonId in imageMap) {
+    var imageFilenames = imageMap[buttonId];
+    allCards[buttonId] = [];
+    imageFilenames.forEach(function (filename) {
+      var card = document.createElement('div');
+      card.className = 'card';
+  
+      var cardImage = document.createElement('div');
+      cardImage.className = 'cardImage';
+  
+      var img = document.createElement('img');
+      img.className = 'card-image';
+      img.src = filename;
+  
+      cardImage.appendChild(img);
+  
+      var amountOfCard = document.createElement('div');
+      amountOfCard.className = 'amountOfCard';
+  
+      var minus = document.createElement('div');
+      minus.className = 'minus';
+      minus.innerText = '-';
+      amountOfCard.appendChild(minus);
+  
+      var number = document.createElement('div');
+      number.className = 'number';
+      number.innerText = localStorage.getItem(filename) || '0';
+      amountOfCard.appendChild(number);
+  
+      var plus = document.createElement('div');
+      plus.className = 'plus';
+      plus.innerText = '+';
+      amountOfCard.appendChild(plus);
+  
+      card.appendChild(cardImage);
+      card.appendChild(amountOfCard);
+  
+      cardContainer.appendChild(card);
+      allCards[buttonId].push(card);
+  
+      if (buttonId === 'captainButton') {
+        captainCards.push(card);
+      }
+  
+      plus.addEventListener('click', function (event) {
+        event.stopPropagation();
+        var count = parseInt(number.innerText);
+        count++;
+        number.innerText = count.toString();
+        localStorage.setItem(filename, count.toString());
+      });
+  
+      minus.addEventListener('click', function (event) {
+        event.stopPropagation();
+        var count = parseInt(number.innerText);
+        if (count > 0) {
+          count--;
+        }
+        number.innerText = count.toString();
+        localStorage.setItem(filename, count.toString());
       });
     });
   }
-
+  
+  // Hide all cards initially except the captain cards
+  for (var id in allCards) {
+    if (id !== 'captainButton') {
+      allCards[id].forEach(function (card) {
+        card.style.display = 'none';
+      });
+    }
+  }
+  
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      var buttonId = this.id;
+  
+      for (var j = 0; j < buttons.length; j++) {
+        buttons[j].classList.remove('active');
+      }
+  
+      this.classList.add('active');
+  
+      for (var id in allCards) {
+        if (id === 'captainButton') {
+          if (buttonId === 'captainButton') {
+            captainCards.forEach(function (card) {
+              card.style.display = 'block';
+            });
+          } else {
+            captainCards.forEach(function (card) {
+              card.style.display = 'none';
+            });
+          }
+        } else {
+          allCards[id].forEach(function (card) {
+            card.style.display = 'none';
+          });
+        }
+      }
+  
+      allCards[buttonId].forEach(function (card) {
+        card.style.display = 'block';
+      });
+    });
+  }
+  
   document.getElementById('aragornButton').click();
-});
+  
+});  
