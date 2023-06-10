@@ -174,7 +174,6 @@ function moveToPrep(card) {
 
   cardDiv.appendChild(img);  
   prepContainer.appendChild(cardDiv);  
-  cardCount--;
   updateDeckCountDisplay();
 
   cardDiv.addEventListener('mousemove', function(e) {
