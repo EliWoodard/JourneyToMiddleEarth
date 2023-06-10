@@ -114,6 +114,7 @@ function scout() {
       prepButton.textContent = 'Prep';
       prepButton.addEventListener('click', function() {
         pendingActions.push({ action: 'moveToPrep', card: scoutedCards[i] });
+        cardCount --;
         scoutedCards[i] = null;
         cardContainer.style.display = 'none';
     });

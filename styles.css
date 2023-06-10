@@ -1415,4 +1415,12 @@ body {
   border-radius: 5%;
 }
 
+.sidePanel {
+  display: none;
+  flex: 9;
+  background-color: #e0e0e0;
+  width: 90%;
+  flex-direction: column;
+}
+
 /*# sourceMappingURL=styles.css.map */
