@@ -291,32 +291,6 @@ function displayDiscardPile() {
   discardDisplay.id = 'discardDisplay';
   discardDisplay.style.display = 'flex';
   document.body.appendChild(discardDisplay);
-  
-  for(let i = 0; i < discardPile.length; i++) {
-    let card = discardPile[i]; 
-    let cardContainer = document.createElement('div');
-    let img = document.createElement('img');
-    let prepButton = document.createElement('button');
-  
-    img.src = card.img;
-    img.alt = card.name;
-    img.classList.add('scoutedCard');
-  
-    prepButton.textContent = 'Prep';
-    prepButton.addEventListener('click', function() {
-      moveToPrep(card); 
-      discardPile.splice(i, 1);
-      cardContainer.style.display = 'none';
-      updateDiscardCountDisplay();
-      displayTopDiscard();  
-    });
-  
-    cardContainer.appendChild(img);
-    cardContainer.appendChild(prepButton); 
-    cardContainer.classList.add('scoutCardProperties');
-  
-    discardDisplay.appendChild(cardContainer);
-  }
 
   let discardDisplayBackground = document.createElement('div');
   discardDisplayBackground.id = 'discardDisplayBackground';
@@ -355,6 +329,9 @@ function showDiscard() {
         cardContainer.style.display = 'none';
         updateDiscardCountDisplay();
         displayTopDiscard();
+
+        document.body.removeChild(discardDisplay);
+        document.body.removeChild(discardDisplayBackground);
     });
 
     cardContainer.appendChild(img);
