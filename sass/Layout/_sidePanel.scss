@@ -1,7 +1,27 @@
+$boxHeight: calc(100vh / 3); 
+$backgroundColor: #e0e0e0;
+
 .sidePanel {
-    display: none;
-    flex: 9;
-    background-color: #e0e0e0;
-    width: 90%;
-    flex-direction: column;
-  }
+  display: none;
+  flex: 9;
+  background-color: $backgroundColor;
+  width: 90%;
+  flex-direction: column;
+}
+
+#damageContainer,
+#fearContainer,
+#terrianContainer {
+  width: calc(100% - 2px);
+  min-width: 100%;
+  height: calc((100vh / 3) - 2px);
+  background-color: $backgroundColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+  box-sizing: border-box;
+}

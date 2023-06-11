@@ -57,50 +57,55 @@ body {
 }
 
 .addEquipmentButton {
-  width: 33%;
+  width: 100%;
   color: white;
   border-color: #999;
   background-color: #333;
 }
 
-.addItemButton {
-  width: 34%;
-  color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.addCreatureButton {
-  width: 33%;
+.addItemButton, .addCreatureButton, .addBaneButton {
+  width: 100%;
+  height: 10%;
   color: white;
   border-color: #999;
   background-color: #333;
 }
 
 .addFearButton {
-  width: 50%;
+  width: 10%;
+  height: 5%;
+  right: 1%;
+  bottom: 34.333%;
+  position: absolute;
+  font-size: 90%;
   color: white;
+  overflow: hidden;
   border-color: #999;
   background-color: #333;
 }
 
 .addDamageButton {
-  width: 50%;
+  width: 10%;
+  height: 5%;
+  right: 1%;
+  bottom: 67.666%;
+  position: absolute;
+  font-size: 90%;
   color: white;
-  border-color: #999;
-  background-color: #333;
-}
-
-.addBaneButton {
-  width: 50%;
-  color: white;
+  overflow: hidden;
   border-color: #999;
   background-color: #333;
 }
 
 .addTerrianButton {
-  width: 50%;
+  width: 10%;
+  height: 5%;
+  right: 1%;
+  bottom: 1%;
+  position: absolute;
+  font-size: 90%;
   color: white;
+  overflow: hidden;
   border-color: #999;
   background-color: #333;
 }
@@ -265,7 +270,6 @@ body {
 
 /*Fear*/
 .fearImageDisplay {
-  margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
   box-shadow: 0 0 10px #002341, 0 0 10px rgb(0, 86, 121);
@@ -273,12 +277,11 @@ body {
 }
 
 .fearCardProp {
-  width: 15%;
-  min-width: 135px;
+  height: 98%;
   margin: 4px;
-  transform: scale(1);
   perspective: 600px;
   transition: all 250ms ease-out;
+  box-sizing: border-box;
 }
 
 .fearCardProp:hover {
@@ -292,8 +295,11 @@ body {
 
 /*Damage*/
 .damageCardProp {
-  width: 18%;
-  min-width: 135px;
+  height: 98%;
+  margin: 4px;
+  perspective: 600px;
+  transition: all 250ms ease-out;
+  box-sizing: border-box;
 }
 
 .damageCardProp:hover {
@@ -306,7 +312,6 @@ body {
 }
 
 .damageImageDisplay {
-  margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
   will-change: transform, filter;
@@ -348,11 +353,11 @@ body {
 
 /*Terrian*/
 .terrianCardProp {
-  width: 18%;
-  min-width: 135px;
+  height: 98%;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
+  box-sizing: border-box;
 }
 
 .terrianCardProp:hover {
@@ -366,8 +371,6 @@ body {
 }
 
 .terrianCardProp img {
-  width: 100%;
-  height: 100%;
   will-change: transform, filter;
   box-shadow: 0 0 10px #014100, 0 0 10px rgb(0, 121, 69);
   transition: all 250ms ease-out;
@@ -568,9 +571,15 @@ body {
   overflow-y: scroll;
 }
 
-.fearSave {
+.itemContainer, .creatureContainer, .baneContainer {
+  width: 33.3333%;
   height: 100%;
-  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemSave, .creatureSave, .baneSave {
+  height: 90%; /* 90% of the height of their container */
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -578,9 +587,12 @@ body {
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
-  overflow: visible;
   margin: 1%;
   gap: 1%;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+  box-sizing: border-box;
 }
 
 .equipmentSave {
@@ -598,79 +610,20 @@ body {
   margin: 1%;
 }
 
-.itemSave {
-  height: 100%;
-  min-height: 230px;
+.damageSave, .fearSave, .terrianSave {
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
   gap: 1%;
-}
-
-.creatureSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.damageSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.baneSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.terrianSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
+  padding: 4px;
+  overflow-y: clip;
+  overflow-x: auto;
+  max-height: 100%;
+  width: 98%;
+  height: 98%;
+  box-sizing: border-box;
 }
 
 .fearContainer {
@@ -1421,6 +1374,23 @@ body {
   background-color: #e0e0e0;
   width: 90%;
   flex-direction: column;
+}
+
+#damageContainer,
+#fearContainer,
+#terrianContainer {
+  width: calc(100% - 2px);
+  min-width: 100%;
+  height: calc(33.3333333333vh - 2px);
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=styles.css.map */

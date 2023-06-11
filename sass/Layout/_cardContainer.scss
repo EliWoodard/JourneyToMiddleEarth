@@ -32,10 +32,15 @@
   overflow-y: scroll;
 }
 
-
-.fearSave {
+.itemContainer, .creatureContainer, .baneContainer {
+  width: 33.3333%;
   height: 100%;
-  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemSave, .creatureSave, .baneSave {
+  height: 90%; /* 90% of the height of their container */
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -43,9 +48,12 @@
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
-  overflow: visible;
   margin: 1%;
   gap: 1%;
+  border-left: 1px solid #ccc;
+  border: inset;
+  border-color: #999;
+  box-sizing: border-box;
 }
 
 .equipmentSave {
@@ -63,77 +71,18 @@
   margin: 1%;
 }
 
-.itemSave {
-  height: 100%;
-  min-height: 230px;
+.damageSave, .fearSave, .terrianSave {
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
   gap: 1%;
-}
-
-.creatureSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.damageSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.baneSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
-}
-
-.terrianSave {
-  height: 100%;
-  min-height: 230px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow: visible;
-  margin: 1%;
-  gap: 1%;
+  padding: 4px;
+  overflow-y: clip;
+  overflow-x: auto;
+  max-height: 100%;
+  width: 98%;
+  height: 98%;
+  box-sizing: border-box;
 }

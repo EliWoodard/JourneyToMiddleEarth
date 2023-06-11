@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!selectedTerrian.includes(terrianBox)) {
         imageInContainer = document.createElement('img');
         imageInContainer.src = imageInBox.src;
+        imageInContainer.style.height = "100%";
         imageInContainer.style.borderRadius = "5%";
         imageInContainer.classList.add('terrianImageDisplay');
 
