@@ -1,20 +1,39 @@
 .left-column {
-    flex: 1;
-    background-color: #f0f0f0;
-    width: 10%;
+  flex: 1;
+  background-color: #f0f0f0;
+  width: 10%;
+  position: relative;
+  overflow: hidden;
 }
 
 .tab {
-    padding: 10px;
-    cursor: pointer;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.tab .ripple {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  transform: scale(0);
+  animation: ripple-animation 1s linear;
+}
+
+@keyframes ripple-animation {
+  to {
+      transform: scale(4);
+      opacity: 0;
   }
-  
-  .tab.active {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .tab:hover {
-    background-color: #333;
-    color: #fff;
-  }
+}
