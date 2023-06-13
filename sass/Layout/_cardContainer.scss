@@ -79,8 +79,7 @@
   align-items: flex-start;
   gap: 1%;
   padding: 4px;
-  overflow-y: clip;
-  overflow-x: auto;
+  overflow: visible;
   max-height: 100%;
   width: 98%;
   height: 98%;

@@ -618,8 +618,7 @@ body {
   align-items: flex-start;
   gap: 1%;
   padding: 4px;
-  overflow-y: clip;
-  overflow-x: auto;
+  overflow: visible;
   max-height: 100%;
   width: 98%;
   height: 98%;
@@ -1405,6 +1404,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  overflow-x: scroll;
   border-left: 1px solid #ccc;
   border: inset;
   border-color: #999;
