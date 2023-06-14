@@ -40,7 +40,7 @@
 }
 
 .itemSave, .creatureSave, .baneSave {
-  height: 90%; /* 90% of the height of their container */
+  height: 90%; 
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -57,8 +57,7 @@
 }
 
 .equipmentSave {
-  height: 100%;
-  min-height: 230px;
+  height: 90%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -66,9 +65,8 @@
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
-  overflow: visible;
-  gap: 1%;
   margin: 1%;
+  gap: 1%;
 }
 
 .damageSave, .fearSave, .terrianSave {
