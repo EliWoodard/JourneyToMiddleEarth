@@ -84,6 +84,17 @@ function scout() {
       scoutDisplay.removeChild(scoutDisplay.firstChild);
   }
 
+  let actionsTaken = 0; 
+
+  function checkAndCloseDisplay() {
+    actionsTaken++;
+    if (actionsTaken === scoutCount) { 
+      performPendingActions();
+      document.getElementById('scoutDisplay').style.display = 'none';
+      document.getElementById('scoutDisplayBackground').style.display = 'none';
+    }
+  }
+
   for(let i = 0; i < scoutCount; i++) {
       let card = scoutedCards[i]; 
       let cardContainer = document.createElement('div');
@@ -102,6 +113,7 @@ function scout() {
         topDeck = [scoutedCards[i], ...topDeck];
         scoutedCards[i] = null;
         cardContainer.style.display = 'none';
+        checkAndCloseDisplay(); 
       });
 
       bottomButton.textContent = 'Bottom';
@@ -109,6 +121,7 @@ function scout() {
         bottomDeck = [...bottomDeck, scoutedCards[i]]; 
         scoutedCards[i] = null;
         cardContainer.style.display = 'none';
+        checkAndCloseDisplay(); 
       });
 
       prepButton.textContent = 'Prep';
@@ -117,9 +130,9 @@ function scout() {
         cardCount --;
         scoutedCards[i] = null;
         cardContainer.style.display = 'none';
-    });
+        checkAndCloseDisplay(); 
+      });
 
-      
       discardButton.textContent = 'Discard';
       discardButton.addEventListener('click', function() {
         discardPile.push(scoutedCards[i]);
@@ -128,6 +141,7 @@ function scout() {
         cardCount--;
         updateDeckCountDisplay();
         displayTopDiscard();  
+        checkAndCloseDisplay(); 
       });
 
       cardContainer.appendChild(img);
@@ -143,6 +157,7 @@ function scout() {
   document.getElementById('scoutDisplay').style.display = 'flex';
   document.getElementById('scoutDisplayBackground').style.display = 'flex';
 }
+
 
 
 function moveToTop(index) {
