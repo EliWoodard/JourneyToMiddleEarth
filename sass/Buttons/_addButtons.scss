@@ -10,9 +10,14 @@
   border: none;
 }
 
-.addBoon, .addItemButton, .addCreatureButton, .addBaneButton, .addEquipmentButton {
+.addItemButton, .addCreatureButton, .addBaneButton, .addEquipmentButton {
   width: 100%;
   height: 10%;
+}
+
+.addBoon {
+  width: 100%;
+  height: 100%;
 }
 
 .addFearButton, .addDamageButton, .addTerrianButton {

@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var amountOfCard = document.createElement('div');
       amountOfCard.className = 'amountOfCard';
   
-      var minus = document.createElement('div');
+      var minus = document.createElement('button');
       minus.className = 'minus';
       minus.innerText = '-';
       amountOfCard.appendChild(minus);
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
       number.innerText = localStorage.getItem(filename) || '0';
       amountOfCard.appendChild(number);
   
-      var plus = document.createElement('div');
+      var plus = document.createElement('button');
       plus.className = 'plus';
       plus.innerText = '+';
       amountOfCard.appendChild(plus);
@@ -327,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   
-  // Hide all cards initially except the captain cards
   for (var id in allCards) {
     if (id !== 'captainButton') {
       allCards[id].forEach(function (card) {
