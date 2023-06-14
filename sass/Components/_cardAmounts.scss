@@ -11,9 +11,20 @@
   align-items: center;
 }
 
+.night-mode .cardCount {
+  background-image: initial;
+  background-color: rgb(24, 26, 27);
+  color: rgb(232, 230, 227);
+}
+
 #myNumberInput {
   width: 50%;
   font-size: calc(.8vh + .8vw);
+}
+
+.night-mode #myNumberInput {
+  background: rgb(77, 83, 86);
+  color: rgb(232, 230, 227);
 }
 
 .discardCounter {
@@ -27,4 +38,10 @@
   font-size: calc(1vh + 1vw);
   align-items: center;
   justify-content: space-evenly;
+}
+
+.night-mode .discardCounter {
+  background-image: initial;
+  background-color: rgb(24, 26, 27);
+  color: rgb(232, 230, 227);
 }

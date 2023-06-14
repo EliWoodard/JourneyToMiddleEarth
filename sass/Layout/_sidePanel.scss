@@ -9,6 +9,10 @@ $backgroundColor: #e0e0e0;
   flex-direction: column;
 }
 
+.night-mode .sidePanel {
+  background-color: rgb(42, 45, 47);
+}
+
 #damageContainer,
 #fearContainer,
 #terrianContainer {
@@ -25,4 +29,9 @@ $backgroundColor: #e0e0e0;
   border: inset;
   border-color: #999;
   box-sizing: border-box;
+}
+
+.night-mode #damageContainer, .night-mode #fearContainer, .night-mode #terrianContainer {
+  background-color: rgb(42, 45, 47);
+  border-color: rgb(77, 83, 86);
 }

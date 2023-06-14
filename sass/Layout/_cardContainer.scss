@@ -56,6 +56,12 @@
   box-sizing: border-box;
 }
 
+.night-mode .itemSave, 
+.night-mode .creatureSave, 
+.night-mode .baneSave {
+    border-color: rgb(77, 83, 86);
+}
+
 .equipmentSave {
   height: 90%;
   display: flex;

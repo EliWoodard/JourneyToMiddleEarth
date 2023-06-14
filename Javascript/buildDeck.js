@@ -78,6 +78,10 @@ function scout() {
     shuffleIntoDeck();
   }
 
+  if (scoutCount > deckContainer.length) {
+    return;
+  }
+
   scoutedCards = deckContainer.splice(0, scoutCount); 
 
   while(scoutDisplay.firstChild) {
@@ -103,6 +107,19 @@ function scout() {
       let bottomButton = document.createElement('button');
       let prepButton = document.createElement('button');
       let discardButton = document.createElement('button'); 
+      let deckChoiceContainer = document.createElement('div');
+
+      deckChoiceContainer.classList.add('deckChoiceContainer');
+
+      topButton.classList.add('deckChoice');
+      bottomButton.classList.add('deckChoice');
+      prepButton.classList.add('deckChoice');
+      discardButton.classList.add('deckChoice');
+
+      deckChoiceContainer.appendChild(topButton);
+      deckChoiceContainer.appendChild(bottomButton);
+      deckChoiceContainer.appendChild(prepButton);
+      deckChoiceContainer.appendChild(discardButton);
 
       img.src = card.img;
       img.alt = card.name;
@@ -145,12 +162,9 @@ function scout() {
       });
 
       cardContainer.appendChild(img);
-      cardContainer.appendChild(topButton);
-      cardContainer.appendChild(bottomButton);
-      cardContainer.appendChild(prepButton);
-      cardContainer.appendChild(discardButton); 
+      cardContainer.appendChild(deckChoiceContainer);
       cardContainer.classList.add('scoutCardProperties');
-
+  
       scoutDisplay.appendChild(cardContainer);
   }
 
@@ -332,6 +346,7 @@ function showDiscard() {
     let cardContainer = document.createElement('div');
     let img = document.createElement('img');
     let prepButton = document.createElement('button');
+    prepButton.classList.add('discardChoice');
 
     img.src = card.img;
     img.alt = card.name;

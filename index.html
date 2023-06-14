@@ -22,15 +22,25 @@
   <script src="Javascript/buildDeck.js"></script>
   <script src="Javascript/managePrepedCard.js"></script>
   <script src="Javascript/classType.js"></script>
-
+  <script src="Javascript/nightLight.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="column left-column">
-      <div class="tab active" >Player</div>
-      <div class="tab">Side Panel</div>
-      <div class="tab">Deck</div>
+      <div class="tabChoices">
+        <div class="tab active" >Player</div>
+        <div class="tab">Side Panel</div>
+        <div class="tab">Deck</div>
+      </div>
+      <div class="additionsToLeftColumn">
+        <div id="theme-toggle" class="theme-toggle">
+            <div class="icons-wrapper">
+                <img src="Images\Nightmode\sun-icon.png" alt="Sun" class="theme-image sun">
+                <img src="Images\Nightmode\moon-icon.png" alt="Moon" class="theme-image moon">
+            </div>
+        </div>
+    </div>
     </div>
     <div class="column playerColumn">
       <div class="playerRow1">

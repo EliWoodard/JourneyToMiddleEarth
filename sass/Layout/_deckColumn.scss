@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.night-mode .deckColumn {
+  background-color: rgb(42, 45, 47);
+}
+
 .deck {
   width: 50%;
   text-align: -webkit-center;
@@ -13,6 +17,10 @@
   flex-direction: column;
   border: inset;
   border-color: #999;
+}
+
+.night-mode .deck {
+  border-color: rgb(77, 83, 86);
 }
 
 .deckContainer {
@@ -47,13 +55,27 @@
   height: 100%;
 }
 
+.night-mode .vertical-button {
+  background: #999;
+}
+
 .vertical-button:hover {
   background-color: #ddd;
+  cursor: pointer;
+}
+
+.night-mode .vertical-button:hover {
+  background-color: #7a7a7a;
   cursor: pointer;
 }
 
 .vertical-button.active {
   background-color: #333;
   color: #fff;
+}
+
+.night-mode .vertical-button.active {
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
 }
 

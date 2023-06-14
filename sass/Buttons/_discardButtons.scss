@@ -6,6 +6,11 @@
   background-color: #333;
 }
 
+.night-mode .shuffleIntoDeck {
+  color: rgb(232, 230, 227);
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(38, 42, 43);
+}
 
 .shuffleIntoTheDeck {
   height: 100%;
@@ -13,4 +18,27 @@
   color: white;
   border-color: #999;
   background-color: #333;
+}
+
+.night-mode .shuffleIntoTheDeck {
+  color: rgb(232, 230, 227);
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(38, 42, 43);
+}
+
+.discardChoice {
+  display: flex;
+  width: 100%;
+  border-color: #999;
+  background-color: #333;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.night-mode .discardChoice{
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
 }

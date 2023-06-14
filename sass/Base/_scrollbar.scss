@@ -3,8 +3,17 @@
     height: 5px;
 }
 
+.night-mode ::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
+}
+
+.night-mode ::-webkit-scrollbar-track {
+    background-image: initial;
+    background-color: rgb(32, 35, 36);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -1,31 +1,44 @@
 .insperation-counter {
-    position: absolute;
-    top: 13%;
-    left: 76.5%;
-    width: 18%;
-    height: 28%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    display: flex;
-    align-content: space-around;
-    align-items: center;
-    justify-content: space-between;
+  position: absolute;
+  top: 13%;
+  left: 76.5%;
+  width: 18%;
+  height: 28%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.night-mode .insperation-counter {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .counter-btn {
-    display: flex;
-    width: 1vw;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #6a6a6a;
-    color: #fff;
-    font-size: clamp(12px, 1vw, 24px);
-    cursor: pointer;
-  }
-  
-  .counter-value {
-    font-size: 4vw;
-    color: #fff;
-  }
+  display: flex;
+  width: 1vw;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #6a6a6a;
+  color: #fff;
+  font-size: clamp(12px, 1vw, 24px);
+  cursor: pointer;
+}
+
+.night-mode .counter-btn {
+  background-color: rgb(58 62 65);
+  color: rgb(232, 230, 227);
+}
+
+.counter-value {
+  font-size: 4vw;
+  color: #fff;
+}
+
+.night-mode .counter-value {
+  color: rgb(232, 230, 227);
+}
   

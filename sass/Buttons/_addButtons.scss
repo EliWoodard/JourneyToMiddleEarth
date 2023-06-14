@@ -4,6 +4,24 @@
   color: white;
 }
 
+.night-mode .addEffect,
+.night-mode .addBoon,
+.night-mode .addItemButton,
+.night-mode .addCreatureButton,
+.night-mode .addBaneButton,
+.night-mode .addEquipmentButton,
+.night-mode .addFearButton,
+.night-mode .addDamageButton,
+.night-mode .addTerrianButton,
+.night-mode .addWeakness,
+.night-mode .addAWeakness,
+.night-mode .baneTerrianAdd {
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
+}
+
+
 .addEffect {
   height: 10%;
   margin: 0;

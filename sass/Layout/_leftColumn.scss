@@ -4,6 +4,18 @@
   width: 10%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.night-mode .left-column {
+  background-color: rgb(32, 35, 37);
+}
+
+.tabChoices {
+  display: flex;
+  flex-direction: column;
 }
 
 .tab {
@@ -11,6 +23,10 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+}
+
+.night-mode .tab {
+  color: white;
 }
 
 .tab.active {
@@ -37,3 +53,54 @@
       opacity: 0;
   }
 }
+
+.additionsToLeftColumn {
+  display: flex;
+  position: relative;
+  height: 15%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  transition: opacity 0.5s;
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-image {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  backface-visibility: hidden;
+}
+
+.sun {
+  filter: invert(1);
+  transform: rotateY(0);
+}
+
+.moon {
+  filter: invert(1);
+  transform: rotateY(-180deg);
+}
+
+.night-mode .icons-wrapper {
+  transform: rotateY(180deg);
+}
+

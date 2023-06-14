@@ -28,6 +28,11 @@
   gap: 1%;
 }
 
+.night-mode .modal-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
+}
+
 .box {
   height: 80%;
   display: flex;
@@ -70,6 +75,11 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+}
+
+.night-mode .equipment-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
 }
 
 .equipment-box {
@@ -129,6 +139,11 @@
   overflow: scroll;
 }
 
+.night-mode .itemModal-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
+}
+
 .itemImages {
   display: none;
 }
@@ -177,6 +192,11 @@
   overflow: scroll;
 }
 
+.night-mode .creatureModal-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
+}
+
 .creatureImages {
   display: none;
 }
@@ -210,6 +230,11 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+}
+
+.night-mode .fear-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
 }
 
 .fear-box,
@@ -279,6 +304,11 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+}
+
+.night-mode .damage-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
 }
 
 .damage-box {
@@ -386,6 +416,11 @@
   flex-wrap: wrap;
   overflow: scroll;
   gap: 1%;
+}
+
+.night-mode .terrian-content {
+  background-color: rgb(41 41 41);
+  border-color: rgb(49 49 49);
 }
 
 .terrian-box {

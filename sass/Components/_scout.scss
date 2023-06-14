@@ -42,3 +42,26 @@
 .hidden {
   display: none;
 }
+
+.deckChoiceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.deckChoice {
+  display: flex;
+  width: 50%;
+  border-color: #999;
+  background-color: #333;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.night-mode .deckChoice{
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
+}
