@@ -4,22 +4,25 @@ document.addEventListener("DOMContentLoaded", function() {
     var tabChoices = document.querySelector(".tabChoices");
     var additionsToLeftColumn = document.querySelector(".additionsToLeftColumn");
     var isShrunk = false;
+    var originalWidth = "10%";
 
     shrinkButton.addEventListener("click", function() {
         isShrunk = !isShrunk;
 
         if (isShrunk) {
-            leftColumn.classList.add("shrink");
-            tabChoices.style.display = "none";
-            additionsToLeftColumn.style.display = "none";
-            shrinkButton.classList.add("flipped");
-            shrinkButton.classList.remove("button-extended");
+            leftColumn.style.width = "1%";
+            tabChoices.style.opacity = "1%";
+            additionsToLeftColumn.style.opacity = "1%";
+            tabChoices.style.pointerEvents = "none"; 
+            additionsToLeftColumn.style.pointerEvents = "none"; 
+            shrinkButton.classList.add("rotate");
         } else {
-            leftColumn.classList.remove("shrink");
-            tabChoices.style.display = "block";
-            additionsToLeftColumn.style.display = "flex";
-            shrinkButton.classList.remove("flipped");
-            shrinkButton.classList.add("button-extended");
+            leftColumn.style.width = originalWidth;
+            tabChoices.style.opacity = "1";
+            additionsToLeftColumn.style.opacity = "1";
+            tabChoices.style.pointerEvents = "auto"; 
+            additionsToLeftColumn.style.pointerEvents = "auto"; 
+            shrinkButton.classList.remove("rotate");
         }
     });
 });

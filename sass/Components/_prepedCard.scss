@@ -10,11 +10,13 @@
 }
 
 .prepedCardContainer {
-  width: 98%;
+  width: 95%;
   height: 98%;
+  position: relative;
   margin: 1%;
   display: flex;
   flex-wrap: nowrap;
+  left: 3%;
   align-items: flex-start;
   flex-direction: row;
   justify-content: flex-start;
