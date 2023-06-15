@@ -239,7 +239,7 @@ body {
 
 .equipmentCardProp {
   width: 18%;
-  min-width: 135px;
+  min-width: 125px;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -267,7 +267,7 @@ body {
 /*Items*/
 .itemCardProp {
   width: 18%;
-  min-width: 135px;
+  min-width: 125px;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -285,7 +285,7 @@ body {
 /*Creatures*/
 .creatureCardProp {
   width: 18%;
-  min-width: 135px;
+  min-width: 125px;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -358,7 +358,7 @@ body {
 /*Bane*/
 .baneCardProp {
   width: 15%;
-  min-width: 135px;
+  min-width: 125px;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -1033,12 +1033,13 @@ body {
 .left-column {
   flex: 1;
   background-color: #f0f0f0;
-  width: 10%;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: visible;
+  transition: all 0.5s ease-in-out;
 }
 
 .night-mode .left-column {
@@ -1133,6 +1134,43 @@ body {
 
 .night-mode .icons-wrapper {
   transform: rotateY(180deg);
+}
+
+.shrink-button {
+  position: absolute;
+  top: 50%;
+  right: -25px; /* 25px inside and 25px outside of the left-column */
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #343434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.5s, right 0.5s;
+  color: #e7e7e7;
+  font-size: 200%;
+  z-index: 1; /* Make sure it stays above other elements */
+}
+
+.shrink {
+  flex-basis: 0 !important;
+  flex-grow: 0 !important;
+  min-width: 0 !important; /* Allow it to shrink beyond the content size */
+}
+
+.flipped {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.hidden-content .tabChoices, .hidden-content .additionsToLeftColumn {
+  display: none;
+}
+
+.button-extended {
+  right: -25px; /* keep it centered on the edge */
 }
 
 .playerColumn {
