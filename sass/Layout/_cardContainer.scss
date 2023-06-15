@@ -1,6 +1,6 @@
 .effectCardsContainer {
   height: 100%;
-  min-height: 230px;
+  height: 90%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -8,14 +8,12 @@
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
-  overflow: visible;
   margin: 1%;
   gap: 1%;
 }
 
 .effectCardsContainer img {
-  max-width: 150px;
-  max-height: 98%;
+  height: 100%;
   border-radius: 5%;
 }
 

@@ -224,6 +224,11 @@ body {
   transition: all 250ms ease-out;
 }
 
+.boonCardProp {
+  height: 100%;
+  aspect-ratio: 16/24;
+}
+
 .boonImageDisplay {
   margin: 4px;
   perspective: 600px;
@@ -238,8 +243,8 @@ body {
 }
 
 .equipmentCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -266,8 +271,8 @@ body {
 
 /*Items*/
 .itemCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -284,8 +289,8 @@ body {
 
 /*Creatures*/
 .creatureCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -357,8 +362,8 @@ body {
 
 /*Bane*/
 .baneCardProp {
-  width: 15%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -537,8 +542,7 @@ body {
 }
 
 .prepedCard {
-  width: 18%;
-  min-width: 135px;
+  height: 100%;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -628,7 +632,7 @@ body {
 
 .effectCardsContainer {
   height: 100%;
-  min-height: 230px;
+  height: 90%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -636,14 +640,12 @@ body {
   justify-content: flex-start;
   overflow-x: scroll;
   overflow-y: hidden;
-  overflow: visible;
   margin: 1%;
   gap: 1%;
 }
 
 .effectCardsContainer img {
-  max-width: 150px;
-  max-height: 98%;
+  height: 100%;
   border-radius: 5%;
 }
 
@@ -1057,19 +1059,24 @@ body {
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background-color: #343434;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
   transition: transform 0.5s;
-  color: #e7e7e7;
+  color: #000;
+  font-weight: bold;
   font-size: 200%;
+  border-radius: 10%;
+  border-color: #333;
+  border-style: solid;
 }
 
 .night-mode .shrink-button {
   background-color: rgb(32, 35, 37);
+  color: #fff;
+  border-color: rgb(17, 23, 26);
 }
 
 .shrink-button.rotate {

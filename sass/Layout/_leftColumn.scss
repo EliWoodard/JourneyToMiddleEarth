@@ -25,19 +25,24 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background-color: #343434;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
   transition: transform 0.5s;
-  color: #e7e7e7;
+  color: #000;
+  font-weight: bold;
   font-size: 200%;
+  border-radius: 10%;
+  border-color: #333;
+  border-style: solid;
 }
 
 .night-mode .shrink-button {
   background-color: rgb(32, 35, 37);
+  color: #fff;
+  border-color: rgb(17 23 26);
 }
 
 .shrink-button.rotate {

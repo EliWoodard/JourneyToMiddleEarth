@@ -8,6 +8,11 @@
   transition: all 250ms ease-out;
 }
 
+.boonCardProp {
+  height: 100%;
+  aspect-ratio: 16/24;
+}
+
 .boonImageDisplay {
   margin: 4px;
   perspective: 600px;
@@ -22,8 +27,8 @@
 }
 
 .equipmentCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -50,8 +55,8 @@
 
 /*Items*/
 .itemCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -68,8 +73,8 @@
 
 /*Creatures*/
 .creatureCardProp {
-  width: 18%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
@@ -141,8 +146,8 @@
 
 /*Bane*/
 .baneCardProp {
-  width: 15%;
-  min-width: 125px;
+  height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
