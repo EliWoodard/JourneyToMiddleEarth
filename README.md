@@ -35,4 +35,4 @@ Journey to Middle Earth consists of multiple files, each handling a specific fun
 14. `manageBoons.js`: Manages Boon cards.
 15. `switchTabs.js`: Switches the interface between the player and deck building tabs.
 
-Embrace the Adventure Card Game experience digitally with the Journey to Middle Earth!
+Embrace the Adventure Card Game experience digitally with Journey to Middle Earth!
