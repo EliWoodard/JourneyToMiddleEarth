@@ -9,3 +9,50 @@
 .night-mode .characterColumn {
     background-color: rgb(42, 45, 47);
 }
+
+#chosenPlayerRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    border: inset;
+    border-color: #999;
+}
+
+#currentPlayer {
+    display: flex;
+    width: 25%;
+    height: 80%;
+    border: inset;
+    border-color: #999;
+}
+
+#choosablePlayers {
+    display: flex;
+    height: 70%;
+    width: 100%;
+    border: inset;
+    border-color: #999;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.night-mode #choosablePlayers, #currentPlayer, #chosenPlayerRow {
+    border-color: rgb(77, 83, 86);
+}
+
+.characterImage {
+    width: 400px;
+    height: 240px;
+    border-radius: 3%;
+}
+
+.characterCard {
+    /*Might add background edge*/
+    width: 400px;
+    height: 240px;
+    margin: 20px;
+}
