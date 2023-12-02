@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const playerColumn = document.querySelector(".playerColumn");
   const deckColumn = document.querySelector(".deckColumn");
   const sidePanel = document.querySelector(".sidePanel");
+  const characterColumn = document.querySelector("#characterColumn");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", function (e) {
@@ -25,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
         playerColumn.style.display = "none";
         deckColumn.style.display = "none";
         sidePanel.style.display = "block";
+      } else if (innerTextLower === "character") {
+        playerColumn.style.display = "none";
+        deckColumn.style.display = "none";
+        sidePanel.style.display = "none";
       }
     });
   });
