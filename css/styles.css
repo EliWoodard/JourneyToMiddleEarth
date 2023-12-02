@@ -795,8 +795,8 @@ body {
 
 #currentPlayer {
   display: flex;
-  width: 25%;
-  height: 80%;
+  width: 402px;
+  height: 242px;
   border: inset;
   border-color: #999;
 }
@@ -821,7 +821,7 @@ body {
 .characterImage {
   width: 400px;
   height: 240px;
-  border-radius: 1%;
+  border-radius: 3%;
 }
 
 .characterCard {
