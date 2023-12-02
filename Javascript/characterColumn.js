@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const img = document.createElement('img');
             img.classList.add('characterImage');
-            img.src = "Images/CharacterCards" + i +'.jpg';
+            img.src = "Images/CharacterCards/" + i +'.jpg';
             img.alt = 'Image ' + i;
 
             imageDiv.appendChild(img);
