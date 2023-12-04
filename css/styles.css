@@ -522,6 +522,7 @@ body {
   border: inset;
   border-color: #999;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .night-mode .prepedContainer {
@@ -543,6 +544,7 @@ body {
 
 .prepedCard {
   height: 100%;
+  aspect-ratio: 16/24;
   margin: 4px;
   perspective: 600px;
   transition: all 250ms ease-out;
