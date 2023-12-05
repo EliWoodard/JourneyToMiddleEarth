@@ -44,15 +44,29 @@
     border-color: rgb(77, 83, 86);
 }
 
-.characterImage {
-    width: 400px;
-    height: 240px;
-    border-radius: 3%;
-}
-
 .characterCard {
-    /*Might add background edge*/
     width: 400px;
     height: 240px;
     margin: 20px;
+}
+
+.characterImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 3%;
+}
+
+.current-player-image {
+    width: 400px;
+    height: 240px;
+}
+
+.container-player-image {
+    /*Might add background edge*/
+    width: 100%;
+    height: 100%;
+}
+
+.characterCard.selected {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

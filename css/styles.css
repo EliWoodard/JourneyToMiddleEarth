@@ -419,10 +419,13 @@ body {
 }
 
 .player-image-container {
-  height: 100%;
-  width: 100%;
+  height: 98%;
+  width: 98%;
+  top: 4px;
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardCount {
@@ -474,9 +477,10 @@ body {
 }
 
 .insperation-counter {
+  display: none;
   position: absolute;
-  top: 13%;
-  left: 76.5%;
+  top: 11%;
+  left: 77.3%;
   width: 18%;
   height: 28%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -519,6 +523,7 @@ body {
 
 .prepedContainer {
   width: 50%;
+  height: 100%;
   border: inset;
   border-color: #999;
   overflow-x: scroll;
@@ -820,17 +825,31 @@ body {
   border-color: rgb(77, 83, 86);
 }
 
-.characterImage {
-  width: 400px;
-  height: 240px;
-  border-radius: 3%;
-}
-
 .characterCard {
-  /*Might add background edge*/
   width: 400px;
   height: 240px;
   margin: 20px;
+}
+
+.characterImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+}
+
+.current-player-image {
+  width: 400px;
+  height: 240px;
+}
+
+.container-player-image {
+  /*Might add background edge*/
+  width: 100%;
+  height: 100%;
+}
+
+.characterCard.selected {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .deckColumn {
@@ -1285,6 +1304,7 @@ body {
   width: 34%;
   justify-content: center;
   display: flex;
+  align-items: center;
 }
 
 .playerRow4Right {
