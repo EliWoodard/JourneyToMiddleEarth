@@ -1027,6 +1027,10 @@ body {
   display: flex;
 }
 
+#topRow {
+  margin-bottom: 0;
+}
+
 .vertical-button {
   margin-bottom: 1%;
   padding: 10px;
