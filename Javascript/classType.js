@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var cardContainer = document.getElementById('classType');
 
   var imageMap = {
+    'beornButton': [
+      "Images/Beorn/Beorn1.jpg",
+      "Images/Beorn/Beorn2.jpg",
+      "Images/Beorn/Beorn3.jpg",
+      "Images/Beorn/Beorn4.jpg",
+      "Images/Beorn/Beorn5.jpg"
+    ],
     'captainButton': [
       "Images/Captain/Well Provisioned.jpg",
       "Images/Captain/Lead the Charge.jpg",
@@ -185,12 +192,12 @@ document.addEventListener('DOMContentLoaded', function () {
       "Images/Aragorn/Gift of Men.jpg"
     ],
     'basicButton': [
-      "Images/Basic/Undying Might.jpg",
-      "Images/Basic/Honed Agility.jpg",
-      "Images/Basic/Unyielding Spirit.jpg",
-      "Images/Basic/Ancient Wisdom.jpg",
-      "Images/Basic/Clever Wit.jpg",
-      "Images/Basic/Time of Need.jpg"
+      "Images/Basic/Basic1.jpg",
+      "Images/Basic/Basic2.jpg",
+      "Images/Basic/Basic3.jpg",
+      "Images/Basic/Basic4.jpg",
+      "Images/Basic/Basic5.jpg",
+      "Images/Basic/Basic6.jpg"
     ],
     'titleButton': [
       "Images/Title/Mist-Walker.jpg",
