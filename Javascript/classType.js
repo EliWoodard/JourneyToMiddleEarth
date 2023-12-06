@@ -3,6 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var cardContainer = document.getElementById('classType');
 
   var imageMap = {
+    'legolasButton': [
+      "Images/Legolas/Legolas1.jpg",
+      "Images/Legolas/Legolas2.jpg",
+      "Images/Legolas/Legolas3.jpg",
+      "Images/Legolas/Legolas4.jpg",
+      "Images/Legolas/Legolas5.jpg"
+    ],
+    'gimliButton': [
+      "Images/Gimli/Gimli1.jpg",
+      "Images/Gimli/Gimli2.jpg",
+      "Images/Gimli/Gimli3.jpg",
+      "Images/Gimli/Gimli4.jpg",
+      "Images/Gimli/Gimli5.jpg"
+    ],
     'beornButton': [
       "Images/Beorn/Beorn1.jpg",
       "Images/Beorn/Beorn2.jpg",
