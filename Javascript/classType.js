@@ -3,6 +3,97 @@ document.addEventListener('DOMContentLoaded', function () {
   var cardContainer = document.getElementById('classType');
 
   var imageMap = {
+    'eleanorButton': [
+      "Images/Eleanor/Eleanor1.jpg",
+      "Images/Eleanor/Eleanor2.jpg",
+      "Images/Eleanor/Eleanor3.jpg",
+      "Images/Eleanor/Eleanor4.jpg",
+      "Images/Eleanor/Eleanor5.jpg"
+    ],
+    'arwenButton': [
+      "Images/Arwen/Arwen1.jpg",
+      "Images/Arwen/Arwen2.jpg",
+      "Images/Arwen/Arwen3.jpg",
+      "Images/Arwen/Arwen4.jpg",
+      "Images/Arwen/Arwen5.jpg"
+    ],
+    'calaminthButton': [
+      "Images/Calaminth/Calaminth1.jpg",
+      "Images/Calaminth/Calaminth2.jpg",
+      "Images/Calaminth/Calaminth3.jpg",
+      "Images/Calaminth/Calaminth4.jpg",
+      "Images/Calaminth/Calaminth5.jpg"
+    ],
+    'disButton': [
+      "Images/Dis/Dis1.jpg",
+      "Images/Dis/Dis2.jpg",
+      "Images/Dis/Dis3.jpg",
+      "Images/Dis/Dis4.jpg",
+      "Images/Dis/Dis5.jpg"
+    ],
+    'dwalinButton': [
+      "Images/Dwalin/Dwalin1.jpg",
+      "Images/Dwalin/Dwalin2.jpg",
+      "Images/Dwalin/Dwalin3.jpg",
+      "Images/Dwalin/Dwalin4.jpg",
+      "Images/Dwalin/Dwalin5.jpg"
+    ],
+    'boromirButton': [
+      "Images/Boromir/Boromir1.jpg",
+      "Images/Boromir/Boromir2.jpg",
+      "Images/Boromir/Boromir3.jpg",
+      "Images/Boromir/Boromir4.jpg",
+      "Images/Boromir/Boromir5.jpg"
+    ],
+    'elenaButton': [
+      "Images/Elena/Elena1.jpg",
+      "Images/Elena/Elena2.jpg",
+      "Images/Elena/Elena3.jpg",
+      "Images/Elena/Elena4.jpg",
+      "Images/Elena/Elena5.jpg"
+    ],
+    'renerienButton': [
+      "Images/Renerien/Renerien1.jpg",
+      "Images/Renerien/Renerien2.jpg",
+      "Images/Renerien/Renerien3.jpg",
+      "Images/Renerien/Renerien4.jpg",
+      "Images/Renerien/Renerien5.jpg"
+    ],
+    'balinButton': [
+      "Images/Balin/Balin1.jpg",
+      "Images/Balin/Balin2.jpg",
+      "Images/Balin/Balin3.jpg",
+      "Images/Balin/Balin4.jpg",
+      "Images/Balin/Balin5.jpg"
+    ],
+    'freahildButton': [
+      "Images/Freahild/Freahild1.jpg",
+      "Images/Freahild/Freahild2.jpg",
+      "Images/Freahild/Freahild3.jpg",
+      "Images/Freahild/Freahild4.jpg",
+      "Images/Freahild/Freahild5.jpg"
+    ],
+    'bilboButton': [
+      "Images/Bilbo/Bilbo1.jpg",
+      "Images/Bilbo/Bilbo2.jpg",
+      "Images/Bilbo/Bilbo3.jpg",
+      "Images/Bilbo/Bilbo4.jpg",
+      "Images/Bilbo/Bilbo5.jpg"
+    ],
+    'beravorButton': [
+      "Images/Beravor/Beravor1.jpg",
+      "Images/Beravor/Beravor2.jpg",
+      "Images/Beravor/Beravor3.jpg",
+      "Images/Beravor/Beravor4.jpg",
+      "Images/Beravor/Beravor5.jpg"
+    ],
+    'gandalfButton': [
+      "Images/Gandalf/Gandalf1.jpg",
+      "Images/Gandalf/Gandalf2.jpg",
+      "Images/Gandalf/Gandalf3.jpg",
+      "Images/Gandalf/Gandalf4.jpg",
+      "Images/Gandalf/Gandalf5.jpg"
+    ],
     'legolasButton': [
       "Images/Legolas/Legolas1.jpg",
       "Images/Legolas/Legolas2.jpg",
