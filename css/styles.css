@@ -537,7 +537,6 @@ body {
 .prepedCardContainer {
   width: 98%;
   height: 98%;
-  margin: 1%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -545,6 +544,10 @@ body {
   justify-content: flex-start;
   overflow: visible;
   gap: 1%;
+}
+
+.prepedCardContainer:first-child {
+  margin-left: 30px;
 }
 
 .prepedCard {
