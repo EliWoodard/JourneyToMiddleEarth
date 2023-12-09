@@ -2,11 +2,50 @@ document.addEventListener('DOMContentLoaded', function () {
     var container = document.getElementsByClassName('equipment-content')[0];
 
     var library = [
-        // Armour
+        // Armor
+        // Travel Garb
+        "Images/Equipment/Travel Garb.jpg",
+        "Images/Equipment/Travel Garb(2).jpg",
+        "Images/Equipment/Westmarch Garb.jpg",
         "Images/Equipment/Greenwood Garb.jpg",
         "Images/Equipment/Ever-Bloom.jpg",
         "Images/Equipment/Wanderer's Wish.jpg",
         "Images/Equipment/Endless Road.jpg",
+        // Cloaks
+        "Images/Equipment/Cloak.jpg",
+        "Images/Equipment/Cloak(2).jpg",
+        "Images/Equipment/Cloak(3).jpg",
+        "Images/Equipment/Tuckborough Cloak.jpg",
+        "Images/Equipment/Ranger Cloak.jpg",
+        "Images/Equipment/Fangorn Cloak.jpg",
+        "Images/Equipment/Wind-Walker.jpg",
+        "Images/Equipment/Slip-Thorn.jpg",
+        "Images/Equipment/Splendor-Well.jpg",
+        "Images/Equipment/Storm-Shroud.jpg",
+        // Padded Armor
+        "Images/Equipment/Padded Armor.jpg",
+        "Images/Equipment/Padded Armor(2).jpg",
+        "Images/Equipment/Vanguard Armor.jpg",
+        "Images/Equipment/Guard's Tabard.jpg",
+        "Images/Equipment/Glory-Mantle.jpg",
+        "Images/Equipment/Ever-Vigilant.jpg",
+        "Images/Equipment/Heart-Swell.jpg",
+        "Images/Equipment/Star of the West.jpg",
+        //Plate Armor
+        "Images/Equipment/Plate Armor.jpg",
+        "Images/Equipment/Iron Hills Plate.jpg",
+        "Images/Equipment/Iron-Soul.jpg",
+        "Images/Equipment/Defender of the Citadel.jpg",
+        "Images/Equipment/King's Crest.jpg",
+        // Ring Mail
+        "Images/Equipment/Ring Mail.jpg",
+        "Images/Equipment/Ring Mail(2).jpg",
+        "Images/Equipment/Twice-Wrought Ring Mail.jpg",
+        "Images/Equipment/Evendim Ring Mail.jpg",
+        "Images/Equipment/Second Skin.jpg",
+        "Images/Equipment/Blade-Bane.jpg",
+        "Images/Equipment/Wrath's-End.jpg",
+        "Images/Equipment/Dragon Scale.jpg",
         // Weapons
         // Swords
         "Images/Equipment/Sword.jpg",
