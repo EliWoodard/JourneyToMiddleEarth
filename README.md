@@ -27,12 +27,14 @@ Journey to Middle Earth consists of multiple files, each handling a specific fun
 6. `addFear.js`: Responsible for adding Fear cards.
 7. `addItem.js`: Handles the addition of Item cards.
 8. `addTerrain.js`: Manages the addition of Terrain cards.
-9. `buildDeck.js`: Responsible for building the card deck.
-10. `deckIncrement.js`: Manages the incrementing and decrementing of card count in the deck.
-11. `flipDamage.js`: Handles the flipping of Damage cards.
-12. `flipFear.js`: Manages the flipping of Fear cards.
-13. `inspirationCounter.js`: Handles the tracking of the inspiration counter.
-14. `manageBoons.js`: Manages Boon cards.
-15. `switchTabs.js`: Switches the interface between the player and deck building tabs.
+9. `buildDeck.js`: Responsible for building the card deck. 
+10. `characterColumn`: Handles switching between characters.
+11. `classType`: Holds all character/role specific cards that you can select.
+12. `deckIncrement.js`: Manages the incrementing and decrementing of card count in the deck.
+13. `flipDamage.js`: Handles the flipping of Damage cards.
+14. `flipFear.js`: Manages the flipping of Fear cards.
+15. `inspirationCounter.js`: Handles the tracking of the inspiration counter.
+16. `manageBoons.js`: Manages Boon cards.
+17. `switchTabs.js`: Switches the interface between the player and deck building tabs.
 
 Embrace the Adventure Card Game experience digitally with Journey to Middle Earth!
