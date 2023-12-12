@@ -1266,6 +1266,23 @@ body {
   transform: rotateY(180deg);
 }
 
+.mapColumn {
+  display: none;
+  background-color: #e0e0e0;
+  width: 90%;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 9;
+  justify-content: center;
+  align-items: center;
+}
+
+#mapBoard {
+  height: 50%;
+  aspect-ratio: 1/1;
+}
+
+/*Hexagon CSS*/
 .playerColumn {
   flex: 9;
   background-color: #e0e0e0;

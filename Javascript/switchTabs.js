@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const deckColumn = document.querySelector(".deckColumn");
   const sidePanel = document.querySelector(".sidePanel");
   const characterColumn = document.querySelector(".characterColumn");
+  const mapColumn = document.querySelector(".mapColumn");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", function (e) {
@@ -19,21 +20,31 @@ document.addEventListener("DOMContentLoaded", function () {
         deckColumn.style.display = "none";
         sidePanel.style.display = "none";
         characterColumn.style.display = "none";
+        mapColumn.style.display = "none";
       } else if (innerTextLower === "deck") {
         playerColumn.style.display = "none";
         deckColumn.style.display = "flex";
         sidePanel.style.display = "none";
         characterColumn.style.display = "none";
+        mapColumn.style.display = "none";
       } else if (innerTextLower === "side panel") {
         playerColumn.style.display = "none";
         deckColumn.style.display = "none";
         sidePanel.style.display = "block";
         characterColumn.style.display = "none";
+        mapColumn.style.display = "none";
       } else if (innerTextLower === "character") {
         playerColumn.style.display = "none";
         deckColumn.style.display = "none";
         sidePanel.style.display = "none";
         characterColumn.style.display = "flex";
+        mapColumn.style.display = "none";
+      } else if (innerTextLower === "map") {
+        playerColumn.style.display = "none";
+        deckColumn.style.display = "none";
+        sidePanel.style.display = "none";
+        characterColumn.style.display = "none";
+        mapColumn.style.display = "flex";
       }
     });
   });
