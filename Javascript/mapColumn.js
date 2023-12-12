@@ -162,25 +162,31 @@ function createTile(imagePath, position, width, height) {
 
 
 // Mouse event listeners
+let isMouseDown = false;
+
 function onMouseDown(event) {
     event.preventDefault();
+    isMouseDown = true;
 
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    // Get the bounding rectangle of the renderer
+    const rect = renderer.domElement.getBoundingClientRect();
+
+    // Calculate mouse position relative to the canvas
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(tiles);
 
     if (intersects.length > 0) {
-        // A tile was clicked, prepare to drag it
         selectedObject = intersects[0].object;
         isPanning = false;
 
-        // Calculate the offset
-        intersects[0].point.sub(selectedObject.position);
-        dragOffset.copy(intersects[0].point);
+        const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+        const dragPoint = new THREE.Vector3();
+        raycaster.ray.intersectPlane(planeZ, dragPoint);
+        offset.copy(dragPoint).sub(selectedObject.position);
     } else {
-        // The background was clicked, prepare to pan
         isPanning = true;
         startPoint.x = event.clientX;
         startPoint.y = event.clientY;
@@ -190,34 +196,40 @@ function onMouseDown(event) {
 }
 
 function onMouseMove(event) {
+    if (!isMouseDown) return;
+
     event.preventDefault();
 
-    if (selectedObject) {
-        // Dragging logic
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    // Get the bounding rectangle of the renderer
+    const rect = renderer.domElement.getBoundingClientRect();
 
+    // Calculate mouse position relative to the canvas
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+    if (selectedObject && !isPanning) {
         raycaster.setFromCamera(mouse, camera);
         const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
         const dragPoint = new THREE.Vector3();
         raycaster.ray.intersectPlane(planeZ, dragPoint);
-
-        selectedObject.position.x = dragPoint.x - dragOffset.x;
-        selectedObject.position.y = dragPoint.y - dragOffset.y;
+        dragPoint.sub(offset);
+        selectedObject.position.x = dragPoint.x;
+        selectedObject.position.y = dragPoint.y;
     } else if (isPanning) {
-        // Panning logic
         endPoint.x = event.clientX;
         endPoint.y = event.clientY;
 
-        const dx = (endPoint.x - startPoint.x) / renderer.domElement.clientWidth * (camera.right - camera.left);
-        const dy = (endPoint.y - startPoint.y) / renderer.domElement.clientHeight * (camera.top - camera.bottom);
+        const dx = (endPoint.x - startPoint.x) / rect.width * (camera.right - camera.left);
+        const dy = (endPoint.y - startPoint.y) / rect.height * (camera.top - camera.bottom);
 
         camera.position.x = cameraOffset.x - dx;
         camera.position.y = cameraOffset.y + dy;
     }
 }
 
+
 function onMouseUp(event) {
+    isMouseDown = false;
     isPanning = false;
     selectedObject = null;
 }
