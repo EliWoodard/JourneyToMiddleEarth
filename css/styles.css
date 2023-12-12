@@ -1273,16 +1273,82 @@ body {
   flex-direction: column;
   overflow: hidden;
   flex: 9;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 #mapBoard {
-  height: 90%;
-  aspect-ratio: 1/1;
+  height: 100%;
+  width: 70%;
 }
 
-/*Hexagon CSS*/
+#selectionColumn {
+  height: 100%;
+  width: 30%;
+  border: inset;
+  border-color: #999;
+}
+
+.night-mode .mapColumn {
+  background-color: rgb(42, 45, 47);
+}
+
+.night-mode #selectionColumn {
+  border-color: rgb(77, 83, 86);
+  background-color: rgb(42, 45, 47);
+}
+
+#selectionRow {
+  width: 98%;
+  margin: 1%;
+  display: flex;
+}
+
+.selection-button {
+  margin-bottom: 1%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+  width: 25%;
+  height: 100%;
+}
+
+.night-mode .selection-button {
+  background: #999;
+}
+
+.selection-button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.night-mode .selection-button:hover {
+  background-color: #7a7a7a;
+  cursor: pointer;
+}
+
+.selection-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.night-mode .selection-button.active {
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
+}
+
+.tile-image.selected-tile {
+  border: 2px solid #FBC841; /* Style for selected tiles */
+  margin: 3px;
+}
+
+.tile-image {
+  width: 100px;
+  margin: 5px;
+}
+
 .playerColumn {
   flex: 9;
   background-color: #e0e0e0;

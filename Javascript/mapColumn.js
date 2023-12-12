@@ -1,6 +1,5 @@
 let renderer, camera, scene, squareSize;
 let selectedObject = null;
-let tiles = [];
 let raycaster = new THREE.Raycaster();
 let mouse = new THREE.Vector2();
 let offset = new THREE.Vector3();
@@ -9,21 +8,70 @@ let startPoint = { x: 0, y: 0 };
 let endPoint = { x: 0, y: 0 };
 let cameraOffset = { x: 0, y: 0 };
 let dragOffset = new THREE.Vector3();
+let gridSize = 30;
+// Selection Tab
+let selectedTiles = [];
+let mapOccupancy = {};
+// Tiles
+let tiles = [];
+const tileMeshMap = {};
+const tileDimensions = {
+    'Images/Tiles/0.png': { width: 12, height: 8 },
+    // 'Images/Tiles/1.png': { width: 10, height: 7 },
+};
 
 document.addEventListener("DOMContentLoaded", function () {
+    const tilesButton = document.getElementById("tilesButton");
+    const charactersButton = document.getElementById("charactersButton");
+    const enemiesButton = document.getElementById("enemiesButton");
+    const tokensButton = document.getElementById("tokensButton");
+    const buttons = [tilesButton, charactersButton, enemiesButton, tokensButton];
+
+    tilesButton.classList.add('active');
+
+    displayTiles();
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            this.classList.add('active');
+
+            // Clear existing items in the selectableItems div
+            selectableItems.innerHTML = '';
+
+            // Populate selectableItems based on the active button
+            switch(this.id) {
+                case 'tilesButton':
+                    displayTiles();
+                    break;
+                case 'charactersButton':
+                    displayCharacters();
+                    break;
+                case 'enemiesButton':
+                    displayEnemies();
+                    break;
+                case 'tokensButton':
+                    displayTokens();
+                    break;
+            }
+        });
+    });
+
     // Create the scene
     scene = new THREE.Scene();
-    const gridSize = 30;
-    squareSize = 1;
+    let squareSize = 2;
 
     // Initialize and position the camera
     const aspectRatio = window.innerWidth / window.innerHeight;
-    const axesHelper = new THREE.AxesHelper(50);
-    scene.add(axesHelper);
+    /* Can use this to see 3d grid map */
+    // const axesHelper = new THREE.AxesHelper(50);
+    // scene.add(axesHelper);
 
     camera = new THREE.OrthographicCamera(-aspectRatio * 50, aspectRatio * 50, 50, -50, 1, 100);
     camera.position.set(gridSize * squareSize / 2, gridSize * squareSize / 2, 100);
-    camera.lookAt(gridSize * squareSize / 2, gridSize * squareSize / 2, 0);
+    camera.lookAt(gridSize * squareSize / 2, gridSize * squareSize / 2, 5);
     // camera.position.set(gridSize * squareSize / 2, 100, gridSize * squareSize / 2);
     // camera.lookAt(new THREE.Vector3(gridSize * squareSize / 2, 0, gridSize * squareSize / 2));
     
@@ -31,7 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize the renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setClearColor(0x808080); // Gray background color
+    const loader = new THREE.TextureLoader();
+    loader.load(`Images/JourneyMapBackground.jpg`, function(texture) {
+        scene.background = texture;
+    });
 
     // Append the renderer's canvas to the 'mapBoard' div
     const mapBoard = document.getElementById('mapBoard');
@@ -50,44 +101,37 @@ document.addEventListener("DOMContentLoaded", function () {
         camera.updateProjectionMatrix();
     });
 
-    // Create a i by i grid of hollow white squares
-    for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++) {
-            createSquare(i * squareSize - gridSize * squareSize / 2, j * squareSize - gridSize * squareSize / 2);
-        }
-    }
-
-    // Add tiles
-    createTile('Images/Tiles/0.png', { x: 0, y: 0.01, z: 0 }, 12, 8)
+    // createTile('Images/Tiles/0.png', { x: 0, y: 0.01, z: 0 }, 12, 8)
 
     renderer.domElement.addEventListener('mousedown', onMouseDown, false);
     renderer.domElement.addEventListener('mousemove', onMouseMove, false);
     renderer.domElement.addEventListener('mouseup', onMouseUp, false);
 
+    tilesButton.addEventListener('click', function() {
+        displayTiles();
+        // Additional logic for 'tiles' button
+    });
+    
+    charactersButton.addEventListener('click', function() {
+        // Logic for displaying characters
+    });
+    
+    enemiesButton.addEventListener('click', function() {
+        // Logic for displaying enemies
+    });
+    
+    tokensButton.addEventListener('click', function() {
+        // Logic for displaying tokens
+    });
+
     animate();
 });
-
-// Function to create a hollow square witah a white border
-function createSquare(x, y) {
-    const squareShape = new THREE.Shape()
-        .moveTo(0, 0)
-        .lineTo(0, 1)
-        .lineTo(1, 1)
-        .lineTo(1, 0)
-        .lineTo(0, 0);
-
-    const squareGeometry = new THREE.BufferGeometry().setFromPoints(squareShape.getPoints());
-    const squareMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
-    const squareMesh = new THREE.LineLoop(squareGeometry, squareMaterial);
-    squareMesh.position.set(x, y, 0);
-    scene.add(squareMesh);
-}
 
 // Render loop
 function animate() {
     requestAnimationFrame(animate);
-  
-    // Add the dragging functionality
+    
+    // Dragging Functionality
     if (selectedObject) {
       raycaster.setFromCamera(mouse, camera);
       const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
@@ -131,35 +175,23 @@ window.addEventListener('resize', resizeRendererToDisplaySize);
 function createTile(imagePath, position, width, height) {
     const loader = new THREE.TextureLoader();
     loader.load(imagePath, (texture) => {
-        // Create a plane geometry for the tile with the correct dimensions
         const tileGeometry = new THREE.PlaneGeometry(width, height);
-        // Create a basic material with the loaded texture
         const tileMaterial = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
-        // Create a mesh with the geometry and material
         const tileMesh = new THREE.Mesh(tileGeometry, tileMaterial);
 
-        // Position the tile
         tileMesh.position.set(
             position.x + (width / 2), 
             position.y, 
             position.z + (height / 2)
         );
-        
-        // Rotate the tile to lay flat on the XZ plane
-       // tileMesh.rotation.x = -Math.PI / 2;
 
-        // Add the tile mesh to the scene
         scene.add(tileMesh);
-        // Keep track of the tile mesh
         tiles.push(tileMesh);
-        console.log(`Tile rotation: ${tileMesh.rotation.x}, ${tileMesh.rotation.y}, ${tileMesh.rotation.z}`);
-
+        tileMeshMap[imagePath] = tileMesh; // Store the mesh
     }, undefined, (error) => {
         console.error('An error occurred while loading the texture:', error);
     });
 }
-
-
 
 // Mouse event listeners
 let isMouseDown = false;
@@ -227,9 +259,75 @@ function onMouseMove(event) {
     }
 }
 
-
 function onMouseUp(event) {
     isMouseDown = false;
     isPanning = false;
     selectedObject = null;
+}
+
+function displayTiles() {
+    const selectableItems = document.getElementById('selectableItems');
+    // Only populate if selectableItems is empty
+    if (selectableItems.children.length === 0) {
+        Object.keys(tileDimensions).forEach(tilePath => {
+            const img = document.createElement('img');
+            img.src = tilePath;
+            img.classList.add('tile-image');
+            img.onclick = () => toggleTileSelection(tilePath, img);
+            selectableItems.appendChild(img);
+        });
+    }
+}
+
+// Function to handle tile selection
+function toggleTileSelection(tilePath, imgElement) {
+    const isSelected = imgElement.classList.contains('selected-tile');
+    if (isSelected) {
+        selectedTiles = selectedTiles.filter(tile => tile !== tilePath);
+        imgElement.classList.remove('selected-tile');
+        removeTileFromScene(tilePath); // Remove tile from scene
+    } else {
+        if (!selectedTiles.includes(tilePath)) {
+            selectedTiles.push(tilePath);
+            placeSelectedTilesOnMap(tilePath); // Call with specific tilePath
+        }
+        imgElement.classList.add('selected-tile');
+    }
+}
+
+// Modify this function to place the tile directly
+function placeSelectedTilesOnMap() {
+    selectedTiles.forEach(tilePath => {
+        const { width, height } = tileDimensions[tilePath];
+        const position = getBottomRightPosition(width, height);
+        console.log(position);
+        createTile(tilePath, position, width, height);
+    });
+
+    // Clear the selected tiles after placing
+    selectedTiles = [];
+    const tileImages = document.querySelectorAll('.selected-tile');
+    tileImages.forEach(img => img.classList.remove('selected-tile'));
+}
+
+// Function to calculate the bottom right position
+function getBottomRightPosition(tileWidth, tileHeight) {
+    // Assuming camera is Orthographic
+    const camRight = camera.right / camera.zoom;
+    const camTop = camera.top / camera.zoom;
+
+    // Calculate position
+    const x = camera.position.x + camRight - tileWidth / 2;
+    const y = 0.01; // Adjust this if needed
+    const z = 0;
+
+    return { x, y, z };
+}
+
+function removeTileFromScene(tilePath) {
+    const tileMesh = tileMeshMap[tilePath];
+    if (tileMesh) {
+        scene.remove(tileMesh);
+        delete tileMeshMap[tilePath]; // Remove the reference
+    }
 }
