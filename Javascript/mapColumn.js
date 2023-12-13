@@ -16,8 +16,13 @@ let mapOccupancy = {};
 let tiles = [];
 const tileMeshMap = {};
 const tileDimensions = {
-    'Images/Tiles/0.png': { width: 12, height: 8 },
-    // 'Images/Tiles/1.png': { width: 10, height: 7 },
+    'Images/Tiles/0.png': { width: 12, height: 8}, // * 4
+    'Images/Tiles/1.png': { width: 12, height: 8},
+    'Images/Tiles/2.png': { width: 12, height: 8},
+    'Images/Tiles/3.png': { width: 12, height: 8},
+    'Images/Tiles/4.png': { width: 12, height: 8},
+    'Images/Tiles/5.png': { width: 12, height: 8},
+    'Images/Tiles/5.png': { width: 12, height: 8},
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -265,49 +270,51 @@ function onMouseUp(event) {
     selectedObject = null;
 }
 
+// Function to display tiles (with reset behavior)
 function displayTiles() {
     const selectableItems = document.getElementById('selectableItems');
-    // Only populate if selectableItems is empty
-    if (selectableItems.children.length === 0) {
-        Object.keys(tileDimensions).forEach(tilePath => {
-            const img = document.createElement('img');
-            img.src = tilePath;
-            img.classList.add('tile-image');
-            img.onclick = () => toggleTileSelection(tilePath, img);
-            selectableItems.appendChild(img);
-        });
-    }
+    selectableItems.innerHTML = ''; // Clear the container
+    Object.keys(tileDimensions).forEach(tilePath => {
+        const img = document.createElement('img');
+        img.src = tilePath;
+        img.classList.add('tile-image');
+        if (selectedTiles.includes(tilePath)) {
+            img.classList.add('selected-tile');
+        }
+        img.onclick = () => toggleTileSelection(tilePath, img);
+        selectableItems.appendChild(img);
+    });
 }
+
 
 // Function to handle tile selection
 function toggleTileSelection(tilePath, imgElement) {
     const isSelected = imgElement.classList.contains('selected-tile');
     if (isSelected) {
-        selectedTiles = selectedTiles.filter(tile => tile !== tilePath);
+        // Tile is already selected, deselect it
         imgElement.classList.remove('selected-tile');
         removeTileFromScene(tilePath); // Remove tile from scene
+        const index = selectedTiles.indexOf(tilePath);
+        if (index > -1) {
+            selectedTiles.splice(index, 1); // Remove from selectedTiles array
+        }
     } else {
+        // New tile selection
+        imgElement.classList.add('selected-tile');
         if (!selectedTiles.includes(tilePath)) {
             selectedTiles.push(tilePath);
-            placeSelectedTilesOnMap(tilePath); // Call with specific tilePath
+            placeTileInScene(tilePath); // Place tile in scene only if it's not already there
         }
-        imgElement.classList.add('selected-tile');
     }
 }
 
-// Modify this function to place the tile directly
-function placeSelectedTilesOnMap() {
-    selectedTiles.forEach(tilePath => {
+// Function to place a tile in the scene
+function placeTileInScene(tilePath) {
+    if (!tileMeshMap[tilePath]) { // Check if tile is not already in the scene
         const { width, height } = tileDimensions[tilePath];
         const position = getBottomRightPosition(width, height);
-        console.log(position);
         createTile(tilePath, position, width, height);
-    });
-
-    // Clear the selected tiles after placing
-    selectedTiles = [];
-    const tileImages = document.querySelectorAll('.selected-tile');
-    tileImages.forEach(img => img.classList.remove('selected-tile'));
+    }
 }
 
 // Function to calculate the bottom right position
@@ -324,6 +331,7 @@ function getBottomRightPosition(tileWidth, tileHeight) {
     return { x, y, z };
 }
 
+// Function to remove a tile from the scene
 function removeTileFromScene(tilePath) {
     const tileMesh = tileMeshMap[tilePath];
     if (tileMesh) {
