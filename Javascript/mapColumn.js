@@ -129,6 +129,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Logic for displaying tokens
     });
 
+    //Rotation
+    document.addEventListener('keydown', onDocumentKeyDown, false);
+
     animate();
 });
 
@@ -337,5 +340,24 @@ function removeTileFromScene(tilePath) {
     if (tileMesh) {
         scene.remove(tileMesh);
         delete tileMeshMap[tilePath]; // Remove the reference
+    }
+}
+
+// Function to handle keydown events
+function onDocumentKeyDown(event) {
+    switch (event.keyCode) {
+        case 37: // Left arrow key
+            rotateSelectedTile(-Math.PI / 1.5); // Rotate 60 degrees counter-clockwise
+            break;
+        case 39: // Right arrow key
+            rotateSelectedTile(Math.PI / 1.5); // Rotate 60 degrees clockwise
+            break;
+    }
+}
+
+// Function to rotate the selected tile
+function rotateSelectedTile(angle) {
+    if (selectedObject) {
+        selectedObject.rotation.z += angle;
     }
 }
