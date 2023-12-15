@@ -1286,6 +1286,7 @@ body {
 #selectionColumn {
   height: 100%;
   width: 30%;
+  overflow-y: scroll;
   border: inset;
   border-color: #999;
 }

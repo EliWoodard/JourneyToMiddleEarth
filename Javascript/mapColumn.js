@@ -16,13 +16,50 @@ let mapOccupancy = {};
 let tiles = [];
 const tileMeshMap = {};
 const tileDimensions = {
-    'Images/Tiles/0.png': { width: 12, height: 8}, // * 4
-    'Images/Tiles/1.png': { width: 12, height: 8},
-    'Images/Tiles/2.png': { width: 12, height: 8},
-    'Images/Tiles/3.png': { width: 12, height: 8},
-    'Images/Tiles/4.png': { width: 12, height: 8},
-    'Images/Tiles/5.png': { width: 12, height: 8},
-    'Images/Tiles/5.png': { width: 12, height: 8},
+    'Images/Tiles/100A.png': { width: 12, height: 8}, // * 4
+    'Images/Tiles/100B.png': { width: 12, height: 8},
+    'Images/Tiles/101A.png': { width: 12, height: 8},
+    'Images/Tiles/101B.png': { width: 12, height: 8},
+    'Images/Tiles/102A.png': { width: 12, height: 8},
+    'Images/Tiles/102B.png': { width: 12, height: 8},
+    'Images/Tiles/103A.png': { width: 12, height: 8},
+    'Images/Tiles/103B.png': { width: 12, height: 8},
+    'Images/Tiles/104A.png': { width: 12, height: 8},
+    'Images/Tiles/104B.png': { width: 12, height: 8},
+    'Images/Tiles/200A.png': { width: 16, height: 6},
+    'Images/Tiles/200B.png': { width: 16, height: 16},
+    'Images/Tiles/201A.png': { width: 12, height: 14},
+    'Images/Tiles/201B.png': { width: 12, height: 14},
+    'Images/Tiles/202A.png': { width: 12, height: 16},
+    'Images/Tiles/202B.png': { width: 12, height: 16},
+    'Images/Tiles/203A.png': { width: 12, height: 18},
+    'Images/Tiles/203B.png': { width: 12, height: 18},
+    'Images/Tiles/204A.png': { width: 8, height: 18},
+    'Images/Tiles/204B.png': { width: 8, height: 18},
+    'Images/Tiles/205A.png': { width: 16, height: 14},
+    'Images/Tiles/205B.png': { width: 16, height: 14},
+    'Images/Tiles/206A.png': { width: 16, height: 14},
+    'Images/Tiles/206B.png': { width: 16, height: 14},
+    'Images/Tiles/207A.png': { width: 16, height: 10},
+    'Images/Tiles/207B.png': { width: 16, height: 10},
+    'Images/Tiles/208A.png': { width: 20, height: 12},
+    'Images/Tiles/208B.png': { width: 20, height: 12},
+    'Images/Tiles/209A.png': { width: 16, height: 12},
+    'Images/Tiles/209B.png': { width: 16, height: 12},
+    'Images/Tiles/210A.png': { width: 20, height: 12},
+    'Images/Tiles/210B.png': { width: 20, height: 12},
+    'Images/Tiles/211A.png': { width: 20, height: 14},
+    'Images/Tiles/211B.png': { width: 20, height: 14},
+    'Images/Tiles/212A.png': { width: 16, height: 12},
+    'Images/Tiles/212B.png': { width: 16, height: 12},
+    'Images/Tiles/213A.png': { width: 12, height: 14},
+    'Images/Tiles/213B.png': { width: 12, height: 14},
+    'Images/Tiles/214A.png': { width: 20, height: 14},
+    'Images/Tiles/214B.png': { width: 20, height: 14},
+    'Images/Tiles/215A.png': { width: 16, height: 12},
+    'Images/Tiles/215B.png': { width: 16, height: 12},
+    'Images/Tiles/216A.png': { width: 16, height: 12},
+    'Images/Tiles/216B.png': { width: 16, height: 12}
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -347,10 +384,10 @@ function removeTileFromScene(tilePath) {
 function onDocumentKeyDown(event) {
     switch (event.keyCode) {
         case 37: // Left arrow key
-            rotateSelectedTile(-Math.PI / 1.5); // Rotate 60 degrees counter-clockwise
+            rotateSelectedTile(-Math.PI / 60); // Rotate 60 degrees counter-clockwise
             break;
         case 39: // Right arrow key
-            rotateSelectedTile(Math.PI / 1.5); // Rotate 60 degrees clockwise
+            rotateSelectedTile(Math.PI / 60); // Rotate 60 degrees clockwise
             break;
     }
 }
