@@ -14,6 +14,7 @@ Journey to Middle Earth offers a myriad of features to streamline your gaming ex
 - **Tab Switching**: You can easily switch between the deck building interface and the player interface. The deck building interface lets you select which cards are in your deck, while the player interface displays Aragorn's abilities, game states, and inspiration counter.
 - **Card Quantity Memory**: The deck building interface retains the quantity of each card type in your deck even after closing the application.
 - **Player Interface**: Displays a Play Card featuring Aragorn's states and abilities, and an Inspiration Counter for tracking inspiration tokens.
+- **Map Column**: Contains all tile pieces that can be placed and rotated using left and right arrow keys.
 
 ## File Structure 
 
