@@ -1,6 +1,6 @@
-# Journey to Middle Earth as Aragorn: Digital Deck Manager for the Adventure Card Game
+# Journey to Middle Earth: Digital Deck/Map Manager for the Adventure Card Game
 
-Journey to Middle Earth is a dynamic and intuitive tool designed to allow those who didn't always have his physical deck on hand, effectively manage and track their cards during the Adventure Card Game. This tool emulates the experience of being Aragorn, one of the key characters in the series. Its features range from adding different card types, managing deck and discard piles, adjusting the player's inspiration counter, and even displaying Aragorn's abilities and game states.
+Journey to Middle Earth is a dynamic and intuitive tool designed to allow those who didn't always have their physical deck on hand, to effectively maintain and track their cards. This tool emulates the experience of being any character used in Journeys to Middle-earth.
 
 ## Features 
 
@@ -14,7 +14,7 @@ Journey to Middle Earth offers a myriad of features to streamline your gaming ex
 - **Tab Switching**: You can easily switch between the deck building interface and the player interface. The deck building interface lets you select which cards are in your deck, while the player interface displays Aragorn's abilities, game states, and inspiration counter.
 - **Card Quantity Memory**: The deck building interface retains the quantity of each card type in your deck even after closing the application.
 - **Player Interface**: Displays a Play Card featuring Aragorn's states and abilities, and an Inspiration Counter for tracking inspiration tokens.
-- **Map Column**: Contains all tile pieces that can be placed and rotated using left and right arrow keys.
+- **Map Column**: Contains all tile pieces that can be placed and rotated using left and right arrow keys. Future additions will allow character placement.
 
 ## File Structure 
 
