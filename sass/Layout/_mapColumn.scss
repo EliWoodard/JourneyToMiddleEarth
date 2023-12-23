@@ -81,3 +81,37 @@
     width: 100px;
     margin: 5px;
 }
+
+.lock-btn {
+    width: 50px;
+    height: 50px;
+    right: 2%;
+    bottom: 0;
+    margin: 20px auto;
+    position: absolute;
+    cursor: pointer;
+    background-image: url("../Images/Misc/LockOpen.png"); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(1);
+}
+
+.lock-btn.locked {
+    background-image: url("../Images/Misc/LockClosed.png");
+    filter: invert(1);
+
+}
+
+.night-mode .lock-btn {
+    filter: invert(0);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

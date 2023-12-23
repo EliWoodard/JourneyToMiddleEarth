@@ -12,6 +12,8 @@ let gridSize = 30;
 // Selection Tab
 let selectedTiles = [];
 let mapOccupancy = {};
+// MapFunctions
+var locked = false;
 // Tiles
 let tiles = [];
 const tileMeshMap = {};
@@ -148,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const enemiesButton = document.getElementById("enemiesButton");
     const tokensButton = document.getElementById("tokensButton");
     const buttons = [tilesButton, charactersButton, enemiesButton, tokensButton];
+    const mapLock = this.getElementById('mapLock');
 
     tilesButton.classList.add('active');
 
@@ -221,6 +224,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const zoomAmount = event.deltaY * 0.001;
         camera.zoom = Math.max(0.1, Math.min(5, camera.zoom - zoomAmount));
         camera.updateProjectionMatrix();
+    });
+
+    mapLock.addEventListener('click', function() {
+        if (locked === true) {
+            locked = false;
+        } else {
+            locked = true;
+        }
+
+        this.classList.toggle('locked');
+        this.style.animation = 'spin 0.5s';
+
+        setTimeout(() => {
+            this.style.animation = '';
+        }, 500);
     });
 
     // createTile('Images/Tiles/0.png', { x: 0, y: 0.01, z: 0 }, 12, 8)
@@ -325,6 +343,15 @@ function onMouseDown(event) {
     event.preventDefault();
     isMouseDown = true;
 
+    if (locked) {
+        isPanning = true;
+        startPoint.x = event.clientX;
+        startPoint.y = event.clientY;
+        cameraOffset.x = camera.position.x;
+        cameraOffset.y = camera.position.y;
+        return; 
+    }
+
     // Get the bounding rectangle of the renderer
     const rect = renderer.domElement.getBoundingClientRect();
 
@@ -364,7 +391,7 @@ function onMouseMove(event) {
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-    if (selectedObject && !isPanning) {
+    if (selectedObject && !isPanning && !locked) {
         raycaster.setFromCamera(mouse, camera);
         const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
         const dragPoint = new THREE.Vector3();
