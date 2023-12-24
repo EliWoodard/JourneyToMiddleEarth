@@ -1,3 +1,6 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/loaders/GLTFLoader.js';
+
 let renderer, camera, scene, squareSize;
 let selectedObject = null;
 let raycaster = new THREE.Raycaster();
@@ -14,6 +17,9 @@ let selectedTiles = [];
 let mapOccupancy = {};
 // MapFunctions
 var locked = false;
+// 3D Models
+var loaderMap = new GLTFLoader();
+
 // Tiles
 let tiles = [];
 const tileMeshMap = {};
@@ -144,6 +150,8 @@ const tileDimensions = {
     'Images/Tiles/Battlemap(4).png': { width: 48, height: 48},
 };
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const tilesButton = document.getElementById("tilesButton");
     const charactersButton = document.getElementById("charactersButton");
@@ -266,6 +274,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Rotation
     document.addEventListener('keydown', onDocumentKeyDown, false);
+
+    //Add light to see 3D models
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1); // soft white light
+    scene.add(ambientLight);
+
+    // Load 3D model
+    loadGLBModel("../3D Models/Fell-Beast.glb");
 
     animate();
 });
@@ -504,4 +519,20 @@ function rotateSelectedTile(angle) {
     if (selectedObject) {
         selectedObject.rotation.z += angle;
     }
+}
+
+function loadGLBModel(path) {
+    loaderMap.load(path, (gltf) => {
+        const model = gltf.scene;
+        scene.add(model);
+
+        model.scale.set(10, 10, 10);
+        model.position.set(0, 0, 0);
+        model.rotation.set(1, 0, 0);
+
+        // Store the model for interaction
+        tiles.push(model);
+    }, undefined, (error) => {
+        console.error('An error occurred loading the GLB model:', error);
+    });
 }
