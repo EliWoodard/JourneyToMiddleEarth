@@ -75,11 +75,13 @@
 .tile-image.selected-tile {
     border: 2px solid #FBC841; /* Style for selected tiles */
     margin: 3px;
+    margin-left: 28px;
 }
 
 .tile-image {
     width: 100px;
     margin: 5px;
+    margin-left: 30px;
 }
 
 .lock-btn {

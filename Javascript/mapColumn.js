@@ -150,8 +150,6 @@ const tileDimensions = {
     'Images/Tiles/Battlemap(4).png': { width: 48, height: 48},
 };
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const tilesButton = document.getElementById("tilesButton");
     const charactersButton = document.getElementById("charactersButton");
@@ -536,3 +534,5 @@ function loadGLBModel(path) {
         console.error('An error occurred loading the GLB model:', error);
     });
 }
+
+export { resizeRendererToDisplaySize };

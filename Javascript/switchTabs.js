@@ -1,3 +1,5 @@
+var innerTextLower = "player";
+
 document.addEventListener("DOMContentLoaded", function () {
   const tabs = document.querySelectorAll(".tab");
   const playerColumn = document.querySelector(".playerColumn");
@@ -14,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Existing Tab Functionality
       tabs.forEach((item) => item.classList.remove("active"));
       this.classList.add("active");
-      const innerTextLower = this.innerText.toLowerCase();
+      innerTextLower = this.innerText.toLowerCase();
+
       if (innerTextLower === "player") {
         playerColumn.style.display = "flex";
         deckColumn.style.display = "none";
@@ -46,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         characterColumn.style.display = "none";
         mapColumn.style.display = "flex";
       }
+
     });
   });
 });
@@ -66,3 +70,9 @@ function createRipple(e) {
 
   circle.classList.add('ripple');
 }
+
+function getInnerText() {
+  return innerTextLower;
+}
+
+export {getInnerText};

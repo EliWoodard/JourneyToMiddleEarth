@@ -1,3 +1,6 @@
+import { resizeRendererToDisplaySize } from './mapColumn.js';
+import { getInnerText } from './switchTabs.js';
+
 document.addEventListener("DOMContentLoaded", function() {
     var shrinkButton = document.getElementById("shrink-button");
     var leftColumn = document.querySelector(".left-column");
@@ -23,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
             tabChoices.style.pointerEvents = "auto"; 
             additionsToLeftColumn.style.pointerEvents = "auto"; 
             shrinkButton.classList.remove("rotate");
+        }
+
+        var text = getInnerText();
+
+        if (text === "map") {
+            for (let i = 0; i < 600; i += 5) {
+                setTimeout(resizeRendererToDisplaySize, i);
+            }
         }
     });
 });
