@@ -12,6 +12,7 @@ let endPoint = { x: 0, y: 0 };
 let cameraOffset = { x: 0, y: 0 };
 let dragOffset = new THREE.Vector3();
 let gridSize = 30;
+let dragPoint = new THREE.Vector3();
 // Selection Tab
 let selectedTiles = [];
 let mapOccupancy = {};
@@ -286,12 +287,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // Render loop
 function animate() {
     requestAnimationFrame(animate);
+    // const raycasterHelper = new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 100, 0xff0000);
+    // scene.add(raycasterHelper);
     
     // Dragging Functionality
     if (selectedObject) {
       raycaster.setFromCamera(mouse, camera);
       const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-      const dragPoint = new THREE.Vector3();
+      dragPoint = new THREE.Vector3();
       raycaster.ray.intersectPlane(planeZ, dragPoint);
       selectedObject.position.x = dragPoint.x;
       selectedObject.position.y = dragPoint.y;
@@ -362,30 +365,23 @@ function onMouseDown(event) {
         startPoint.y = event.clientY;
         cameraOffset.x = camera.position.x;
         cameraOffset.y = camera.position.y;
-        return; 
+        return;
     }
 
-    // Get the bounding rectangle of the renderer
     const rect = renderer.domElement.getBoundingClientRect();
-
-    // Calculate mouse position relative to the canvas
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects([
-        ...tiles.filter(tile => tile !== undefined), 
-        ...creatures.map(creature => creature.instance).filter(instance => instance !== undefined)
-    ]);
-    
+    let intersects = raycaster.intersectObjects(scene.children, true);
+
     if (intersects.length > 0) {
         selectedObject = intersects[0].object;
-        isPanning = false;
-
-        const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-        const dragPoint = new THREE.Vector3();
-        raycaster.ray.intersectPlane(planeZ, dragPoint);
-        offset.copy(dragPoint).sub(selectedObject.position);
+        if (selectedObject.userData.type === 'enemy') {
+            const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -camera.position.z);
+            raycaster.ray.intersectPlane(plane, dragPoint);
+            offset.copy(intersects[0].point).sub(selectedObject.position);
+        }
     } else {
         isPanning = true;
         startPoint.x = event.clientX;
@@ -393,37 +389,46 @@ function onMouseDown(event) {
         cameraOffset.x = camera.position.x;
         cameraOffset.y = camera.position.y;
     }
+     console.log("Selected Object: ", selectedObject);
 }
+
+let movementSpeed = 0.0001;
 
 function onMouseMove(event) {
     if (!isMouseDown) return;
 
-    event.preventDefault();
-
-    // Get the bounding rectangle of the renderer
     const rect = renderer.domElement.getBoundingClientRect();
-
-    // Calculate mouse position relative to the canvas
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-    if (selectedObject && !isPanning && !locked) {
+    if (selectedObject && selectedObject.userData.type === 'enemy') {
+        const rect = renderer.domElement.getBoundingClientRect();
+        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        
         raycaster.setFromCamera(mouse, camera);
-        const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-        const dragPoint = new THREE.Vector3();
-        raycaster.ray.intersectPlane(planeZ, dragPoint);
-        dragPoint.sub(offset);
-        selectedObject.position.x = dragPoint.x;
-        selectedObject.position.y = dragPoint.y;
+        const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -camera.position.z);
+        raycaster.ray.intersectPlane(plane, dragPoint);
+
+        selectedObject.position.x = dragPoint.x - offset.x;
+        selectedObject.position.y = dragPoint.y - offset.y;
     } else if (isPanning) {
         endPoint.x = event.clientX;
         endPoint.y = event.clientY;
-
         const dx = (endPoint.x - startPoint.x) / rect.width * (camera.right - camera.left);
         const dy = (endPoint.y - startPoint.y) / rect.height * (camera.top - camera.bottom);
-
         camera.position.x = cameraOffset.x - dx;
         camera.position.y = cameraOffset.y + dy;
+    }
+
+    if(selectedObject) {
+        const dragPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+        raycaster.setFromCamera(mouse, camera);
+        raycaster.ray.intersectPlane(dragPlane, dragPoint);
+        const newPosition = dragPoint.sub(offset);
+        selectedObject.position.x = newPosition.x;
+        selectedObject.position.z = newPosition.z;
+        console.log("Moving Object: ", selectedObject);
     }
 }
 
@@ -522,22 +527,6 @@ function rotateSelectedTile(angle) {
     }
 }
 
-function loadGLBModel(path) {
-    loaderMap.load(path, (gltf) => {
-        const model = gltf.scene;
-        scene.add(model);
-
-        model.scale.set(10, 10, 10);
-        model.position.set(0, 0, 0);
-        model.rotation.set(1, 0, 0);
-
-        // Add model to creatures array
-        creatures.push(model);
-    }, undefined, (error) => {
-        console.error('An error occurred loading the GLB model:', error);
-    });
-}
-
 function displayEnemies() {
     const selectableItems = document.getElementById('selectableItems');
     selectableItems.innerHTML = '';
@@ -604,14 +593,23 @@ function addCreatureToScene(creatureIndex) {
     const creature = creatures[creatureIndex];
     loaderMap.load('../3D Models/Fell-Beast.glb', (gltf) => {
         const model = gltf.scene;
-        model.scale.set(10, 10, 10);
-        model.rotation.set(1, 0, 0);
-        model.position.set(Math.random() * gridSize, 0, Math.random() * gridSize);
-        model.userData = { type: 'creature', id: creature.id };
-        scene.add(model);
-        creature.instances.push(model);
+        model.position.set(0, 0, 4);
+        
+        // Create a group and add the model to it
+        const group = new THREE.Group();
+        group.add(model);
+
+        // Set the position of the group, not the model
+        group.position.set(20, -3, 0);
+
+        // Scale the group
+        group.scale.set(1,1,1);
+
+        model.userData = { type: 'enemy', id: creature.id };
+        scene.add(group);
+        creature.instances.push(group); // Store the group instead of the model
     }, undefined, (error) => {
-        console.error('An error occurred loading the GLB model:', error);
+        console.error('Error loading GLB model:', error);
     });
 }
 
