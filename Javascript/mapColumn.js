@@ -19,6 +19,10 @@ let mapOccupancy = {};
 var locked = false;
 // 3D Models
 var loaderMap = new GLTFLoader();
+let creatures = [
+    { id: "creature1", name: "Fell Beast", count: 0, max: 5, instances: [] },
+    // { id: "creature1", name: "Fell Beast", count: 0, max: 5 }
+                ];
 
 // Tiles
 let tiles = [];
@@ -164,15 +168,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
             buttons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to the clicked button
             this.classList.add('active');
-
-            // Clear existing items in the selectableItems div
-            selectableItems.innerHTML = '';
-
-            // Populate selectableItems based on the active button
+    
+            const selectableItems = document.getElementById('selectableItems');
+            selectableItems.innerHTML = ''; // Clear on each tab click
+    
             switch(this.id) {
                 case 'tilesButton':
                     displayTiles();
@@ -188,7 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
             }
         });
-    });
+    });      
+      
 
     // Create the scene
     scene = new THREE.Scene();
@@ -278,8 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
     scene.add(ambientLight);
 
     // Load 3D model
-    loadGLBModel("../3D Models/Fell-Beast.glb");
-
     animate();
 });
 
@@ -373,8 +373,11 @@ function onMouseDown(event) {
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(tiles);
-
+    const intersects = raycaster.intersectObjects([
+        ...tiles.filter(tile => tile !== undefined), 
+        ...creatures.map(creature => creature.instance).filter(instance => instance !== undefined)
+    ]);
+    
     if (intersects.length > 0) {
         selectedObject = intersects[0].object;
         isPanning = false;
@@ -528,11 +531,90 @@ function loadGLBModel(path) {
         model.position.set(0, 0, 0);
         model.rotation.set(1, 0, 0);
 
-        // Store the model for interaction
-        tiles.push(model);
+        // Add model to creatures array
+        creatures.push(model);
     }, undefined, (error) => {
         console.error('An error occurred loading the GLB model:', error);
     });
 }
 
+function displayEnemies() {
+    const selectableItems = document.getElementById('selectableItems');
+    selectableItems.innerHTML = '';
+
+    creatures.forEach((creature, index) => {
+        const creatureDiv = document.createElement('div');
+        creatureDiv.id = `creature-${creature.id}`;
+        creatureDiv.classList.add('creature-row');
+        creatureDiv.innerHTML = `
+            <span>${creature.name}</span>
+            <button class="creature-add-button" data-index="${index}">+</button>
+            <span id="count-${creature.id}">${creature.count}</span>
+            <button class="creature-subtract-button" data-index="${index}">-</button>
+        `;
+        selectableItems.appendChild(creatureDiv);
+    });
+
+    document.querySelectorAll('.creature-add-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            changeCreatureCount(index, 1);
+        });
+    });
+
+    document.querySelectorAll('.creature-subtract-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            changeCreatureCount(index, -1);
+        });
+    });
+}
+
+function changeCreatureCount(creatureIndex, delta) {
+    if (creatureIndex >= 0 && creatureIndex < creatures.length) {
+        const creature = creatures[creatureIndex];
+
+        // If we are adding a creature
+        if (delta > 0 && creature.count < creature.max) {
+            addCreatureToScene(creatureIndex);
+        } 
+        // If we are removing a creature
+        else if (delta < 0 && creature.count > 0) {
+            removeLastCreatureInstance(creatureIndex);
+        }
+
+        // Update the count
+        creature.count = Math.max(0, Math.min(creature.count + delta, creature.max));
+        document.getElementById(`count-${creature.id}`).innerText = creature.count;
+    }
+}
+
+// Function to remove the last instance of a creature from the scene
+function removeLastCreatureInstance(creatureIndex) {
+    const creature = creatures[creatureIndex];
+    if (creature.instances.length > 0) {
+        const lastIndex = creature.instances.length - 1;
+        const lastInstance = creature.instances[lastIndex];
+        scene.remove(lastInstance); // Remove the last instance from the scene
+        creature.instances.pop(); // Remove the instance from the array
+    }
+}
+
+function addCreatureToScene(creatureIndex) {
+    const creature = creatures[creatureIndex];
+    loaderMap.load('../3D Models/Fell-Beast.glb', (gltf) => {
+        const model = gltf.scene;
+        model.scale.set(10, 10, 10);
+        model.rotation.set(1, 0, 0);
+        model.position.set(Math.random() * gridSize, 0, Math.random() * gridSize);
+        model.userData = { type: 'creature', id: creature.id };
+        scene.add(model);
+        creature.instances.push(model);
+    }, undefined, (error) => {
+        console.error('An error occurred loading the GLB model:', error);
+    });
+}
+
+
 export { resizeRendererToDisplaySize };
+

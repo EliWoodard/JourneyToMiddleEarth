@@ -1384,6 +1384,10 @@ body {
     transform: rotate(360deg);
   }
 }
+#enemiesContainer {
+  display: none;
+}
+
 .playerColumn {
   flex: 9;
   background-color: #e0e0e0;
