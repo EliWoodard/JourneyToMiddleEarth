@@ -600,7 +600,7 @@ function addCreatureToScene(creatureIndex) {
         group.add(model);
 
         // Set the position of the group, not the model
-        group.position.set(20, -3, 0);
+        group.position.set(0, 0, 0);
 
         // Scale the group
         group.scale.set(1,1,1);
