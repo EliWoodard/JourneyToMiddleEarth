@@ -591,7 +591,7 @@ function removeLastCreatureInstance(creatureIndex) {
 
 function addCreatureToScene(creatureIndex) {
     const creature = creatures[creatureIndex];
-    loaderMap.load('../3D Models/Fell-Beast.glb', (gltf) => {
+    loaderMap.load('3D Models/Fell-Beast.glb', (gltf) => {
         const model = gltf.scene;
         model.position.set(0, 0, 4);
         
