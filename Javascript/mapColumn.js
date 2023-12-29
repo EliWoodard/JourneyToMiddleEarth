@@ -22,8 +22,9 @@ var locked = false;
 var loaderMap = new GLTFLoader();
 let creatures = [
     { id: "creature1", name: "Fell Beast", count: 0, max: 5, instances: [] },
-    // { id: "creature1", name: "Fell Beast", count: 0, max: 5 }
-                ];
+    { id: "creature2", name: "Oliphaunt", count: 0, max: 5, instances: [] },
+    { id: "creature3", name: "WargRider", count: 0, max: 5, instances: [] }
+    ];
 
 // Tiles
 let tiles = [];
@@ -591,7 +592,21 @@ function removeLastCreatureInstance(creatureIndex) {
 
 function addCreatureToScene(creatureIndex) {
     const creature = creatures[creatureIndex];
-    loaderMap.load('3D Models/Fell-Beast.glb', (gltf) => {
+    let modelPath = '';
+
+    // Determine which model to load based on the creature's name
+    if (creature.name === "Fell Beast") {
+        modelPath = '3D Models/Fell-Beast.glb';
+    } else if (creature.name === "Oliphaunt") {
+        modelPath = '3D Models/Oliphaunt.glb';
+    }  else if (creature.name === "WargRider") {
+        modelPath = '3D Models/WargRider.glb';
+    } else {
+        console.error('Unknown creature name:', creature.name);
+        return;
+    }
+
+    loaderMap.load(modelPath, (gltf) => {
         const model = gltf.scene;
         model.position.set(0, 0, 4);
         
@@ -612,6 +627,7 @@ function addCreatureToScene(creatureIndex) {
         console.error('Error loading GLB model:', error);
     });
 }
+
 
 
 export { resizeRendererToDisplaySize };
