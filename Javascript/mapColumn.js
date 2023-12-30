@@ -538,9 +538,11 @@ function displayEnemies() {
         creatureDiv.classList.add('creature-row');
         creatureDiv.innerHTML = `
             <span>${creature.name}</span>
-            <button class="creature-add-button" data-index="${index}">+</button>
-            <span id="count-${creature.id}">${creature.count}</span>
-            <button class="creature-subtract-button" data-index="${index}">-</button>
+            <div>
+                <button class="creature-add-button" data-index="${index}">+</button>
+                <span id="count-${creature.id}">${creature.count}</span>
+                <button class="creature-subtract-button" data-index="${index}">-</button>
+            </div>
         `;
         selectableItems.appendChild(creatureDiv);
     });

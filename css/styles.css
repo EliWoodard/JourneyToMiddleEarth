@@ -1388,6 +1388,14 @@ body {
   display: none;
 }
 
+.creature-row {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
 .playerColumn {
   flex: 9;
   background-color: #e0e0e0;
