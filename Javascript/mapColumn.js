@@ -21,10 +21,12 @@ var locked = false;
 // 3D Models
 var loaderMap = new GLTFLoader();
 let creatures = [
-    { id: "creature1", name: "Fell Beast", count: 0, max: 5, instances: [] },
-    { id: "creature2", name: "Oliphaunt", count: 0, max: 5, instances: [] },
-    { id: "creature3", name: "WargRider", count: 0, max: 5, instances: [] }
-    ];
+    { id: "creature1", name: "Fell Beast", count: 0, max: 9, instances: [] },
+    { id: "creature2", name: "Oliphaunt", count: 0, max: 9, instances: [] },
+    { id: "creature3", name: "WargRider", count: 0, max: 9, instances: [] },
+    { id: "creature4", name: "OrcHunter", count: 0, max: 9, instances: [] },
+    { id: "creature5", name: "OrcScout", count: 0, max: 9, instances: [] }
+];
 
 // Tiles
 let tiles = [];
@@ -594,19 +596,7 @@ function removeLastCreatureInstance(creatureIndex) {
 
 function addCreatureToScene(creatureIndex) {
     const creature = creatures[creatureIndex];
-    let modelPath = '';
-
-    // Determine which model to load based on the creature's name
-    if (creature.name === "Fell Beast") {
-        modelPath = '3D Models/Fell-Beast.glb';
-    } else if (creature.name === "Oliphaunt") {
-        modelPath = '3D Models/Oliphaunt.glb';
-    }  else if (creature.name === "WargRider") {
-        modelPath = '3D Models/WargRider.glb';
-    } else {
-        console.error('Unknown creature name:', creature.name);
-        return;
-    }
+    let modelPath = `3D Models/${creature.name}.glb`;
 
     loaderMap.load(modelPath, (gltf) => {
         const model = gltf.scene;
