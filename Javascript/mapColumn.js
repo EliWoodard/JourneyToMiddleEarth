@@ -25,7 +25,8 @@ let creatures = [
     { id: "creature2", name: "Oliphaunt", count: 0, max: 9, instances: [] },
     { id: "creature3", name: "WargRider", count: 0, max: 9, instances: [] },
     { id: "creature4", name: "OrcHunter", count: 0, max: 9, instances: [] },
-    { id: "creature5", name: "OrcScout", count: 0, max: 9, instances: [] }
+    { id: "creature5", name: "OrcScout", count: 0, max: 9, instances: [] },
+    { id: "creature6", name: "HammerOrc", count: 0, max: 9, instances: [] }
 ];
 
 // Tiles
