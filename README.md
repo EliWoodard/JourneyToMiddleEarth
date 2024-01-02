@@ -43,5 +43,6 @@ Journey to Middle Earth consists of multiple files, each handling a specific fun
     - Text below map tiles to show there number and A/B type.
     - Adding: Banners, Enemies, and Characters which are all 3D elements.
     - Adding a banner section either in enemy section or to the token section. 
+    - Fix lighting
 
 Embrace the Adventure Card Game experience digitally with Journey to Middle Earth!
