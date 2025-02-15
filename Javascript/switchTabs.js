@@ -43,11 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         characterColumn.style.display = "flex";
         mapColumn.style.display = "none";
       } else if (innerTextLower === "map") {
-        playerColumn.style.display = "none";
-        deckColumn.style.display = "none";
-        sidePanel.style.display = "none";
-        characterColumn.style.display = "none";
-        mapColumn.style.display = "flex";
+        // playerColumn.style.display = "none";
+        // deckColumn.style.display = "none";
+        // sidePanel.style.display = "none";
+        // characterColumn.style.display = "none";
+        // mapColumn.style.display = "flex";
+        window.open("https://mapsimulator.onrender.com/", "_blank");
       }
 
     });
